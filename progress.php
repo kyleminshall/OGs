@@ -21,7 +21,7 @@ membership::confirm();
 		<div id="top">
 			<center>
 				<p>
-					Website Version : 0.3.5<br>
+					Website Version : 0.4.0<br>
 					The OG Social Network
 				</p>
 			</center>
@@ -30,7 +30,7 @@ membership::confirm();
 			<p>
 				<b>Work in Progress:</b>
 				<br>
-				- Avatars for profile pictures <br>
+				- Ability to delete posts<br>
 				<br>
 				<br>
 			</p>
@@ -38,7 +38,6 @@ membership::confirm();
 				<b>Features to be worked on:</b>
 				<br>
 				- Security enhancements (Prepared statements for SQL, XSS protection)<br>
-				- Ability to delete posts<br>
 				- Ability to delete comments<br>
 				- Ability to edit posts (Not going to allow comments being edited)<br>
 				- AJAX for posting and commenting <br>
