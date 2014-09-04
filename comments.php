@@ -112,7 +112,7 @@
 		$count = mysql_num_rows($people);
 		if($count > 0)
 		{
-			echo '<tr style="background-color:#dddddd;">';
+			echo '<tr style="background-color:#f6f6f6;">';
 			echo '<td colspan="3" style="padding-left: 10px;">';
 			echo '<p style="font-size:12px;padding:0;text-align:left">';
 			while($people2 = mysql_fetch_object($people))
