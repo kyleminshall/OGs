@@ -58,7 +58,7 @@ if(isset($_POST['Submit']))
 			?>
 			<p>
 				Current profile picture:<br><br>
-				<img src="<?php echo $profile_pic ?>" alt="Profile" height="20%" width="20%">
+				<img src="<?php echo $profile_pic ?>" alt="Profile" height="400px" width="400px">
 			</p>
 			<p>
 				<form name="Image" enctype="multipart/form-data" action="" method="POST">
