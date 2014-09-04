@@ -180,7 +180,7 @@
 			$reply = stripslashes(submit::auto_link_text($replies2->reply));
   			echo '<tr style="background-color:#f6f6f6;">'; 
 			echo '<td width="30px"><img src="'.$profile.'" alt="Profile" height="40px" width="40px"/></td>';
-  			echo '<td colspan="3"> 
+  			echo '<td colspan="3" valign="top"> 
 					<p style="font-size:14px;color:000;margin:0;padding-left:0">
 						<b>'.stripslashes($replies2->username).'</b> : '.stripslashes($reply).'<br>
 						<span style="font-size:12px;color:#494949;">'.$replied.'</span>
