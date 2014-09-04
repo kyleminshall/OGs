@@ -120,6 +120,7 @@
 			{
 				echo 'You';
 				if($count > 0) echo ', ';
+				$count--;
 			}
 			while($people2 = mysql_fetch_object($people))
 			{
