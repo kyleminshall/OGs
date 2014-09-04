@@ -17,7 +17,7 @@ if(isset($_POST['Submit']))
 	
 	move_uploaded_file($_FILES["file"]["tmp_name"],
 	      "upload/" . $_FILES["file"]["name"]);
-	      echo "Stored in: " . "upload/" . $_FILES["file"]["name"];
+	      echo "Stored in: " . "images/" . $_FILES["file"]["name"];
 	
 	if (!$result) {
 		echo "Error uploading file";
@@ -48,10 +48,11 @@ if(isset($_POST['Submit']))
 				<img src="<?php echo $profile_pic ?>" alt="Profile" height="20%" width="20%">
 			</p>
 			<p>
-				<form name="Image" enctype="multipart/form-data" action="image.php" method="POST">
-					<input type="file" name="Photo" size="2000000" accept="image/jpeg, image/jpg, image/png, image/x-png" size="26"><br></input>
-					<input type="submit" class="button" name="Submit" value="  Submit  "></input>
-					&nbsp;&nbsp;<INPUT type="reset" class="button" value="Cancel"></input>
+				<form action="upload_file.php" method="post"
+					enctype="multipart/form-data">
+					<label for="file">Filename:</label>
+					<input type="file" name="file" id="file"><br>
+					<input type="submit" name="submit" value="Submit">
 				</form>
 			</p>
 		</div><!-- end main --> 
