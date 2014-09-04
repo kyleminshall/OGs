@@ -177,7 +177,7 @@
 			$replied = date("m/d/y \a\\t g:i A", $time);
 			$reply = stripslashes(submit::auto_link_text($replies2->reply));
   			echo '<tr style="background-color:#f6f6f6;">'; 
-  			echo '<td colspan="4" style="display:inline-block"> 
+  			echo '<td colspan="4"> 
 					<div style="float:left;width:40px;">
 						<img src="'.$profile.'" alt="Profile" height="40px" width="40px"/>
 					</div>
