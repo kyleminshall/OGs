@@ -147,8 +147,8 @@
 			if(!$only)
 			{
 				$num = mysql_num_rows($people) > 1 ? ' like this.' : ' likes this.';
+				echo $num;
 			}
-			echo $num;
 			echo '</p>';
 			echo '</td>';
 			echo '</tr>';
