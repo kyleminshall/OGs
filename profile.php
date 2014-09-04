@@ -22,11 +22,16 @@ if(isset($_POST['Submit']))
 		echo "Error uploading file";
 		exit;
 	}
+	
+	if(!get_magic_quotes_gpc())
+	{
+	    $fileName = addslashes($fileName);
+		$filePath = addslashes($filePath);
+	}
+
+	$query = "INSERT INTO OGs ( profile ) VALUES ('$filePath') WHERE username='$username'";
+	mysql_query($query) or die('Error, query failed'); 
 }
-
-$query = "INSERT INTO OGs ( profile ) VALUES ('$filePath') WHERE username='$username'";
-
-mysql_query($query) or die('Error, query failed'); 
 
 ?>
 <!DOCTYPE html>
