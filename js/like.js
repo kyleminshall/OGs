@@ -30,9 +30,9 @@ function addName(post_id) {
 	var element = document.getElementById('likes_'+post_id);
 	var html = element.innerHTML;
 	if(html.indexOf("like") > -1) {
-		element.innerHTML = "<b>You</b>, " + html;
+		element.innerHTML = "You, " + html;
 	} else {
-		element.innerHTML = "<b>You</b> like this.";
+		element.innerHTML = "You like this.";
 	}
 }
 
@@ -43,7 +43,7 @@ function removeName(post_id) {
 		element.innerHTML = "";
 	} else {
 		var i = html.indexOf("You")
-		element.innerHTML = html.substring(0,i-3) + html.substring(i-3,i+7) + html.substring(i+7);
+		element.innerHTML = html.substring(i+5);
 	}
 }
 
