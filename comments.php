@@ -31,8 +31,6 @@
 	echo '<script src="js/jquery-2.1.1.js" type="text/javascript" charset="utf-8"></script>';
 	echo '</head>';
 	echo '<body style="font-family:helvetica;background-image:none;">';
-	echo '<center><h3>Commenting as: '.$username.'</h3></center>';
-
 
 	if(isset($_POST['submit'])) 
 	{ 
