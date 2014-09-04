@@ -119,8 +119,8 @@
 			if($user_liked)
 			{
 				echo 'You';
-				if($count > 0) echo ', ';
 				$count--;
+				if($count > 0) echo ', ';
 			}
 			while($people2 = mysql_fetch_object($people))
 			{
