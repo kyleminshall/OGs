@@ -174,6 +174,8 @@
 		echo '</tr>';
 		while($replies2 = mysql_fetch_object($replies)) 
 		{
+			$profile = mysql_result(mysql_query("SELECT profile FROM OGs WHERE username='$replies2->username'"),0);
+			echo '<td><img src="'.$profile.'" alt="Profile" height="50px" width="30px"/></td>';
 			$time = strtotime($replies2->date);
 			$replied = date("m/d/y \a\\t g:i A", $time);
 			$reply = stripslashes(submit::auto_link_text($replies2->reply));
