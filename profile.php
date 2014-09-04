@@ -8,21 +8,32 @@ $db_selected = mysql_select_db('Site', $con);
 membership::confirm();
 $username = $_SESSION['username'];
 
+$uploadDir = 'images/'; //Image Upload Folder
+
 if(isset($_POST['Submit']))
 {
-	echo "Upload: " . $_FILES["file"]["name"] . "<br>";
-	echo "Type: " . $_FILES["file"]["type"] . "<br>";
-	echo "Size: " . ($_FILES["file"]["size"] / 1024) . " kB<br>";
-	echo "Stored in: " . $_FILES["file"]["tmp_name"];
+	$fileName = $_FILES['Photo']['name'];
+	$tmpName  = $_FILES['Photo']['tmp_name'];
+	$fileSize = $_FILES['Photo']['size'];
+	$fileType = $_FILES['Photo']['type'];
+	$filePath = $uploadDir . $fileName;
 	
-	move_uploaded_file($_FILES["file"]["tmp_name"],
-	      "upload/" . $_FILES["file"]["name"]);
-	      echo "Stored in: " . "images/" . $_FILES["file"]["name"];
-
-	//$query = "INSERT INTO OGs ( profile ) VALUES ('$filePath') WHERE username='$username'";
-	//mysql_query($query) or die('Error, query failed'); 
+	$result = move_uploaded_file($tmpName, $filePath);
+	
+	if (!$result) {
+		echo "Error uploading file";
+		exit;
+	}
+	
+	if(!get_magic_quotes_gpc())
+	{
+	    $fileName = addslashes($fileName);
+		$filePath = addslashes($filePath);
+	}
+	
+	$query = "INSERT INTO OGs ( profile ) VALUES ('$filePath') WHERE username='$username'";
+	mysql_query($query) or die('Error, query failed'); 
 }
-
 ?>
 <!DOCTYPE html>
 <html lang="en" class="no-js">
@@ -43,11 +54,10 @@ if(isset($_POST['Submit']))
 				<img src="<?php echo $profile_pic ?>" alt="Profile" height="20%" width="20%">
 			</p>
 			<p>
-				<form action="" method="post"
-					enctype="multipart/form-data">
-					<label for="file">Filename:</label>
-					<input type="file" name="file" id="file"><br>
-					<input type="submit" name="submit" value="Submit">
+				<form name="Image" enctype="multipart/form-data" action="" method="POST">
+					<input type="file" name="Photo" size="2000000" accept="image/gif, image/jpeg, image/x-ms-bmp, image/x-png" size="26"><br/>
+					<INPUT type="submit" class="button" name="Submit" value="  Submit  "> 
+						&nbsp;&nbsp;<INPUT type="reset" class="button" value="Cancel">
 				</form>
 			</p>
 		</div><!-- end main --> 
