@@ -29,9 +29,9 @@ function addName(post_id) {
 	var element = document.getElementById('likes_'+post_id);
 	var html = element.innerHTML;
 	if(html.indexOf("like") > -1) {
-		element.innerHTML = "<b>You</b> like this.";
-	} else {
 		element.innerHTML = "<b>You</b>, " + html;
+	} else {
+		element.innerHTML = "<b>You</b> like this.";
 	}
 }
 
