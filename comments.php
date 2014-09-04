@@ -111,6 +111,7 @@
 		echo '<td colspan="3" style="word-wrap:break-word"> <p style="font-size:18px;color:000">'.stripslashes(submit::auto_link_text($info2->comment)).'</p><br></td>'; 
 		echo '</tr>';
 		$count = mysql_num_rows($people);
+		$only = false;
 		if($count > 0)
 		{
 			echo '<tr style="background-color:#f6f6f6;">';
@@ -120,7 +121,15 @@
 			{
 				echo 'You';
 				$count--;
-				if($count > 0) echo ', ';
+				if($count > 0) 
+				{
+					echo ', ';
+				}
+				else
+				{
+					echo ' like this.';
+					$only = true;
+				}
 			}
 			while($people2 = mysql_fetch_object($people))
 			{
@@ -135,7 +144,10 @@
 				if($count > 1) echo ', ';
 				$count--;
 			}
-			$num = mysql_num_rows($people) > 1 ? ' like this.' : ' likes this.';
+			if(!$only)
+			{
+				$num = mysql_num_rows($people) > 1 ? ' like this.' : ' likes this.';
+			}
 			echo $num;
 			echo '</p>';
 			echo '</td>';
