@@ -19,9 +19,11 @@ if(isset($_POST['Submit']))
 	$tmpName  = $_FILES['Photo']['tmp_name'];
 	$fileSize = $_FILES['Photo']['size'];
 	$fileType = $_FILES['Photo']['type'];
-	$filePath = $uploadDir . $fileName;
 	
-	$result = move_uploaded_file($tmpName, $filePath);
+	$temp = explode(".",$_FILES['Photo']['name']);
+	$newfilename = $username . '.' .end($temp);
+	
+	$result = move_uploaded_file($tmpName, $filePath.$newfilename);
 	
 	if (!$result) {
 		echo "Error uploading file";
