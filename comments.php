@@ -119,7 +119,7 @@
 			{
 				if($_SESSION['username']===$people2->username)
 				{
-					echo '<b><i>You</i></b>';
+					echo 'You';
 				}
 				else
 				{
