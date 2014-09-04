@@ -29,7 +29,7 @@ function changeText(post_id) {
 function addName(post_id) {
 	var element = document.getElementById('likes_'+post_id);
 	var html = element.innerHTML;
-	if(html.indexOf("like") > -1) {
+	if(html.indexOf("likes") > -1) {
 		element.innerHTML = "You, " + html;
 	} else {
 		element.innerHTML = "You like this.";
