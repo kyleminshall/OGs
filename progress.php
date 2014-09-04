@@ -31,7 +31,6 @@ membership::confirm();
 				<b>Work in Progress:</b><br>
 				<br>
 				- Avatars for profile pictures <br>
-				- All the AJAX for liking posts <br>
 			</p>
 			<p>
 				<b>Current features to be worked on:</b><br>
@@ -41,7 +40,7 @@ membership::confirm();
 				- Ability to delete posts<br>
 				- Ability to delete comments<br>
 				- Ability to edit posts (Not going to allow comments being edited)<br>
-				- AJAX. Lots and lots of AJAX. Not looking forward to this. <br>
+				- AJAX for posting and commenting <br>
 			</p>
 			<p style="font-size:22px; text-decoration:none">
 				<a style="text-decoration:none" href="index.php"><button class="turquoise-flat-button" style="background:#FC4144">Go Back</button></a>
