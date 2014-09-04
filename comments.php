@@ -123,7 +123,14 @@
 			}
 			while($people2 = mysql_fetch_object($people))
 			{
-				echo '<b>'.$people2->username.'</b>';
+				if($people2->username === $username)
+				{
+					//DON'T REPEAT
+				}
+				else 
+				{
+					echo '<b>'.$people2->username.'</b>';
+				}
 				if($count > 1) echo ', ';
 				$count--;
 			}
