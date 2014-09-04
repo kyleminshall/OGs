@@ -22,6 +22,7 @@ function changeText(post_id) {
     else 
 	{
         element.innerHTML = 'Like';
+		removename(post_id);
     }
 }
 
@@ -38,10 +39,11 @@ function addName(post_id) {
 function removeName(post_id) {
 	var element = document.getElementById('likes_'+post_id);
 	var html = element.innerHTML;
-	if(html.indexOf("like") > -1) {
-		element.innerHTML = "<b>You</b>, " + html;
+	if(html.indexOf("likes") > -1) {
+		element.innerHTML = "";
 	} else {
-		element.innerHTML = "<b>You</b> like this.";
+		var i = html.indexOf("You")
+		element.innerHTML = html.substring(i,i+4);
 	}
 }
 
