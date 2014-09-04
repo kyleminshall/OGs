@@ -60,8 +60,8 @@ if(isset($_POST['Submit']))
 				Current profile picture:<br><br>
 				<img src="<?php echo $profile_pic ?>" 
 					alt="Profile" 
-					height="400px" 
-					width="400px"
+					height="200px" 
+					width="200px"
 				/>
 			</p>
 			<p>
