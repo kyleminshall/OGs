@@ -28,12 +28,14 @@ membership::confirm();
 		</div>
 		<div id="main" style="width:100%;margin-left:-50%;line-height:28px;">
 			<p>
-				<b>Work in Progress:</b><br>
+				<b>Work in Progress:</b>
 				<br>
 				- Avatars for profile pictures <br>
+				<br>
+				<br>
 			</p>
 			<p>
-				<b>Features to be worked on:</b><br>
+				<b>Features to be worked on:</b>
 				<br>
 				- Avatars for profile pictures <br>
 				- Security enhancements (Prepared statements for SQL, XSS protection)<br>
