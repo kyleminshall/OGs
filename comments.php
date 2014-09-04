@@ -111,15 +111,17 @@
 		echo '</tr>';
 		echo '<tr>';
 		echo '<td colspan="3" style="padding-left: 10px;">';
-		echo '<p style="font-size:12px;padding:0;text-align:left">';
+		if(mysql_num_rows($people) > 0)
+		{
+			echo '<p style="font-size:12px;padding:0;text-align:left">';
 			while($people2 = mysql_fetch_object($people))
 			{
 				echo ''.$people2->username.', ';
 			}
-			$people2 = mysql_fetch_object($people);
 			$num = mysql_num_rows($people) > 1 ? ' like this.' : 'likes this.';
 			echo $num;
 			echo '</p>';
+		}
 		echo '</td>';
 		echo '</tr>';
 		echo '<tr>'; 
