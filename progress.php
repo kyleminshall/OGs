@@ -26,7 +26,7 @@ membership::confirm();
 				</p>
 			</center>
 		</div>
-		<div id="main" style="width:500px;margin-left:-250px;line-height:28px">
+		<div id="main" style="width:100%;margin-left:-50%;line-height:28px;">
 			<p>
 				<b>Work in Progress:</b><br>
 				<br>
