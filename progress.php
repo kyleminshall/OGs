@@ -33,7 +33,7 @@ membership::confirm();
 				- Avatars for profile pictures <br>
 			</p>
 			<p>
-				<b>Current features to be worked on:</b><br>
+				<b>Features to be worked on:</b><br>
 				<br>
 				- Avatars for profile pictures <br>
 				- Security enhancements (Prepared statements for SQL, XSS protection)<br>
