@@ -22,7 +22,7 @@ function changeText(post_id) {
     else 
 	{
         element.innerHTML = 'Like';
-		removename(post_id);
+		removeName(post_id);
     }
 }
 
