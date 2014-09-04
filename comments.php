@@ -116,7 +116,7 @@
 			echo '<tr style="background-color:#f6f6f6;">';
 			echo '<td colspan="3" style="padding-left: 10px;">';
 			echo '<p id="likes_'.$post_number.'" style="font-size:12px;padding:0;text-align:left">';
-			if(mysql_num_rows($user_liked) > 0)
+			if($user_liked)
 			{
 				echo 'You';
 				if($count > 0) echo ', ';
