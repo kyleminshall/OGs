@@ -117,7 +117,7 @@
 			echo '<p id="likes_'.$post_number.'" style="font-size:12px;padding:0;text-align:left">';
 			while($people2 = mysql_fetch_object($people))
 			{
-				if($_SESSION['username']===$username)
+				if($_SESSION['username']===$people2->username)
 				{
 					echo '<b>You</b>';
 				}
