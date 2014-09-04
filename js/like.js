@@ -25,13 +25,13 @@ function changeText(post_id) {
     }
 }
 
-function addName(idElement) {
+function addName(post_id) {
 	var element = document.getElementById('likes_'+post_id);
 	var html = element.innerHTML;
 	if(html.indexOf("like") > -1) {
-		element.innerHTML = "You like this.";
+		element.innerHTML = "<b>You</b> like this.";
 	} else {
-		element.innerHTML = "You, " + html;
+		element.innerHTML = "<b>You</b>, " + html;
 	}
 }
 
