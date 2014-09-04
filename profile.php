@@ -31,7 +31,7 @@ if(isset($_POST['Submit']))
 		$filePath = addslashes($filePath);
 	}
 	
-	$query = "UPDATE OGs SET prifle='$filePath' WHERE username='$username'";
+	$query = "UPDATE OGs SET profle='$filePath' WHERE username='$username'";
 	mysql_query($query) or die('Error, query failed'); 
 }
 ?>
