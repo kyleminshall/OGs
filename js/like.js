@@ -43,7 +43,7 @@ function removeName(post_id) {
 		element.innerHTML = "";
 	} else {
 		var i = html.indexOf("You")
-		element.innerHTML = html.substring(i,i+4);
+		element.innerHTML = html.substring(0,i) + html.substring(i,i+6) + html.substring(i+7);
 	}
 }
 
