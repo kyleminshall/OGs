@@ -103,7 +103,7 @@
 		$button = $unlike == true ?'Unlike':'Like';
 		$people = mysql_query("SELECT username FROM likes WHERE post='$post_number'");
 		$user_liked = mysql_num_rows(mysql_query("SELECT username FROM likes WHERE username='$username' AND post='$post_number'")) > 0;
-		$profile = mysql_result(mysql_query("SELECT profile FROM OGs WHERE username='$username'"),0);
+		$profile = mysql_result(mysql_query("SELECT profile FROM OGs WHERE username='$info2->username'"),0);
 		echo '<td style="width:65%">
 			<p style="font-size:18px;color:000">
 			<img src="'.$profile.'" alt="Profile" height="50px" width="50px"/>
