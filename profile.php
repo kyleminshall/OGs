@@ -8,7 +8,7 @@ $db_selected = mysql_select_db('Site', $con);
 membership::confirm();
 $username = $_SESSION['username'];
 
-$uploadDir = 'images/'; //Image Upload Folder
+$uploadDir = '/images/'; //Image Upload Folder
 
 if(isset($_POST['Submit']))
 {
@@ -17,7 +17,9 @@ if(isset($_POST['Submit']))
 	$fileSize = $_FILES['Photo']['size'];
 	$fileType = $_FILES['Photo']['type'];
 	$filePath = $uploadDir . $fileName;
+	
 	$result = move_uploaded_file($tmpName, $filePath);
+	
 	if (!$result) {
 		echo "Error uploading file";
 		exit;
