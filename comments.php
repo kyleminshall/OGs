@@ -119,7 +119,7 @@
 			{
 				if($count <= 1) echo ' and ';
 				echo ''.$people2->username;
-				if($count > 1) echo ', ';
+				if($count > 2) echo ', ';
 				$count--;
 			}
 			$num = mysql_num_rows($people) > 1 ? ' like this.' : 'likes this.';
