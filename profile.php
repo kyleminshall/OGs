@@ -24,12 +24,6 @@ if(isset($_POST['Submit']))
 	}
 }
 
-if(!get_magic_quotes_gpc())
-{
-    $fileName = addslashes($fileName);
-	$filePath = addslashes($filePath);
-}
-
 $query = "INSERT INTO OGs ( profile ) VALUES ('$filePath') WHERE username='$username'";
 
 mysql_query($query) or die('Error, query failed'); 
