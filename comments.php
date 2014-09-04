@@ -109,14 +109,17 @@
 		echo '<tr>'; 
 		echo '<td colspan="3"> <p style="font-size:18px;color:000">'.stripslashes(submit::auto_link_text($info2->comment)).'</p><br></td>'; 
 		echo '</tr>';
-		if(mysql_num_rows($people) > 0)
+		$count = mysql_num_rows($people);
+		if($count > 0)
 		{
 			echo '<tr style="background-color:#dddddd;">';
 			echo '<td colspan="3" style="padding-left: 10px;">';
 			echo '<p style="font-size:12px;padding:0;text-align:left">';
 			while($people2 = mysql_fetch_object($people))
 			{
-				echo ''.$people2->username.', ';
+				echo ''.$people2->username;
+				if($count > 1) echo ', ';
+				$count--;
 			}
 			$num = mysql_num_rows($people) > 1 ? ' like this.' : 'likes this.';
 			echo $num;
