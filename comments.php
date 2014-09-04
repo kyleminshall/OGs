@@ -117,7 +117,7 @@
 			echo '<p style="font-size:12px;padding:0;text-align:left">';
 			while($people2 = mysql_fetch_object($people))
 			{
-				if($count < 1) echo ' and ';
+				if($count <= 1) echo ' and ';
 				echo ''.$people2->username;
 				if($count > 1) echo ', ';
 				$count--;
