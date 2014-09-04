@@ -3,7 +3,6 @@ function like_add(post_id){
 		like_get(post_id);
 	}).done(function() {
 		changeText(post_id);
-		addName(post_id);
 	});
 }
 
@@ -18,6 +17,7 @@ function changeText(post_id) {
     if (element.innerHTML != 'Unlike')
 	{
     	element.innerHTML = 'Unlike';
+		addName(post_id);
     } 
     else 
 	{
@@ -26,6 +26,16 @@ function changeText(post_id) {
 }
 
 function addName(post_id) {
+	var element = document.getElementById('likes_'+post_id);
+	var html = element.innerHTML;
+	if(html.indexOf("like") > -1) {
+		element.innerHTML = "<b>You</b>, " + html;
+	} else {
+		element.innerHTML = "<b>You</b> like this.";
+	}
+}
+
+function removeName(post_id) {
 	var element = document.getElementById('likes_'+post_id);
 	var html = element.innerHTML;
 	if(html.indexOf("like") > -1) {
