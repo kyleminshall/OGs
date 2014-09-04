@@ -39,7 +39,7 @@ function addName(post_id) {
 function removeName(post_id) {
 	var element = document.getElementById('likes_'+post_id);
 	var html = element.innerHTML;
-	if(html.indexOf("likes") > -1) {
+	if(html.indexOf("You like this.") > -1) {
 		element.innerHTML = "";
 	} else {
 		var i = html.indexOf("You")
