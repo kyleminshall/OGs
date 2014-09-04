@@ -116,12 +116,12 @@
 		echo '<td style="width:5%;padding:0;"><p style="font-size:14px;color:000;text-align:center"><span id="post_'.$post_number.'_likes">'.$likes.'</span><br>'.$count.' </p></td>';
 		echo '</tr>';
 		echo '<tr>'; 
-		echo '<td colspan="3" style="word-wrap:break-word"> <p style="font-size:18px;color:000">'.stripslashes(submit::auto_link_text($info2->comment)).'</p><br></td>'; 
+		echo '<td colspan="4" style="word-wrap:break-word"> <p style="font-size:18px;color:000">'.stripslashes(submit::auto_link_text($info2->comment)).'</p><br></td>'; 
 		echo '</tr>';
 		$count = mysql_num_rows($people);
 		$only = false;
 		echo '<tr style="background-color:#f6f6f6;">';
-		echo '<td colspan="3" style="padding-left: 10px;">';
+		echo '<td colspan="4" style="padding-left: 10px;">';
 		echo '<p id="likes_'.$post_number.'" style="font-size:12px;padding:0;text-align:left">';
 		if($count > 0)
 		{
@@ -166,7 +166,7 @@
 		echo '</td>';
 		echo '</tr>';
 		echo '<tr style="background-color:#dddddd;">'; 
-		echo '<td colspan="3" style="padding-left: 10px;">
+		echo '<td colspan="4" style="padding-left: 10px;">
 				<p style="font-size:12px;padding:0;text-align:left">
 					<a id="like_'.$post_number.'" style="text-decoration:none;color:#1F80C9;" href="#" onclick="like_add('.$post_number.');return false;">'.$button.'</a>
 				</p>
@@ -178,7 +178,7 @@
 			$replied = date("m/d/y \a\\t g:i A", $time);
 			$reply = stripslashes(submit::auto_link_text($replies2->reply));
   			echo '<tr style="background-color:#f6f6f6;">'; 
-  			echo '<td colspan="3"> 
+  			echo '<td colspan="4"> 
 					<p style="font-size:14px;color:000;margin:0">
 						<b>'.stripslashes($replies2->username).'</b> : '.stripslashes($reply).'<br>
 						<span style="font-size:12px;color:#494949;">'.$replied.'</span>
@@ -187,7 +187,7 @@
   			echo '</tr>';
 		}
 		echo '<tr style="background-color:#f6f6f6;border-top:1px solid black;">';
-		echo '<td colspan="3" style="padding:5px">
+		echo '<td colspan="4" style="padding:5px">
 				<form style="margin:0;" name="like" action="" method="post">
 					<textarea name="reply" class=\'autoExpand\' placeholder="Reply..." style="width:100%;resize:none;border:none;background:transparent;font-size:12px;outline:none;" rows="1" wrap="physical"></textarea>
 					<input type="hidden" name="post" value="'.$post_number.'">
