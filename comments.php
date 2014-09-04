@@ -109,17 +109,10 @@
 		echo '<tr>'; 
 		echo '<td colspan="3" style="word-wrap:break-word"> <p style="font-size:18px;color:000">'.stripslashes(submit::auto_link_text($info2->comment)).'</p><br></td>'; 
 		echo '</tr>';
-		echo '<tr style="background-color:#f6f6f6;">'; 
-		echo '<td colspan="3" style="padding-left: 10px;">
-				<p style="font-size:12px;padding:0;text-align:left">
-					<a id="like_'.$post_number.'" style="text-decoration:none;color:#1F80C9;" href="#" onclick="like_add('.$post_number.');return false;">'.$button.'</a>
-				</p>
-			  </td>'; 
-		echo '</tr>';
-		echo '<tr style="background-color:#dddddd;">';
 		$count = mysql_num_rows($people);
 		if($count > 0)
 		{
+			echo '<tr style="background-color:#dddddd;">';
 			echo '<td colspan="3" style="padding-left: 10px;">';
 			echo '<p style="font-size:12px;padding:0;text-align:left">';
 			while($people2 = mysql_fetch_object($people))
@@ -132,7 +125,14 @@
 			echo $num;
 			echo '</p>';
 			echo '</td>';
+			echo '</tr>';
 		}
+		echo '<tr style="background-color:#dddddd;">'; 
+		echo '<td colspan="3" style="padding-left: 10px;">
+				<p style="font-size:12px;padding:0;text-align:left">
+					<a id="like_'.$post_number.'" style="text-decoration:none;color:#1F80C9;" href="#" onclick="like_add('.$post_number.');return false;">'.$button.'</a>
+				</p>
+			  </td>'; 
 		echo '</tr>';
 		while($replies2 = mysql_fetch_object($replies)) 
 		{
