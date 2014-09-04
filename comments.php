@@ -117,7 +117,7 @@
 				echo ''.$people2->username.', ';
 			}
 			$people2 = mysql_fetch_object($people);
-			$num = $people2 > 1 ? ' like this.' : 'likes this.';
+			$num = mysql_num_rows($people) > 1 ? ' like this.' : 'likes this.';
 			echo $num;
 			echo '</p>';
 		echo '</td>';
