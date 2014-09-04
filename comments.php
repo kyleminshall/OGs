@@ -178,7 +178,7 @@
 			$reply = stripslashes(submit::auto_link_text($replies2->reply));
   			echo '<tr style="background-color:#f6f6f6;">'; 
   			echo '<td colspan="4"> 
-					<div style="float:left;">
+					<div style="float:left; padding-right:10px">
 						<img src="'.$profile.'" alt="Profile" height="40px" width="40px"/>
 					</div>
 				    <div style="float:left">
