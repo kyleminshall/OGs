@@ -18,11 +18,6 @@ if(isset($_POST['Submit']))
 	move_uploaded_file($_FILES["file"]["tmp_name"],
 	      "upload/" . $_FILES["file"]["name"]);
 	      echo "Stored in: " . "images/" . $_FILES["file"]["name"];
-	
-	if (!$result) {
-		echo "Error uploading file";
-		exit;
-	}
 
 	//$query = "INSERT INTO OGs ( profile ) VALUES ('$filePath') WHERE username='$username'";
 	//mysql_query($query) or die('Error, query failed'); 
