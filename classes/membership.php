@@ -32,7 +32,7 @@ class Membership
 	
 	static function validateUser($username, $password)
 	{
-		$password = md5($password);
+		$password = hash('sha256', $password);
 		$ensure_credentials = mysql::verify($username, $password);
 		
 		if(!is_null($ensure_credentials))

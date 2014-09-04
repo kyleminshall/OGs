@@ -12,7 +12,7 @@ class Mysql {
 			return "Passwords do not match.";
 		}
 		
-		$password = md5($password);
+		$password = hash('sha256', $password);
 		
 		$con=mysql_connect("localhost","KyleM","Minshall1!");
 		$db_selected = mysql_select_db('Site', $con);
