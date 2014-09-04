@@ -101,7 +101,8 @@
 		$likes = mysql_result(mysql_query("SELECT likes FROM posts WHERE id='$post_number'"),0);
 		$unlike = (mysql_result(mysql_query("SELECT COUNT(id) FROM likes WHERE username='$username' AND post='$post_number'") , 0) == 0) ? false : true;
 		$button = $unlike == true ?'Unlike':'Like';
-		$people = mysql_query("SELECT * FROM likes WHERE post='$post_number'");
+		$people = mysql_query("SELECT username FROM likes WHERE post='$post_number'");
+		$user_liked = mysql_query("SELECT username FROM likes WHERE username='$username");
 		echo '<td style="width:65%"><p style="font-size:18px;color:000"><b>'.stripslashes($info2->username).'</b><br><span style="font-size:12px;color:#494949;">'.$submitted.'</span></p></td>'; 
 		echo '<td style="width:30%;padding:0;"><p style="font-size:14px;color:000;text-align:right">Likes :<br>Comments :</p></td>'; 
 		echo '<td style="width:5%;padding:0;"><p style="font-size:14px;color:000;text-align:center"><span id="post_'.$post_number.'_likes">'.$likes.'</span><br>'.$count.' </p></td>';
@@ -115,16 +116,14 @@
 			echo '<tr style="background-color:#f6f6f6;">';
 			echo '<td colspan="3" style="padding-left: 10px;">';
 			echo '<p id="likes_'.$post_number.'" style="font-size:12px;padding:0;text-align:left">';
+			if(mysql_num_rows($user_liked) > 0)
+			{
+				echo 'You';
+				if($count > 0) echo ', ';
+			}
 			while($people2 = mysql_fetch_object($people))
 			{
-				if($_SESSION['username']===$people2->username)
-				{
-					echo 'You';
-				}
-				else
-				{
-					echo '<b>'.$people2->username.'</b>';
-				}
+				echo '<b>'.$people2->username.'</b>';
 				if($count > 1) echo ', ';
 				$count--;
 			}
