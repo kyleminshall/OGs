@@ -116,10 +116,10 @@
 				</p>
 			  </td>'; 
 		echo '</tr>';
+		echo '<tr style="background-color:#dddddd;">';
 		$count = mysql_num_rows($people);
 		if($count > 0)
 		{
-			echo '<tr style="background-color:#dddddd;">';
 			echo '<td colspan="3" style="padding-left: 10px;">';
 			echo '<p style="font-size:12px;padding:0;text-align:left">';
 			while($people2 = mysql_fetch_object($people))
@@ -132,8 +132,8 @@
 			echo $num;
 			echo '</p>';
 			echo '</td>';
-			echo '</tr>';
 		}
+		echo '</tr>';
 		while($replies2 = mysql_fetch_object($replies)) 
 		{
 			$time = strtotime($replies2->date);
