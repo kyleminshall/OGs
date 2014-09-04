@@ -179,8 +179,8 @@
 			$replied = date("m/d/y \a\\t g:i A", $time);
 			$reply = stripslashes(submit::auto_link_text($replies2->reply));
   			echo '<tr style="background-color:#f6f6f6;">'; 
-			echo '<td><img src="'.$profile.'" alt="Profile" height="50px" width="30px"/></td>';
-  			echo '<td colspan="4"> 
+			echo '<td width="30px"><img src="'.$profile.'" alt="Profile" height="30px" width="30px"/></td>';
+  			echo '<td colspan="3"> 
 					<p style="font-size:14px;color:000;margin:0">
 						<b>'.stripslashes($replies2->username).'</b> : '.stripslashes($reply).'<br>
 						<span style="font-size:12px;color:#494949;">'.$replied.'</span>
