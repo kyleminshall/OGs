@@ -8,31 +8,24 @@ $db_selected = mysql_select_db('Site', $con);
 membership::confirm();
 $username = $_SESSION['username'];
 
-$uploadDir = '/images/'; //Image Upload Folder
-
 if(isset($_POST['Submit']))
 {
-	$fileName = $_FILES['Photo']['name'];
-	$tmpName  = $_FILES['Photo']['tmp_name'];
-	$fileSize = $_FILES['Photo']['size'];
-	$fileType = $_FILES['Photo']['type'];
-	$filePath = $uploadDir . $fileName;
+	echo "Upload: " . $_FILES["file"]["name"] . "<br>";
+	echo "Type: " . $_FILES["file"]["type"] . "<br>";
+	echo "Size: " . ($_FILES["file"]["size"] / 1024) . " kB<br>";
+	echo "Stored in: " . $_FILES["file"]["tmp_name"];
 	
-	$result = move_uploaded_file($tmpName, $filePath);
+	move_uploaded_file($_FILES["file"]["tmp_name"],
+	      "upload/" . $_FILES["file"]["name"]);
+	      echo "Stored in: " . "upload/" . $_FILES["file"]["name"];
 	
 	if (!$result) {
 		echo "Error uploading file";
 		exit;
 	}
-	
-	if(!get_magic_quotes_gpc())
-	{
-	    $fileName = addslashes($fileName);
-		$filePath = addslashes($filePath);
-	}
 
-	$query = "INSERT INTO OGs ( profile ) VALUES ('$filePath') WHERE username='$username'";
-	mysql_query($query) or die('Error, query failed'); 
+	//$query = "INSERT INTO OGs ( profile ) VALUES ('$filePath') WHERE username='$username'";
+	//mysql_query($query) or die('Error, query failed'); 
 }
 
 ?>
@@ -56,7 +49,7 @@ if(isset($_POST['Submit']))
 			</p>
 			<p>
 				<form name="Image" enctype="multipart/form-data" action="image.php" method="POST">
-					<input type="file" name="Photo" size="2000000" accept="image/jpeg, image/png" size="26"><br></input>
+					<input type="file" name="Photo" size="2000000" accept="image/jpeg, image/jpg, image/png, image/x-png" size="26"><br></input>
 					<input type="submit" class="button" name="Submit" value="  Submit  "></input>
 					&nbsp;&nbsp;<INPUT type="reset" class="button" value="Cancel"></input>
 				</form>
