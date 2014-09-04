@@ -2,6 +2,9 @@
 
 require_once 'classes/membership.php';
 
+ini_set('display_errors',1);
+error_reporting(E_ALL);
+
 $con=mysql_connect("localhost","KyleM","Minshall1!");
 $db_selected = mysql_select_db('Site', $con);
 
@@ -32,7 +35,7 @@ if(isset($_POST['Submit']))
 	}
 	
 	$query = "UPDATE OGs SET profle='$filePath' WHERE username='$username'";
-	mysql_query($query) or die('Error, query failed'); 
+	mysql_query($query) or trigger_error(mysql_error()." ".$query); 
 }
 ?>
 <!DOCTYPE html>
