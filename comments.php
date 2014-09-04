@@ -117,12 +117,11 @@
 			echo '<p style="font-size:12px;padding:0;text-align:left">';
 			while($people2 = mysql_fetch_object($people))
 			{
-				if($count <= 1) echo ' and ';
 				echo ''.$people2->username;
-				if($count > 2) echo ', ';
+				if($count > 1) echo ', ';
 				$count--;
 			}
-			$num = mysql_num_rows($people) > 1 ? ' like this.' : 'likes this.';
+			$num = mysql_num_rows($people) > 1 ? ' like this.' : ' likes this.';
 			echo $num;
 			echo '</p>';
 			echo '</td>';
