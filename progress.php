@@ -21,14 +21,14 @@ membership::confirm();
 		<div id="top">
 			<center>
 				<p>
-					Website Version : 0.3.2<br>
+					Website Version : 0.3.5<br>
 					The OG Social Network
 				</p>
 			</center>
 		</div>
 		<div id="main" style="width:500px;margin-left:-250px;line-height:28px">
 			<p>
-				<b>Current features that are being worked on:</b><br>
+				<b>Current features to be worked on:</b><br>
 				<br>
 				- Avatars for profile pictures <br>
 				- Security enhancements (Prepared statements for SQL, XSS protection)<br>
@@ -36,6 +36,12 @@ membership::confirm();
 				- Ability to delete comments<br>
 				- Ability to edit posts (Not going to allow comments being edited)<br>
 				- AJAX. Lots and lots of AJAX. Not looking forward to this. <br>
+			</p>
+			<p>
+				<b>Work in Progress:</b><br>
+				<br>
+				- Avatars for profile pictures <br>
+				- All the AJAX for liking posts <br>
 			</p>
 			<p style="font-size:22px; text-decoration:none">
 				<a style="text-decoration:none" href="index.php"><button class="turquoise-flat-button" style="background:#FC4144">Go Back</button></a>
