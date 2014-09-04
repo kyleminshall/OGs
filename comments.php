@@ -68,7 +68,7 @@
 		<br>
 		<div align="center">
 			<form name="comments" action="" method="post"> 
-				<table width="500px" border="0" cellspacing="0" cellpadding="0" style="box-shadow: 0px 0px 2px #484848;"> 
+				<table width="500px" border="0" cellspacing="0" cellpadding="0" style="box-shadow: 0px 0px 3px #484848;"> 
 					<tr style="background-color: #f6f6f6"> 
 						<td>
 							<textarea class='autoExpand' data-min-rows='3' name="comment" placeholder="Submit a post..." style="width:500px;resize:none;border:none;padding:10px;background:transparent;font-size:18px;outline:none;" rows="3" wrap="VIRTUAL"></textarea></textarea>
@@ -90,7 +90,7 @@
 	echo '<br><br>';
 	while($info2 = mysql_fetch_object($info)) 
 	{     
-		echo '<table style="border-collapse:collapse;table-layout:fixed;box-shadow: 0px 0px 2px #484848;" width="500px" cellpadding="10px">'; 
+		echo '<table style="border-collapse:collapse;table-layout:fixed;box-shadow: 0px 0px 3px #484848;" width="500px" cellpadding="10px">'; 
 		echo '<tr>';    
 		$post_number = $info2->id;
 		$time = strtotime($info2->date);
