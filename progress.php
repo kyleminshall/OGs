@@ -44,7 +44,7 @@ membership::confirm();
 				- AJAX for posting and commenting <br>
 			</p>
 			<p style="font-size:22px; text-decoration:none">
-				<a style="text-decoration:none" href="index.php"><button class="turquoise-flat-button" style="background:#FC4144">Go Back</button></a>
+				<a style="text-decoration:none" href="index.php"><button class="turquoise-flat-button" style="background:#FC4144">Go Home</button></a>
 			</p>
 		</div><!-- end main --> 
 	</body>
