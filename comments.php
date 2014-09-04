@@ -112,11 +112,11 @@
 		echo '</tr>';
 		$count = mysql_num_rows($people);
 		$only = false;
+		echo '<tr style="background-color:#f6f6f6;">';
+		echo '<td colspan="3" style="padding-left: 10px;">';
+		echo '<p id="likes_'.$post_number.'" style="font-size:12px;padding:0;text-align:left">';
 		if($count > 0)
 		{
-			echo '<tr style="background-color:#f6f6f6;">';
-			echo '<td colspan="3" style="padding-left: 10px;">';
-			echo '<p id="likes_'.$post_number.'" style="font-size:12px;padding:0;text-align:left">';
 			if($user_liked)
 			{
 				echo 'You';
@@ -149,10 +149,14 @@
 				$num = mysql_num_rows($people) > 1 ? ' like this.' : ' likes this.';
 				echo $num;
 			}
-			echo '</p>';
-			echo '</td>';
-			echo '</tr>';
 		}
+		else
+		{
+			echo 'No one likes this.';
+		}
+		echo '</p>';
+		echo '</td>';
+		echo '</tr>';
 		echo '<tr style="background-color:#dddddd;">'; 
 		echo '<td colspan="3" style="padding-left: 10px;">
 				<p style="font-size:12px;padding:0;text-align:left">
