@@ -48,7 +48,7 @@ if(isset($_POST['Submit']))
 				<img src="<?php echo $profile_pic ?>" alt="Profile" height="20%" width="20%">
 			</p>
 			<p>
-				<form action="upload_file.php" method="post"
+				<form action="" method="post"
 					enctype="multipart/form-data">
 					<label for="file">Filename:</label>
 					<input type="file" name="file" id="file"><br>
