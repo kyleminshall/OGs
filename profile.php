@@ -54,7 +54,7 @@ if(isset($_POST['Submit']))
 			</p>
 			<p>
 				<form name="Image" enctype="multipart/form-data" action="image.php" method="POST">
-					<input type="file" name="Photo" size="2000000" accept="image/jpeg, image/x-png" size="26"><br></input>
+					<input type="file" name="Photo" size="2000000" accept="image/jpeg, image/png" size="26"><br></input>
 					<input type="submit" class="button" name="Submit" value="  Submit  "></input>
 					&nbsp;&nbsp;<INPUT type="reset" class="button" value="Cancel"></input>
 				</form>
