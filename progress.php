@@ -37,7 +37,6 @@ membership::confirm();
 			<p>
 				<b>Features to be worked on:</b>
 				<br>
-				- Avatars for profile pictures <br>
 				- Security enhancements (Prepared statements for SQL, XSS protection)<br>
 				- Ability to delete posts<br>
 				- Ability to delete comments<br>
