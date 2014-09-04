@@ -95,7 +95,7 @@
 		        $url_short = $url_full;
 		    }
 
-		    return "<a target=\"_blank\" rel=\"nofollow\" href=\"$url_full\">$url_short</a>";
+		    return "<a style=\"text-decoration:none;color:#1F80C9;\" target=\"_blank\" rel=\"nofollow\" href=\"$url_full\">$url_short</a>";
 		}
 	}
 
