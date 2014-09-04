@@ -3,6 +3,7 @@ function like_add(post_id){
 		like_get(post_id);
 	}).done(function() {
 		changeText(post_id);
+		addName(post_id);
 	});
 }
 
@@ -12,8 +13,8 @@ function like_get(post_id) {
 	});
 }
 
-function changeText(idElement) {
-    var element = document.getElementById('like_'+idElement);
+function changeText(post_id) {
+    var element = document.getElementById('like_'+post_id);
     if (element.innerHTML != 'Unlike')
 	{
     	element.innerHTML = 'Unlike';
@@ -23,3 +24,14 @@ function changeText(idElement) {
         element.innerHTML = 'Like';
     }
 }
+
+function addName(idElement) {
+	var element = document.getElementById('likes_'+post_id);
+	var html = element.innerHTML;
+	if(html.indexOf("like") > -1) {
+		element.innerHTML = "You like this.";
+	} else {
+		element.innerHTML = "You, " + html;
+	}
+}
+
