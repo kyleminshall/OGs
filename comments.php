@@ -102,7 +102,7 @@
 		$unlike = (mysql_result(mysql_query("SELECT COUNT(id) FROM likes WHERE username='$username' AND post='$post_number'") , 0) == 0) ? false : true;
 		$button = $unlike == true ?'Unlike':'Like';
 		$people = mysql_query("SELECT username FROM likes WHERE post='$post_number'");
-		$user_liked = mysql_query("SELECT username FROM likes WHERE username='$username");
+		$user_liked = mysql_num_rows(mysql_query("SELECT username FROM likes WHERE username='$username' AND post='$post_number'")) > 0;
 		echo '<td style="width:65%"><p style="font-size:18px;color:000"><b>'.stripslashes($info2->username).'</b><br><span style="font-size:12px;color:#494949;">'.$submitted.'</span></p></td>'; 
 		echo '<td style="width:30%;padding:0;"><p style="font-size:14px;color:000;text-align:right">Likes :<br>Comments :</p></td>'; 
 		echo '<td style="width:5%;padding:0;"><p style="font-size:14px;color:000;text-align:center"><span id="post_'.$post_number.'_likes">'.$likes.'</span><br>'.$count.' </p></td>';
