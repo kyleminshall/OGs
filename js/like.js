@@ -40,7 +40,7 @@ function removeName(post_id) {
 	var element = document.getElementById('likes_'+post_id);
 	var html = element.innerHTML;
 	if(html.indexOf("You like this.") > -1) {
-		element.innerHTML = "";
+		element.innerHTML = "No one likes this.";
 	} else {
 		var i = html.indexOf("You")
 		element.innerHTML = html.substring(i+5);
