@@ -204,7 +204,7 @@
 		{
 			echo '<div align="right" style="display:inline;padding-left:415px">
 					<p style="font-size:12px;padding:0;text-align:right;display:inline;">
-						<a id="delete_'.$post_number.'" style="text-decoration:none;color:#FD0D1B;diesplay:inline" href="#" onclick="delete_post('.$post_number.');return false;">Delete</a> 
+						<a id="delete_'.$post_number.'" style="text-decoration:none;color:#FD0D1B;display:inline" href="#" onclick="delete_post('.$post_number.');return false;">Delete</a> 
 				  </p>
 				  </div>'; //HTML for the Delete button (Not actually a button. It's a link. Hence the href=#. Executes like_add on click)
 		}
