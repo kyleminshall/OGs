@@ -203,7 +203,7 @@
 		if($info2->username === $username)
 		{
 			echo '<div align="right" style="display:inline;padding-left:419px">
-					<p style="font-size:12px;padding:0;text-align:right;display:inline;position:absolute">
+					<p style="font-size:12px;padding:0;text-align:right;display:inline;">
 						<a id="delete_'.$post_number.'" style="text-decoration:none;color:#1F80C9;" href="#" onclick="delete('.$post_number.');return false;">Delete</a> 
 				  </p>
 				  </div>';
