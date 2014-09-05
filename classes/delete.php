@@ -13,5 +13,11 @@
 		$post_id = (int)$_POST['post_id'];
 
 		mysql_query("UPDATE posts SET deleted=1 WHERE id='$post_id'");
+		return "Success";
 	}	
+	else 
+	{
+		return "Error somewhere";
+	}
+	
 ?>
