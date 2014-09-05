@@ -219,7 +219,7 @@
 			
 			$reply = stripslashes(submit::auto_link_text($replies2->reply)); //Check the reply for links
 			
-  			echo '<tr id="like_'.$reply_number.'" style="background-color:#f6f6f6;">'; //Time for some HTML
+  			echo '<tr id="reply_'.$reply_number.'" style="background-color:#f6f6f6;">'; //Time for some HTML
   			echo '<td colspan="4" style="position:relative"> 
 					<div style="float:left;position:absolute;padding-right:10px"> 
 						<img src="'.$profile.'" alt="Profile" height="30px" width="30px"/>
