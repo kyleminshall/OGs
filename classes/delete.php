@@ -4,6 +4,7 @@
 	{ 
 		session_start(); 
 	} 
+	return "Error here?";
 	
 	$con=mysql_connect("localhost","KyleM","Minshall1!"); //Connect to the database
 	$db_selected = mysql_select_db("Site", $con);
