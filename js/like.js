@@ -95,7 +95,6 @@ JS function for calling the delete.php to mark a post as deleted in the database
 
 */
 function delete_post(post_id) {
-	alert('Made it here?');
 	$.post('classes/delete.php', {post_id:post_id}, function(data) {
 		alert(data);
 	});/*).done(function() {
