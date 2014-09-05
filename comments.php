@@ -14,7 +14,7 @@
 	$con=mysql_connect("localhost","KyleM","Minshall1!"); //Connect to the database TODO: Do this in a separate class
 	$db_selected = mysql_select_db("Site", $con);
 	
-	$inf = "SELECT * FROM posts ORDER BY date DESC"; //Query string for posts in descending order by time
+	$inf = "SELECT * FROM posts WHERE deleted=0 ORDER BY date DESC"; //Query string for posts in descending order by time
 
 	$info = mysql_query($inf) or trigger_error(mysql_error()." ".$inf); // Do the query
 	
