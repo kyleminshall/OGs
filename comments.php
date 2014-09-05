@@ -226,7 +226,9 @@
 			if($replies2->username === $username)
 			{		
 				echo '<div style="float:right;display:block;">
-							<span style="color:ddd;font-size:12px">X</span>
+							<span style="color:ddd;font-size:12px">
+								<a style="text-decoration:none;color:#1F80C9;" href="#" onclick="delete_like('.$post_number.');return false;">X</a> 
+							</span>
 						</div>';
 			}
 			echo '<p style="font-size:14px;color:000;margin:0;padding-left:40px;padding-right:20px;">
