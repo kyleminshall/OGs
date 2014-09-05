@@ -31,6 +31,7 @@ membership::confirm(); //Make sure they're successfully authenticated in the sit
 				<b>Work in Progress:</b> <!-- Feature that is currently being worked on -->
 				<br>
 				- Ability to delete posts<br>
+				- Ability to delete comments<br>
 				<br>
 				<br>
 			</p>
@@ -38,7 +39,7 @@ membership::confirm(); //Make sure they're successfully authenticated in the sit
 				<b>Features to be worked on:</b> <!-- Features to be worked on at a later time -->
 				<br>
 				- Security enhancements (Prepared statements for SQL, XSS protection)<br>
-				- Ability to delete comments<br>
+				- Notifications on replies<br>
 				- Ability to edit posts (Not going to allow comments being edited)<br>
 				- AJAX for posting and commenting <br>
 			</p>
