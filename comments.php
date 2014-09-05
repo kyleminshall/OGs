@@ -222,11 +222,14 @@
   			echo '<td colspan="4" style="position:relative"> 
 					<div style="float:left;position:absolute;padding-right:10px"> 
 						<img src="'.$profile.'" alt="Profile" height="30px" width="30px"/>
-					</div>
-					<div style="float:right;display:block;">
-						<span style="color:ddd;font-size:12px">X</span>
-					</div>
-					<p style="font-size:14px;color:000;margin:0;padding-left:40px;padding-right:20px;">
+					</div>';
+			if($replies2->username === $username)
+			{		
+				echo '<div style="float:right;display:block;">
+							<span style="color:ddd;font-size:12px">X</span>
+						</div>';
+			}
+			echo '<p style="font-size:14px;color:000;margin:0;padding-left:40px;padding-right:20px;">
 						<b>'.stripslashes($replies2->username).'</b> '.stripslashes($reply).'<br>
 						<span style="font-size:12px;color:#494949;">'.$replied.'</span>
 					</p>
