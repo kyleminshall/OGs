@@ -227,7 +227,7 @@
 			{		
 				echo '<div style="float:right;display:block;">
 							<span style="color:ddd;font-size:12px">
-								<a style="text-decoration:none;color:#1F80C9;" href="#" onclick="delete_like('.$post_number.');return false;">X</a> 
+								<a style="text-decoration:none;color:#ddd;" href="#" onclick="delete_like('.$post_number.');return false;">X</a> 
 							</span>
 						</div>';
 			}
