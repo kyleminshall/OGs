@@ -87,3 +87,29 @@ function removeName(post_id) {
 	}
 }
 
+/*
+
+$post_id is the id of the post you want to modify
+
+JS function for calling the delete.php to mark a post as deleted in the database.
+
+*/
+function delete(post_id) {
+	$.post('classes/delete.php', {post_id:post_id}, function(data) {
+		like_get(post_id);
+	}).done(function() {
+		removePost(post_id);
+	});
+}
+
+/*
+
+$post_id is the id of the post you want to modify
+
+JS Function for immediatly hiding a post when a user deletes it from the page.
+
+*/
+function removePost(post_id) {
+	var tbl = document.getElementById(post_id);
+	if(tbl) tbl.parentNode.removeChild(tbl);
+}

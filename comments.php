@@ -88,10 +88,7 @@
 	echo '<div align="center" display="inline-block;">'; //Center the posts
 	echo '<br><br>';
 	while($info2 = mysql_fetch_object($info)) //Cycle through all posts and print the HTML for each of them
-	{     
-		echo '<table style="border-collapse:collapse;table-layout:fixed;box-shadow: 0px 0px 3px #484848;" width="500px" cellpadding="10px">'; 
-		echo '<tr>';    
-		
+	{        
 		//MASS OF VARIABLES. DEAL WITH IT
 		
 		$post_number = $info2->id; //Current ID of the post
@@ -112,6 +109,9 @@
 		$user_liked = mysql_num_rows(mysql_query("SELECT username FROM likes WHERE username='$username' AND post='$post_number'")) > 0;
 		
 		$profile = mysql_result(mysql_query("SELECT profile FROM OGs WHERE username='$info2->username'"),0); //Get the profile photo of OP (Original Poster)
+		
+		echo '<table id="'.$post_number.'" style="border-collapse:collapse;table-layout:fixed;box-shadow: 0px 0px 3px #484848;" width="500px" cellpadding="10px">'; 
+		echo '<tr>'; 
 		
 		echo '<td style="width:40px">
 				<img src="'.$profile.'" alt="Profile" height="50px" width="50px"/>
@@ -206,7 +206,7 @@
 					<p style="font-size:12px;padding:0;text-align:right;display:inline;">
 						<a id="delete_'.$post_number.'" style="text-decoration:none;color:#FD0D1B;" href="#" onclick="delete('.$post_number.');return false;">Delete</a> 
 				  </p>
-				  </div>';
+				  </div>'; //HTML for the Delete button (Not actually a button. It's a link. Hence the href=#. Executes like_add on click)
 		}
 		echo '</td>';
 		echo '</tr>';
