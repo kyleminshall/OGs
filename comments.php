@@ -195,18 +195,14 @@
 		
 		echo '<tr style="background-color:#dddddd;">'; 
 		echo '<td colspan="4" style="padding-left: 10px;">
-				<div align="left" style="display:inline">
-				<p style="font-size:12px;padding:0;text-align:left;display:inline;width:34px">
+				<span style="font-size:12px;padding:0;display:block;float:left">
 					<a id="like_'.$post_number.'" style="text-decoration:none;color:#1F80C9;" href="#" onclick="like_add('.$post_number.');return false;">'.$button.'</a> 
-				</p>
-				</div>';  //HTML for the Like button (Not actually a button. It's a link. Hence the href=#. Executes like_add on click)
+				</span>';  //HTML for the Like button (Not actually a button. It's a link. Hence the href=#. Executes like_add on click)
 		if($info2->username === $username)
 		{
-			echo '<div align="right" style="display:inline;padding-left:400px">
-					<p style="font-size:12px;padding:0;text-align:right;display:inline;">
+			echo '<span style="font-size:12px;padding:0;display:block;float:right">
 						<a id="delete_'.$post_number.'" style="text-decoration:none;color:#FD0D1B;" href="#" onclick="delete_post('.$post_number.');return false;">Delete</a> 
-				  </p>
-				  </div>'; //HTML for the Delete button (Not actually a button. It's a link. Hence the href=#. Executes like_add on click)
+				  </span>'; //HTML for the Delete button (Not actually a button. It's a link. Hence the href=#. Executes like_add on click)
 		}
 		echo '</td>';
 		echo '</tr>';
