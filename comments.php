@@ -202,7 +202,7 @@
 				</div>';  //HTML for the Like button (Not actually a button. It's a link. Hence the href=#. Executes like_add on click)
 		if($info2->username === $username)
 		{
-			echo '<div align="right" style="display:inline;padding-left:415px">
+			echo '<div align="right" style="display:inline;padding-left:410px">
 					<p style="font-size:12px;padding:0;text-align:right;display:inline;">
 						<a id="delete_'.$post_number.'" style="text-decoration:none;color:#FD0D1B;" href="#" onclick="delete_post('.$post_number.');return false;">Delete</a> 
 				  </p>
