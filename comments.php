@@ -132,8 +132,7 @@
 			  
 		echo '<td style="width:5%;padding:0;">
 				<p style="font-size:14px;color:000;text-align:center">
-					<span id="post_'.$post_number.'_likes">'.$likes.'</span>
-					<br>'.$count.' 
+					<span id="post_'.$post_number.'_likes">'.$likes.'</span><br>'.$count.' 
 				</p>
 			  </td>'; //Actual numbers for each
 		echo '</tr>';
