@@ -95,3 +95,7 @@ tr:nth-child(odd) {
 	box-sizing: padding-box;
 	overflow:hidden;
 }
+
+.delete_reply:hover{
+	color:#FD0D1B;
+}
