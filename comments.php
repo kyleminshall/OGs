@@ -215,10 +215,11 @@
 			
 			$time = strtotime($replies2->date); //Get the posting date
 			$replied = date("m/d/y \a\\t g:i A", $time); //Format the posting date
+			$reply_number = $replies2->id;
 			
 			$reply = stripslashes(submit::auto_link_text($replies2->reply)); //Check the reply for links
 			
-  			echo '<tr style="background-color:#f6f6f6;">'; //Time for some HTML
+  			echo '<tr id="like_'.$reply_number.'" style="background-color:#f6f6f6;">'; //Time for some HTML
   			echo '<td colspan="4" style="position:relative"> 
 					<div style="float:left;position:absolute;padding-right:10px"> 
 						<img src="'.$profile.'" alt="Profile" height="30px" width="30px"/>
@@ -227,7 +228,7 @@
 			{		
 				echo '<div style="float:right;display:block;">
 							<span style="color:ddd;font-size:12px">
-								<a style="text-decoration:none;color:#ddd;" href="#" onclick="delete_like('.$post_number.');return false;">X</a> 
+								<a style="text-decoration:none;color:#ddd;" href="#" onclick="delete_like('.$reply_number.');return false;">X</a> 
 							</span>
 						</div>';
 			}
