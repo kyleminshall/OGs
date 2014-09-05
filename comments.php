@@ -223,13 +223,13 @@
 					<div style="float:left;position:absolute;padding-right:10px"> 
 						<img src="'.$profile.'" alt="Profile" height="30px" width="30px"/>
 					</div>
+					<div style="float:right;display:block;">
+						<span style="color:ddd;font-size:12px">X</span>
+					</div>
 					<p style="font-size:14px;color:000;margin:0;padding-left:40px;padding-right:20px;">
 						<b>'.stripslashes($replies2->username).'</b> '.stripslashes($reply).'<br>
 						<span style="font-size:12px;color:#494949;">'.$replied.'</span>
 					</p>
-					<div style="float:right;position:absolute;padding-left:10px">
-						<span style="color:ddd;font-size:12px">X</span>
-					</div>
 				  </td>'; //Kind of a little weird way of doing things. The DIV position is absolute so it doesn't conflict with the column spacing set by the top column. 
 				  		  //Then the Profile Picture is shown in the div. And then the comment is shown in the TD padded out away from the image so that it wraps cleanly. :)
   			echo '</tr>';
