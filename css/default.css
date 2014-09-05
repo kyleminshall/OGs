@@ -97,5 +97,5 @@ tr:nth-child(odd) {
 }
 
 .reply_delete:hover{
-	color:#FD0D1B;
-}
+	color:#FD0D1B !important;
+} 
