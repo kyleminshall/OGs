@@ -2,6 +2,14 @@
 	
 	class Submit{
 	
+		/*
+	
+		$username = the username of the person submitting the post
+		$comment = the text of the submission
+	
+		Adds the post to the posts table in the database
+	
+		*/
 		static function post($username, $comment)
 		{
 			if(!addslashes($comment)) 
@@ -9,22 +17,31 @@
 				return; //breaks because of an error
 			}
 			
-			$con=mysql_connect("localhost","KyleM","Minshall1!");
+			$con=mysql_connect("localhost","KyleM","Minshall1!"); //Connects to the database
 			$db_selected = mysql_select_db("Site", $con);
 			
-			$date = date("Y-m-d H:i:s");
+			$date = date("Y-m-d H:i:s"); //Gets the current date
 			
 			$q ="INSERT INTO posts (username, comment, date)  
-				VALUES ('$username', '$comment','$date')"; 
+				VALUES ('$username', '$comment','$date')"; //String for the sql query. 
 			
-			$q2 = mysql_query($q) or trigger_error(mysql_error()." ".$q); 
+			$q2 = mysql_query($q) or trigger_error(mysql_error()." ".$q); //Runs the query
 			
 			if(!$q2) 
 			{
-				die(mysql_error()); 
+				die(mysql_error()); //Close if there's an error
 			}
 		}
 		
+		/*
+	
+		$username = the username of the person commenting on the post
+		$post = the id of the post being replied to 
+		$reply = the text of the submission
+	
+		Adds a reply to the database given a post id
+	
+		*/
 		static function comment($username, $post, $reply)
 		{
 			if(!addslashes($reply)) 
@@ -32,27 +49,37 @@
 				return; 
 			}
 			
-			$date = date("Y-m-d H:i:s");
+			$date = date("Y-m-d H:i:s"); //Gets the current date
 			
-			$con=mysql_connect("localhost","KyleM","Minshall1!");
+			$con=mysql_connect("localhost","KyleM","Minshall1!"); //Connect to the database
 			$db_selected = mysql_select_db("Site", $con);
 			
 			$q ="INSERT INTO replies (post, username, reply, date)  
-				VALUES ('$post', '$username', '$reply','$date')"; 
+				VALUES ('$post', '$username', '$reply','$date')"; //Insert the reply into the replies table
 			
-			$q2 = mysql_query($q) or trigger_error(mysql_error()." ".$q); 
+			$q2 = mysql_query($q) or trigger_error(mysql_error()." ".$q); //Execute the query
 			
 			if(!$q2) 
 			{
-				die(mysql_error()); 
+				die(mysql_error()); //Break if there's an error
 			}
 		}
 		
+		/*
+	
+		$text = Text to be checked for links
+		
+		Formats links with a href tag.
+		Not going to comment these because I didn't write them. They're just here to use.
+	
+		*/
 		static function auto_link_text($text) {
-		    $pattern  = '#\b(([\w-]+://?|www[.])[^\s()<>]+(?:\([\w\d]+\)|([^[:punct:]\s]|/)))#';
+		    $pattern  = '#\b(([\w-]+://?|www[.])[^\s()<>]+(?:\([\w\d]+\)|([^[:punct:]\s]|/)))#'; //This is a regular expression. Yikes.
 		    return preg_replace_callback($pattern, array(get_class(), 'auto_link_text_callback'), $text);
 		}
 
+		//See above
+		
 		static function auto_link_text_callback($matches) {
 		    $max_url_length = 100;
 		    $max_depth_if_over_length = 3;

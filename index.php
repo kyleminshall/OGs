@@ -1,51 +1,43 @@
 <?php
 
-require_once 'classes/membership.php';
+require_once 'classes/membership.php'; //File that handles a lot of membership functions
 
-$con=mysql_connect("localhost","KyleM","Minshall1!");
-$db_selected = mysql_select_db('Site', $con);
+$con=mysql_connect("localhost","KyleM","Minshall1!"); //Start a connection to the database. :)
+$db_selected = mysql_select_db('Site', $con); //Select the "Site" database
 
-membership::confirm();
+membership::confirm(); //When you get to this site, confirm that the user is in fact logged in. 
 
 ?>
 
 <!DOCTYPE html>
 <html lang="en" class="no-js">
 	<head>
-		<meta charset="UTF-8" />
-		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
-		<title>Success</title>
-		<link rel="stylesheet" type="text/css" href="css/default.css">
+		<meta charset="UTF-8" /> <!-- UTF is the character encoding -->
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> <!-- Compatibility junk -->
+		<title>Success</title> <!-- Page title -->
+		<link rel="stylesheet" type="text/css" href="css/default.css"> <!-- Link the CSS stylesheet for elements-->
 	</head>
 	<body style="background-image: none;">
 		<div id="main">
 			<p>
 				<?php 
-					$username = $_SESSION['username'];
-					$name_row = mysql_fetch_assoc(mysql_query("SELECT name FROM OGs WHERE username='$username'"));
-					$name = $name_row['name'];
+					$username = $_SESSION['username']; //Set the username equal to the session username (Set after authenticating)
+					$name_row = mysql_fetch_assoc(mysql_query("SELECT name FROM OGs WHERE username='$username'")); //Get the users real name
+					$name = $name_row['name']; //Set the name variable equal to their name returned from the database
 				?>
-				Successfully authenticated user: <h1><b> <?php echo $name ?> </b></h1>
-			</p>
-			<p>
-				<?php
-					
-					$last_login_row = mysql_fetch_assoc(mysql_query("SELECT last_login FROM OGs WHERE username='$username'"));
-					$last_login = $last_login_row['last_login'];
-				?>
-				Last session ended at :<br> <?php echo $last_login;?>
+				Successfully authenticated user: <h1><b> <?php echo $name ?> </b></h1> <!-- Displaying that they were successfully authenticated -->
 			</p>
 			<p style="font-size:22px; text-decoration:none">
-				<a style="text-decoration:none" href="profile.php"><button class="turquoise-flat-button">Profile</button></a>
+				<a style="text-decoration:none" href="profile.php"><button class="turquoise-flat-button">Profile</button></a> <!-- Button to go to the profile page (profile.php) -->
 			</p>
 			<p style="font-size:22px; text-decoration:none">
-				<a style="text-decoration:none" href="comments.php"><button class="turquoise-flat-button">Comments</button></a>
+				<a style="text-decoration:none" href="comments.php"><button class="turquoise-flat-button">Comments</button></a> <!-- Button to go to the comments page (comments.php) -->
 			</p>
 			<p style="font-size:22px; text-decoration:none">
-				<a style="text-decoration:none" href="progress.php"><button class="turquoise-flat-button">Work in Progress</button></a>
+				<a style="text-decoration:none" href="progress.php"><button class="turquoise-flat-button">Work in Progress</button></a> <!-- Link to the stuff that is currently in progress on the site (progress.php) -->
 			</p>
 			<p style="font-size:22px; text-decoration:none">
-				<a style="text-decoration:none" href="logout.php"><button class="turquoise-flat-button" style="background:#FC4144">Log Out</button></a>
+				<a style="text-decoration:none" href="logout.php"><button class="turquoise-flat-button" style="background:#FC4144">Log Out</button></a> <!-- Opens the logout.php to sign the user out of the site -->
 			</p>
 		</div><!-- end main --> 
 	</body>
