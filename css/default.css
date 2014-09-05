@@ -96,6 +96,6 @@ tr:nth-child(odd) {
 	overflow:hidden;
 }
 
-.delete_reply:hover{
+.reply_delete:hover{
 	color:#FD0D1B;
 }
