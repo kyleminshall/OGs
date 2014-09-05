@@ -194,14 +194,14 @@
 		echo '</tr>';
 		
 		echo '<tr style="background-color:#dddddd;">'; 
-		echo '<td colspan="2" style="padding-left: 10px;">
+		echo '<td colspan="4" style="padding-left: 10px;">
 				<p style="font-size:12px;padding:0;text-align:left;display:inline">
 					<a id="like_'.$post_number.'" style="text-decoration:none;color:#1F80C9;" href="#" onclick="like_add('.$post_number.');return false;">'.$button.'</a> 
 				</p>
 				</td>';  //HTML for the Like button (Not actually a button. It's a link. Hence the href=#. Executes like_add on click)
 		if($info2->username === $username)
 		{
-			echo '<td colspan="2" style="padding-left: 10px;">
+			echo '<td style="padding-left: 10px;">
 				  <p style="font-size:12px;padding:0;text-align:right;display:inline;">
 						<a id="delete_'.$post_number.'" style="text-decoration:none;color:#1F80C9;" href="#" onclick="delete('.$post_number.');return false;">Delete</a> 
 				  </p>
