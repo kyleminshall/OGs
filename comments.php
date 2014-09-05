@@ -110,7 +110,7 @@
 		
 		$profile = mysql_result(mysql_query("SELECT profile FROM OGs WHERE username='$info2->username'"),0); //Get the profile photo of OP (Original Poster)
 		
-		echo '<table id="'.$post_number.'" style="border-collapse:collapse;table-layout:fixed;box-shadow: 0px 0px 3px #484848;" width="500px" cellpadding="10px">'; 
+		echo '<table id="post_'.$post_number.'" style="border-collapse:collapse;table-layout:fixed;box-shadow: 0px 0px 3px #484848;" width="500px" cellpadding="10px">'; 
 		echo '<tr>'; 
 		
 		echo '<td style="width:40px">
