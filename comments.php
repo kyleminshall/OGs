@@ -181,7 +181,7 @@
 					<div style="float:left;position:absolute;padding-right:10px">
 						<img src="'.$profile.'" alt="Profile" height="30px" width="30px"/>
 					</div>
-					<p style="font-size:14px;color:000;margin:0;padding-left:40px;padding-bottom:10px">
+					<p style="font-size:14px;color:000;margin:0;padding-left:40px;padding-bottom:5px">
 						<b>'.stripslashes($replies2->username).'</b> '.stripslashes($reply).'<br>
 						<span style="font-size:12px;color:#494949;">'.$replied.'</span>
 					</p>
