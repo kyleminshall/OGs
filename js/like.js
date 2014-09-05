@@ -96,7 +96,7 @@ JS function for calling the delete.php to mark a post as deleted in the database
 */
 function delete_post(post_id) {
 	$.post('classes/delete.php', {post_id:post_id}, function()
-	);).done(function() {
+	).done(function() {
 		removePost(post_id);
 	});
 }
@@ -109,6 +109,6 @@ JS Function for immediatly hiding a post when a user deletes it from the page.
 
 */
 function removePost(post_id) {
-	var tbl = document.getElementById(post_id);
+	var tbl = document.getElementById('post_'+post_id);
 	if(tbl) tbl.parentNode.removeChild(tbl);
 }
