@@ -53,7 +53,7 @@ class Membership
 		
 		if($maintenance)
 		{
-			header("location: down.php"); //Show the maintenance page
+			if(!self::isAdmin($_SESSION['username'])) header("location: down.php"); //Show the maintenance page
 		}
 		else if($_SESSION['status'] != 'authorized') //If they are not authorized in the session
 		{
@@ -95,6 +95,14 @@ class Membership
 		{
 			return "Incorrect Username or Password"; //Otherwise return an error that they had an incorrect username or password
 		}
+	}
+	
+	static function isAdmin($username)
+	{
+		$con=mysql_connect("localhost","KyleM","Minshall1!"); //Connect to the database
+		$db_selected = mysql_select_db('Site', $con); //Select the site database
+		
+		return mysql_result(mysql_query("SELECT is_admin FROM OGs WHERE username='$username'"), 0) == 1;
 	}
 }
 
