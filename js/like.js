@@ -126,7 +126,12 @@ JS Function for immediatly hiding a post when a user deletes it from the page.
 */
 function removePost(post_id) {
 	var tbl = document.getElementById('post_'+post_id);
-	if(tbl) tbl.parentNode.removeChild(tbl);
+	if(tbl) 
+	{
+		$("#post_"+post_id).fadeOut(800, function () {
+			tbl.parentNode.removeChild(tbl);
+		});
+	}
 }
 
 
