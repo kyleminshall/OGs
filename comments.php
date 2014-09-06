@@ -53,7 +53,7 @@
 		submit::comment($username, $post_num, $reply);
 
 		//Refresh page so they can see new comment 
-		header('Location: http://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI']); 
+		header('Location: http://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'] . '#post_' . $post_num); 
 	} 
 	else 
 	{  //display form 
