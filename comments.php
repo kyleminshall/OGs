@@ -276,10 +276,10 @@
 	
 	$server = "http://www.theog.club/comments.php";
 	
-	echo '<span>
-			<a style="text-decoration:none;color:#1F80C9;" href="'.$server.'?page='.($current_page-1).'">Previous</a>&nbsp; | 
-			<a style="text-decoration:none;color:#1F80C9;" href="'.$server.'?page='.($current_page+1).'">Next</a>
-		  </span>';
+	echo '<span>';
+	if($current_page > 1) echo '<a style="text-decoration:none;color:#1F80C9;" href="'.$server.'?page='.($current_page-1).'">Previous</a>&nbsp; |';
+	echo '<a style="text-decoration:none;color:#1F80C9;" href="'.$server.'?page='.($current_page+1).'">Next</a>';
+	echo '</span>';
 	
 	echo '</div>'; //Close the div that is holding all of these table elements
 	echo '</body>'; //Close the body
