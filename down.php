@@ -9,6 +9,7 @@
 	<body style="background-image: none;">
 		<div align="center">
 			<p>
+				<br><br><br><br>
 				<h1>Down for maintenance. We'll be back shortly!
 			</p>
 			<img src="css/Maintenance.png" width="512" height="512" alt="Maintenance"/>
