@@ -16,6 +16,8 @@
 	
 	$offset = 10;
 	
+	$current_page = 1;
+	
 	if(isset($_GET["page"]))
 	{
 		$current_page = $_GET["page"];
