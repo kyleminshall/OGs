@@ -105,10 +105,14 @@ JS function for calling the delete.php to mark a post as deleted in the database
 
 */
 function delete_post(post_id) {
-	$.post('classes/delete_post.php', {post_id:post_id}, function(){}
-	).done(function() {
-		removePost(post_id);
-	});
+	var r = confirm("Are you sure you want to delete this post?")
+	if(r)
+	{
+		$.post('classes/delete_post.php', {post_id:post_id}, function(){}
+		).done(function() {
+			removePost(post_id);
+		});
+	}
 }
 
 
@@ -135,10 +139,14 @@ JS function for calling the delete.php to mark a post as deleted in the database
 
 */
 function delete_reply(reply_id) {
-	$.post('classes/delete_reply.php', {reply_id:reply_id}, function() {}
-	).done(function() {
-		removeReply(reply_id);
-	});
+	var r = confirm("Are you sure you want to delete this reply?")
+	if(r)
+	{
+		$.post('classes/delete_reply.php', {reply_id:reply_id}, function() {}
+		).done(function() {
+			removeReply(reply_id);
+		});
+	}
 }
 
 
