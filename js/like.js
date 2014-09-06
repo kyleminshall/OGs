@@ -161,7 +161,7 @@ function removeReply(reply_id) {
 	var row = document.getElementById('reply_'+reply_id);
 	if(row) 
 	{
-		$row.fadeOut("slow", function () {
+		$("#reply_"+reply_id).fadeOut(400, function () {
 			row.parentNode.removeChild(row);
 		});
 	}
