@@ -275,8 +275,8 @@
 	}//end while 
 	
 	echo '<span style="color:#494949;text-decoration:none;font-size:12px">
-			<a href="http://'.$_SERVER["HTTP_HOST"].$_SERVER["REQUEST_URI"].'?page='.($current_page-1).'">\<Previous</a>&nbsp; | 
-			<a href="http://'.$_SERVER["HTTP_HOST"].$_SERVER["REQUEST_URI"].'?page='.($current_page+1).'">Next\></a>
+			<a href="http://'.$_SERVER["HTTP_HOST"].$_SERVER["REQUEST_URI"].'?page='.($current_page-1).'"><Previous</a>&nbsp; | 
+			<a href="http://'.$_SERVER["HTTP_HOST"].$_SERVER["REQUEST_URI"].'?page='.($current_page+1).'">Next></a>
 		  </span>';
 	
 	echo '</div>'; //Close the div that is holding all of these table elements
