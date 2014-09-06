@@ -10,8 +10,8 @@
 		<div align="center">
 			<p>
 				<h1>Down for maintenance. We'll be back shortly!
-				<img src="css/Maintenance.png" width="512" height="512" alt="Maintenance"/>
 			</p>
+			<img src="css/Maintenance.png" width="512" height="512" alt="Maintenance"/>
 		</div><!-- end main --> 
 	</body>
 </html>
