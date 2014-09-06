@@ -151,5 +151,5 @@ JS Function for immediatly hiding a post when a user deletes it from the page.
 */
 function removeReply(reply_id) {
 	var row = document.getElementById('reply_'+reply_id);
-	//if(row) row.parentNode.removeChild(row);
+	if(row) row.parentNode.removeChild(row);
 }
