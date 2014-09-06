@@ -31,9 +31,11 @@
 	
 	$total = mysql_result(mysql_query("SELECT COUNT(id) FROM posts WHERE deleted=0"),0);
 	
-	$start = $current_page * 10;
+	$num_results = 10;
 	
-	$inf = "SELECT * FROM posts WHERE id>'$start' AND deleted=0 ORDER BY date DESC LIMIT 10"; //Query string for posts in descending order by time
+	$max = 'LIMIT '.($current_page - 1 ) * $num_results.','.$num_results;
+	
+	$inf = "SELECT * FROM posts WHERE deleted=0 ORDER BY date DESC $max"; //Query string for posts in descending order by time
 
 	$info = mysql_query($inf) or trigger_error(mysql_error()." ".$inf); // Do the query
 	
