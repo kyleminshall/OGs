@@ -14,8 +14,6 @@
 	$con=mysql_connect("localhost","KyleM","Minshall1!"); //Connect to the database TODO: Do this in a separate class
 	$db_selected = mysql_select_db("Site", $con);
 	
-	$offset = 10;
-	
 	$current_page = 1;
 	
 	if(isset($_GET["page"]))
@@ -33,7 +31,9 @@
 	
 	$total = mysql_result(mysql_query("SELECT COUNT(id) FROM posts WHERE deleted=0"),0);
 	
-	$inf = "SELECT * FROM posts WHERE deleted=0 ORDER BY date DESC"; //Query string for posts in descending order by time
+	$start = $current_page * 10;
+	
+	$inf = "SELECT * FROM posts WHERE id>'$start' AND deleted=0 LIMIT 10 ORDER BY date DESC"; //Query string for posts in descending order by time
 
 	$info = mysql_query($inf) or trigger_error(mysql_error()." ".$inf); // Do the query
 	
