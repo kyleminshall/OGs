@@ -283,7 +283,7 @@
 	
 	echo '<span>';
 	if($current_page > 1) echo '<a style="text-decoration:none;color:#1F80C9;" href="'.$server.'?page='.($current_page-1).'">Previous</a>&nbsp; |';
-	echo '<a style="text-decoration:none;color:#1F80C9;" href="'.$server.'?page='.($current_page+1).'">&nbsp;Next</a>';
+	if($current_page < ceil($total/10)) echo '<a style="text-decoration:none;color:#1F80C9;" href="'.$server.'?page='.($current_page+1).'">&nbsp;Next</a>';
 	echo '</span>';
 	
 	echo '</div>'; //Close the div that is holding all of these table elements
