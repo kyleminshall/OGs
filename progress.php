@@ -30,6 +30,7 @@ membership::confirm(); //Make sure they're successfully authenticated in the sit
 			<p>
 				<b>Work in Progress:</b> <!-- Feature that is currently being worked on -->
 				<br>
+				- Query pagination. Woo<br>
 				- Security enhancements (Prepared statements for SQL, XSS protection)<br>
 				<br>
 				<br>
