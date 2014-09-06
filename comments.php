@@ -19,16 +19,19 @@
 	
 	if(isset($_GET["page"]))
 	{
-		$current_page = $_GET["page"];
+		if($current_page > $total/10)
+		{
+				$current_page = $total/10;
+				header('Location: http://www.theog.club/comments.php/'.$current_page);
+		}
+		else
+		{
+			$current_page = $_GET["page"];
+		}
 	}
 	else if($current_page < 1) 
 	{
 		$current_page = 1;
-	}
-	else if($current_page > $total/10)
-	{
-		$current_page = $total/10;
-		header('Location: http://www.theog.club/comments.php/'.$current_page);
 	}
 	
 	$num_results = 10;
