@@ -21,7 +21,7 @@
 	{
 		if($_GET["page"]-1 > $total/10)
 		{
-				$current_page = ceil($total/10)-1;
+				$current_page = ceil($total/10);
 				header('Location: http://www.theog.club/comments.php?page='.$current_page);
 		}
 		else
