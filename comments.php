@@ -96,7 +96,7 @@
 		$time = strtotime($info2->date); //Date the post was submitted
 		$submitted = date("m/d/y \a\\t g:i A", $time); //Date formatted properly to 'Month/Day/Year at Minute:Second A/PM'
 		
-		$rep = "SELECT * FROM replies WHERE post='$info2->id'"; //Select all the replies to this post using the ID as the indentifier
+		$rep = "SELECT * FROM replies WHERE post='$info2->id' AND deleted=0"; //Select all the replies to this post using the ID as the indentifier
 		$replies = mysql_query($rep) or trigger_error(mysql_error())." ".$rep;
 		$count = mysql_num_rows($replies); //Count the number of replies
 		
