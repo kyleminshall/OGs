@@ -14,29 +14,29 @@
 	$con=mysql_connect("localhost","KyleM","Minshall1!"); //Connect to the database TODO: Do this in a separate class
 	$db_selected = mysql_select_db("Site", $con);
 	
-	$current_page = 1;
-	$total = mysql_result(mysql_query("SELECT COUNT(id) FROM posts WHERE deleted=0"),0);
+	$current_page = 1; //Set the default as the first page
+	$total = mysql_result(mysql_query("SELECT COUNT(id) FROM posts WHERE deleted=0"),0); //Find the total number of posts
 	
-	if(isset($_GET["page"]))
+	if(isset($_GET["page"])) //Checks if there is a ?page= in the url
 	{
-		if($_GET["page"]-1 > $total/10)
+		if($_GET["page"]-1 > $total/10) //Makes sure you can't enter a page that doesn't exist
 		{
-				$current_page = ceil($total/10);
-				header('Location: http://www.theog.club/comments.php?page='.$current_page);
+				$current_page = ceil($total/10); //If you do, it does a ceiling function to calculate the last page
+				header('Location: http://www.theog.club/comments.php?page='.$current_page); //Redirect them to the last page if they enter a page that doesn't exist
 		}
 		else
 		{
-			$current_page = $_GET["page"];
+			$current_page = $_GET["page"]; //Otherwise, give them the page they asked for
 		}
 	}
-	else if($current_page < 1) 
+	else if($current_page < 1) //If they enter something like ?page=0
 	{
-		$current_page = 1;
+		$current_page = 1; //Set the default to page 1
 	}
 	
-	$num_results = 10;
+	$num_results = 10; //The number of results displayed per page. This can be adjusted as necessary
 	
-	$max = 'LIMIT '.($current_page - 1 ) * $num_results.','.$num_results;
+	$max = 'LIMIT '.($current_page - 1 ) * $num_results.','.$num_results; //Addition to the MySQL query to show 10 posts depending on the current page number; ex, ?page=1 should show posts 1-10, ?page=2 11-20, etc
 	
 	$inf = "SELECT * FROM posts WHERE deleted=0 ORDER BY date DESC $max"; //Query string for posts in descending order by time
 
@@ -279,11 +279,11 @@
 		echo '</table>'; //ALWAYS CLOSE YOUR TAGS. This is closing the entire table containing the header info, the username and picture, the post text, the likes, and the comments
 	}//end while 
 	
-	$server = "http://www.theog.club/comments.php";
+	$server = "http://www.theog.club/comments.php"; //Just the main link to the comments page
 	
-	echo '<span>';
-	if($current_page > 1) echo '<a style="text-decoration:none;color:#1F80C9;" href="'.$server.'?page='.($current_page-1).'">Previous</a>&nbsp;';
-	if($current_page < ceil($total/10)) echo '<a style="text-decoration:none;color:#1F80C9;" href="'.$server.'?page='.($current_page+1).'">&nbsp;Next</a>';
+	echo '<span>'; //Span containing the "Next" and "Previous" buttons
+	if($current_page > 1) echo '<a style="text-decoration:none;color:#1F80C9;" href="'.$server.'?page='.($current_page-1).'">Previous</a>&nbsp;'; //Showing the "Next" button at the bottom of the page
+	if($current_page < ceil($total/10)) echo '<a style="text-decoration:none;color:#1F80C9;" href="'.$server.'?page='.($current_page+1).'">&nbsp;Next</a>'; //Showing the "Previous" button at the bottom of the page
 	echo '</span>';
 	
 	echo '</div>'; //Close the div that is holding all of these table elements

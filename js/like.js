@@ -172,6 +172,13 @@ function removeReply(reply_id) {
 	}
 }
 
+/*
+
+Function for scrolling to the element with the id in the has in the page
+
+ex: comments.php#post_14 will auto scroll down to the post with id 14
+
+*/
 $(function(){
   // get hash value
   var hash = window.location.hash;
