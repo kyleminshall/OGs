@@ -19,10 +19,10 @@
 	
 	if(isset($_GET["page"]))
 	{
-		if($_GET["page"] > $total/10)
+		if($_GET["page"]-1 > $total/10)
 		{
 				$current_page = ceil($total/10)-1;
-				header('Location: http://www.theog.club/comments.php/'.$current_page);
+				header('Location: http://www.theog.club/comments.php?page='.$current_page);
 		}
 		else
 		{
