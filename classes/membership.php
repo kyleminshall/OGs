@@ -48,7 +48,13 @@ class Membership
 		{ 
 			session_start(); //Starts a PHP session (cookie)
 		} 
-		if($_SESSION['status'] != 'authorized') //If they are not authorized in the session
+		
+		$maintenance = true; //SET TRUE IF ON MAINTENANCE
+		if($maintenance)
+		{
+			header("location: down.php"); //Show the maintenance page
+		}
+		else if($_SESSION['status'] != 'authorized') //If they are not authorized in the session
 		{
 			header("location: login.php"); //Lock them out of the site and send them to the login page
 		}
