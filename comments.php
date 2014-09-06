@@ -274,7 +274,7 @@
 		echo '</table>'; //ALWAYS CLOSE YOUR TAGS. This is closing the entire table containing the header info, the username and picture, the post text, the likes, and the comments
 	}//end while 
 	
-	echo '<span>
+	echo '<span style="color:#494949;text-decoration:none;font-size:12px">
 			<a href="http://'.$_SERVER["HTTP_HOST"].$_SERVER["REQUEST_URI"].'?page='.($current_page-1).'">Previous </a> | 
 			<a href="http://'.$_SERVER["HTTP_HOST"].$_SERVER["REQUEST_URI"].'?page='.($current_page+1).'">Next</a>
 		  </span>';
