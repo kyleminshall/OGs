@@ -49,7 +49,7 @@ class Membership
 			session_start(); //Starts a PHP session (cookie)
 		} 
 		
-		$maintenance = true; //SET TRUE IF ON MAINTENANCE
+		$maintenance = false; //SET TRUE IF ON MAINTENANCE
 		if($maintenance)
 		{
 			header("location: down.php"); //Show the maintenance page
