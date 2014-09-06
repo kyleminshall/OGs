@@ -274,7 +274,7 @@
 		echo '</table>'; //ALWAYS CLOSE YOUR TAGS. This is closing the entire table containing the header info, the username and picture, the post text, the likes, and the comments
 	}//end while 
 	
-	$server = 'http\://www.theog.club/comments.php';
+	$server = 'http://'.'www.theog.club/comments.php';
 	
 	echo '<span>
 			<a style="text-decoration:none;color:#1F80C9;" href="http://'.$server.'?page='.($current_page-1).'">Previous</a>&nbsp; | 
