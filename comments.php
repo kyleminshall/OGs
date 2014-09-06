@@ -15,9 +15,19 @@
 	$db_selected = mysql_select_db("Site", $con);
 	
 	$offset = 10;
-	$current_page = $_GET["page"];
 	
-	if(!isset($current_page) || $current_page < 1) $current_page = 1;
+	if(isset($_GET["page"]))
+	{
+		$current_page = $_GET["page"];
+	}
+	else if($current_page < 1) 
+	{
+		$current_page = 1;
+	}
+	else 
+	{
+		$current_page = 1;
+	}
 	
 	$total = mysql_result(mysql_query("SELECT COUNT(id) FROM posts WHERE deleted=0"),0);
 	
