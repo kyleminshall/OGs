@@ -31,10 +31,10 @@ membership::confirm(); //When you get to this site, confirm that the user is in 
 				<a style="text-decoration:none" href="profile.php"><button class="turquoise-flat-button">Profile</button></a> <!-- Button to go to the profile page (profile.php) -->
 			</p>
 			<p style="font-size:22px; text-decoration:none">
-				<a style="text-decoration:none" href="comments.php"><button class="turquoise-flat-button">Comments</button></a> <!-- Button to go to the comments page (comments.php) -->
+				<a style="text-decoration:none" href="comments.php"><button class="turquoise-flat-button">Main Board</button></a> <!-- Button to go to the comments page (comments.php) -->
 			</p>
 			<p style="font-size:22px; text-decoration:none">
-				<a style="text-decoration:none" href="progress.php"><button class="turquoise-flat-button">Work in Progress</button></a> <!-- Link to the stuff that is currently in progress on the site (progress.php) -->
+				<a style="text-decoration:none" href="progress.php"><button class="turquoise-flat-button">Progress</button></a> <!-- Link to the stuff that is currently in progress on the site (progress.php) -->
 			</p>
 			<p style="font-size:22px; text-decoration:none">
 				<a style="text-decoration:none" href="logout.php"><button class="turquoise-flat-button" style="background:#FC4144">Log Out</button></a> <!-- Opens the logout.php to sign the user out of the site -->
