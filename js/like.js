@@ -14,6 +14,8 @@ function like_add(post_id) {
 	});
 }
 
+
+
 /*
 
 $post_id is the id of the post you want to modify
@@ -26,6 +28,8 @@ function like_get(post_id) {
 		$('#post_'+post_id+'_likes').text(data);
 	});
 }
+
+
 
 /*
 
@@ -50,6 +54,8 @@ function changeText(post_id) {
     }
 }
 
+
+
 /*
 
 $post_id is the id of the post you want to modify
@@ -67,6 +73,8 @@ function addName(post_id) {
 		element.innerHTML = "You, " + html;
 	}
 }
+
+
 
 /*
 
@@ -87,6 +95,8 @@ function removeName(post_id) {
 	}
 }
 
+
+
 /*
 
 $post_id is the id of the post you want to modify
@@ -95,11 +105,13 @@ JS function for calling the delete.php to mark a post as deleted in the database
 
 */
 function delete_post(post_id) {
-	$.post('classes/delete.php', {post_id:post_id}, function(){}
+	$.post('classes/delete_post.php', {post_id:post_id}, function(){}
 	).done(function() {
 		removePost(post_id);
 	});
 }
+
+
 
 /*
 
@@ -111,4 +123,33 @@ JS Function for immediatly hiding a post when a user deletes it from the page.
 function removePost(post_id) {
 	var tbl = document.getElementById('post_'+post_id);
 	if(tbl) tbl.parentNode.removeChild(tbl);
+}
+
+
+
+/*
+
+$post_id is the id of the post you want to modify
+
+JS function for calling the delete.php to mark a post as deleted in the database.
+
+*/
+function delete_reply(reply_id) {
+	$.post('classes/delete_reply.php', {reply_id:reply_id}, function() {}
+	).done(function() {
+		removeReply(reply_id);
+	});
+}
+
+
+/*
+
+$post_id is the id of the post you want to modify
+
+JS Function for immediatly hiding a post when a user deletes it from the page.
+
+*/
+function removeReply(reply_id) {
+	var row = document.getElementById('reply_'+reply_id);
+	//if(row) row.parentNode.removeChild(row);
 }
