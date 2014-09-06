@@ -14,6 +14,13 @@
 	$con=mysql_connect("localhost","KyleM","Minshall1!"); //Connect to the database TODO: Do this in a separate class
 	$db_selected = mysql_select_db("Site", $con);
 	
+	$offset = 10;
+	$current_page = $_GET["page"];
+	
+	if(!issset($current_page) || $current_page < 1) $current_page = 1;
+	
+	$total = mysql_result(mysql_query("SELECT COUNT(id) FROM posts WHERE deleted=0"),0);
+	
 	$inf = "SELECT * FROM posts WHERE deleted=0 ORDER BY date DESC"; //Query string for posts in descending order by time
 
 	$info = mysql_query($inf) or trigger_error(mysql_error()." ".$inf); // Do the query
@@ -254,6 +261,11 @@
 		
 		echo '</table>'; //ALWAYS CLOSE YOUR TAGS. This is closing the entire table containing the header info, the username and picture, the post text, the likes, and the comments
 	}//end while 
+	
+	echo '<span style="font-size:14px;color:#494949">"
+			<a href="http://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'] . '?page=' . $post_num-1 .'">Previous</a> | 
+			<a href="http://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'] . '?page=' . $post_num+1 .'">Next</a>
+		  </span>';
 	
 	echo '</div>'; //Close the div that is holding all of these table elements
 	echo '</body>'; //Close the body
