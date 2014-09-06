@@ -28,6 +28,7 @@
 	else if($current_page > $total/10)
 	{
 		$current_page = $total/10;
+		header('Location: http://www.theog.club/comments.php/'.$current_page);
 	}
 	
 	$num_results = 10;
