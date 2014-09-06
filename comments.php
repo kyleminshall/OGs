@@ -33,7 +33,7 @@
 	
 	$start = $current_page * 10;
 	
-	$inf = "SELECT * FROM posts WHERE id>'$start' AND deleted=0 LIMIT 10 ORDER BY date DESC"; //Query string for posts in descending order by time
+	$inf = "SELECT * FROM posts WHERE id>'$start' AND deleted=0 ORDER BY date DESC LIMIT 10"; //Query string for posts in descending order by time
 
 	$info = mysql_query($inf) or trigger_error(mysql_error()." ".$inf); // Do the query
 	
