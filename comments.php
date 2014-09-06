@@ -215,7 +215,7 @@
 			
 			$time = strtotime($replies2->date); //Get the posting date
 			$replied = date("m/d/y \a\\t g:i A", $time); //Format the posting date
-			$reply_number = $replies2->id;
+			$reply_id = $replies2->id;
 			
 			$reply = stripslashes(submit::auto_link_text($replies2->reply)); //Check the reply for links
 			
@@ -228,7 +228,7 @@
 			{		
 				echo '<div style="float:right;display:block;">
 							<span style="color:ddd;font-size:12px">
-								<a class="reply_delete" style="text-decoration:none;color:#ddd;" href="#" onclick="delete_reply('.$reply_number.');return false;">X</a> 
+								<a class="reply_delete" style="text-decoration:none;color:#ddd;" href="#" onclick="delete_reply('.$reply_id.');return false;">X</a> 
 							</span>
 						</div>';
 			}

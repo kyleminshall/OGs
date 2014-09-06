@@ -135,7 +135,7 @@ JS function for calling the delete.php to mark a post as deleted in the database
 
 */
 function delete_reply(reply_id) {
-	$.post('classes/delete_reply.php', {reply_id:reply_id}, function(data) { alert(data)}
+	$.post('classes/delete_reply.php', {reply_id:reply_id}, function() {}
 	).done(function() {
 		removeReply(reply_id);
 	});

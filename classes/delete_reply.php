@@ -1,6 +1,6 @@
 <?php
 
-	include 'like.php';
+	include 'reply.php';
 	
 	if(isset($_POST['reply_id'], $_SESSION['username']) && exists($_POST['reply_id']))
 	{
