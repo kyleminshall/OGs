@@ -86,7 +86,6 @@
 		echo '<hr width="50%" noshade>'; //Horizontal line. Separates the submission form and the posts
 	} // end else 
 	echo '<div align="center" display="inline-block;">'; //Center the posts
-	echo '<br><br>';
 	while($info2 = mysql_fetch_object($info)) //Cycle through all posts and print the HTML for each of them
 	{        
 		//MASS OF VARIABLES. DEAL WITH IT
@@ -110,7 +109,7 @@
 		
 		$profile = mysql_result(mysql_query("SELECT profile FROM OGs WHERE username='$info2->username'"),0); //Get the profile photo of OP (Original Poster)
 		
-		echo '<table id="post_'.$post_number.'" style="border-collapse:collapse;table-layout:fixed;box-shadow: 0px 0px 3px #484848;" width="500px" cellpadding="10px">'; 
+		echo '<table id="post_'.$post_number.'" style="border-collapse:collapse;table-layout:fixed;box-shadow: 0px 0px 3px #484848;margin:40px 0 40px 0" width="500px" cellpadding="10px">'; 
 		echo '<tr>'; 
 		
 		echo '<td style="width:40px">
@@ -254,12 +253,9 @@
 		echo '</tr>';
 		
 		echo '</table>'; //ALWAYS CLOSE YOUR TAGS. This is closing the entire table containing the header info, the username and picture, the post text, the likes, and the comments
-		echo '<br><br>'; //Breaks for spacing between posts because I'm lazy
 	}//end while 
 	
 	echo '</div>'; //Close the div that is holding all of these table elements
-	echo '<br>';
-	echo '<br>'; //Breaks for spacing
 	echo '</body>'; //Close the body
 	
 	//Always load your javascript at the end. You need to make sure it loads after all of the elements on the page have already loaded or else things might not run properly
