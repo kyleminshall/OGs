@@ -30,14 +30,12 @@ membership::confirm(); //Make sure they're successfully authenticated in the sit
 			<p>
 				<b>Work in Progress:</b> <!-- Feature that is currently being worked on -->
 				<br>
-				- Security enhancements (Prepared statements for SQL, XSS protection)<br>
 				<br>
 				<br>
 			</p>
 			<p>
 				<b>Features to be worked on:</b> <!-- Features to be worked on at a later time -->
 				<br>
-				- Notifications on replies<br>
 			</p>
 			<p style="font-size:22px; text-decoration:none">
 				<a style="text-decoration:none" href="index.php"><button class="turquoise-flat-button" style="background:#FC4144">Go Home</button></a> <!-- Button to send the user back to the main page -->
