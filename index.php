@@ -52,7 +52,7 @@ membership::confirm(); //When you get to this site, confirm that the user is in 
 			</div>
 			<hr style="color:black" noshade>
 			<div id="sidebar-footer">
-				<p style="color:FC4144;font-size:18px"> Mark All As Read </p>
+				<p> Mark All As Read </p>
 			</div>
 		</div>
 	</body>
