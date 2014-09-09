@@ -89,7 +89,15 @@ class Membership
 		{
 			$_SESSION['status'] = 'authorized'; //Set their session status to authorized
 			$_SESSION['username'] = $username; //Set their session username to their username for global access throughout the site
+			
+			$con=mysql_connect("localhost","KyleM","Minshall1!"); //Connect to the database
+			$db_selected = mysql_select_db('Site', $con); //Select the site database
+			
+			$date = date("Y-m-d H:i:s");
+			mysql_query("UPDATE OGs SET last_login = '$date' WHERE username='$username'");
+			
 			header("location: index.php"); //Redirect them to the index.php page - the main page of the site
+			
 		} 
 		else 
 		{
