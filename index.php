@@ -44,11 +44,11 @@ membership::confirm(); //When you get to this site, confirm that the user is in 
 			<h1 style="text-align:center">Activity</h1>
 			<hr style="color:black" noshade>
 			<div id="activity">
-				<p><b>Kilenaitor</b> posted on the Main board!</p>
+				<p class="element"><b>Kilenaitor</b> posted on the Main board!</p>
 			</div>
 			<hr style="color:black" noshade>
 			<div id="activity">
-				<p><b>parablooper</b> replied to a post by <b>Divine</b>!</p>
+				<p class="element"><b>parablooper</b> replied to a post by <b>Divine</b>!</p>
 			</div>
 		</div>
 	</body>
