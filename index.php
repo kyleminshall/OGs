@@ -41,7 +41,7 @@ membership::confirm(); //When you get to this site, confirm that the user is in 
 			</p>
 		</div><!-- end main --> 
 		<div id="sidebar">
-			<p> Test writing </p>
+			<h1>Activity</h1>
 		</div>
 	</body>
 </html>
