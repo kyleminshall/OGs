@@ -45,7 +45,6 @@ membership::confirm(); //When you get to this site, confirm that the user is in 
 		<div id="sidebar">
 			<h1 style="text-align:center">Activity</h1>
 			<hr style="color:black" noshade>
-			
 			<?php
 			
 				$query = "SELECT CONCAT(posts.username, ' posted on Main Board.') as msg, date 
@@ -55,13 +54,14 @@ membership::confirm(); //When you get to this site, confirm that the user is in 
 						  ORDER BY date DESC";
 					  
 					  
-				$results = mysql_query($query) or trigger_error(mysql_error()." ".$inf); // Do the query		 
+				$results = mysql_query($query) or trigger_error(mysql_error()." ".$query); // Do the query		 
 				
 				while($results2 = mysql_fetch_object($results)) //Cycle through all posts and print the HTML for each of them
 				{        
 					echo '<div class="activity">';
 					echo '<p class="element">'.($results2->msg).'<br><span style="font-size:12px;color:#494949">'.($results2->date).'</span></p>';
 					echo '</div>';
+				}
 			?>
 			
 			<div id="sidebar-footer">
