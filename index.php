@@ -61,6 +61,7 @@ membership::confirm(); //When you get to this site, confirm that the user is in 
 					echo '<div class="activity">';
 					echo '<p class="element">'.($results2->msg).'<br><span style="font-size:12px;color:#494949">'.($results2->date).'</span></p>';
 					echo '</div>';
+					echo '<hr style="color:black" noshade>';
 				}
 			?>
 			
