@@ -1,6 +1,8 @@
 function remove_activity() {
-	$(".activity").fadeOut(800, function() {
+	$.post('classes/update_login.php', {post_id:post_id}, function(data) {
+		like_get(post_id);
+	}).done(
+		$(".activity").fadeOut(800, function() {
 		$(".activity").remove();
-	});
-	
+	}));
 }
