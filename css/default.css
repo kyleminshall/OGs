@@ -142,3 +142,10 @@ tr:nth-child(odd) {
 	-webkit-box-shadow: none;
 	box-shadow: none;
 }
+
+.mark-button:active {
+	background:#3779bc;
+	outline: none;
+	-webkit-box-shadow: none;
+	box-shadow: none;
+}
