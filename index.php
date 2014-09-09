@@ -42,7 +42,7 @@ membership::confirm(); //When you get to this site, confirm that the user is in 
 		</div><!-- end main --> 
 		<div id="sidebar">
 			<h1>Activity</h1>
-			<hr style="color:black">
+			<hr style="color:black" noshade>
 		</div>
 	</body>
 </html>
