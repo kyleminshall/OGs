@@ -47,11 +47,11 @@ membership::confirm(); //When you get to this site, confirm that the user is in 
 			<div id="activity">
 				<p class="element"><b>Kilenaitor</b> posted on the Main board!</p>
 			</div>
-			<hr style="color:black" noshade>
+			<hr id="activity" style="color:black" noshade>
 			<div id="activity">
 				<p class="element"><b>parablooper</b> replied to a post by <b>Divine</b>!</p>
 			</div>
-			<hr style="color:black" noshade>
+			<hr id="activity" style="color:black" noshade>
 			<div id="sidebar-footer">
 				<p style="font-size:22px;text-decoration:none;margin:0;">
 					<a style="text-decoration:none" href="#" onclick="remove_activity();return false;">
