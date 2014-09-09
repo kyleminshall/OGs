@@ -56,7 +56,8 @@ membership::confirm(); //When you get to this site, confirm that the user is in 
 						  ORDER BY date DESC";
 					  
 					  
-				$results = mysql_query($query) or trigger_error(mysql_error()." ".$query); // Do the query		 
+				$results = mysql_query($query) or trigger_error(mysql_error()." ".$query); // Do the query	
+				$num_results = mysql_num_rows($results);	 
 				
 				while($results2 = mysql_fetch_object($results)) //Cycle through all posts and print the HTML for each of them
 				{        
@@ -67,6 +68,12 @@ membership::confirm(); //When you get to this site, confirm that the user is in 
 					echo '<p class="element">'.($results2->msg).'<br><span style="font-size:12px;color:#494949">'.($activity).'</span></p>';
 					echo '</div>';
 					echo '<hr class="activity" style="color:black" noshade>';
+				}
+				if($num_results < 1)
+				{
+					echo '<div class="activity">';
+					echo '<p class="element"> No recent activity. Feel free to post! </p>';
+					echo '</div>';
 				}
 			?>
 		</div>
