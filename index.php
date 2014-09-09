@@ -41,7 +41,7 @@ membership::confirm(); //When you get to this site, confirm that the user is in 
 			</p>
 		</div><!-- end main --> 
 		<div id="sidebar">
-			<h1>Activity</h1>
+			<h1 style="text-align:center">Activity</h1>
 			<hr style="color:black" noshade>
 			<div id="activity">
 				<p><b>Kilenaitor</b> posted on the Main board!</p>
