@@ -40,5 +40,8 @@ membership::confirm(); //When you get to this site, confirm that the user is in 
 				<a style="text-decoration:none" href="logout.php"><button class="turquoise-flat-button" style="background:#FC4144">Log Out</button></a> <!-- Opens the logout.php to sign the user out of the site -->
 			</p>
 		</div><!-- end main --> 
+		<div id="sidebar">
+			<p> Test writing </p>
+		</div>
 	</body>
 </html>

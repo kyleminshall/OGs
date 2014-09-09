@@ -99,3 +99,9 @@ tr:nth-child(odd) {
 .reply_delete:hover{
 	color:#FD0D1B !important;
 } 
+
+#sidebar {
+	align: right;
+	width: 200px;
+	background-color: #dddddd;
+}
