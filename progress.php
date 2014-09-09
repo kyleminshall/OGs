@@ -21,7 +21,7 @@ membership::confirm(); //Make sure they're successfully authenticated in the sit
 		<div id="top">
 			<center>
 				<p>
-					Website Version : 0.5.5<br> <!-- Current version of the site -->
+					Website Version : 0.6.0<br> <!-- Current version of the site -->
 					The OG Social Network <!-- Working title -->
 				</p>
 			</center>
@@ -30,7 +30,6 @@ membership::confirm(); //Make sure they're successfully authenticated in the sit
 			<p>
 				<b>Work in Progress:</b> <!-- Feature that is currently being worked on -->
 				<br>
-				- History ticker for activity since last sign on<br>
 				<br>
 			</p>
 			<p>
