@@ -72,7 +72,7 @@ membership::confirm(); //When you get to this site, confirm that the user is in 
 				if($num_results < 1)
 				{
 					echo '<div class="activity">';
-					echo '<p class="element"> No recent activity. Feel free to post! </p>';
+					echo '<p class="element" style="text-align:center"> No recent activity. Feel free to post! </p>';
 					echo '</div>';
 				}
 			?>
