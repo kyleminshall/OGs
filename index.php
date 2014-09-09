@@ -47,9 +47,9 @@ membership::confirm(); //When you get to this site, confirm that the user is in 
 			<hr style="color:black" noshade>
 			<?php
 			
-				$query = "SELECT CONCAT(posts.username, ' posted on Main Board.') as msg, date 
+				$query = "SELECT CONCAT('<b>', posts.username, '</b> posted on Main Board.') as msg, date 
 						  FROM posts WHERE date > '2014-09-06' AND deleted=0 
-						  UNION SELECT CONCAT(replies.username, ' commented on a post by ', (SELECT username FROM posts WHERE id=replies.post), '.') as msg, date 
+						  UNION SELECT CONCAT('<b>', replies.username, '</b> commented on a post by <b>', (SELECT username FROM posts WHERE id=replies.post), '</b>.') as msg, date 
 						  FROM replies WHERE date > '2014-09-06' AND deleted=0 
 						  ORDER BY date DESC";
 					  
