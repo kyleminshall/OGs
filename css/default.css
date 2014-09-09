@@ -106,5 +106,5 @@ tr:nth-child(odd) {
 	height: 100%;
 	width: 300px;
 	background-color: #dddddd;
-	text-align:center;
+	text-align:left;
 }
