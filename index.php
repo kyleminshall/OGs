@@ -58,8 +58,11 @@ membership::confirm(); //When you get to this site, confirm that the user is in 
 				
 				while($results2 = mysql_fetch_object($results)) //Cycle through all posts and print the HTML for each of them
 				{        
+					$time = strtotime($results2->date); //Date the post was submitted
+					$activity = date("m/d/y \a\\t g:i A", $time);
+					
 					echo '<div class="activity">';
-					echo '<p class="element">'.($results2->msg).'<br><span style="font-size:12px;color:#494949">'.($results2->date).'</span></p>';
+					echo '<p class="element">'.($results2->msg).'<br><span style="font-size:12px;color:#494949">'.($activity).'</span></p>';
 					echo '</div>';
 					echo '<hr class="activity" style="color:black" noshade>';
 				}
