@@ -51,6 +51,9 @@ membership::confirm(); //When you get to this site, confirm that the user is in 
 				<p class="element"><b>parablooper</b> replied to a post by <b>Divine</b>!</p>
 			</div>
 			<hr style="color:black" noshade>
+			<div id="sidebar-footer">
+				<p style="color:FC4144;font-size:18px"> Mark All As Read </p>
+			</div>
 		</div>
 	</body>
 </html>
