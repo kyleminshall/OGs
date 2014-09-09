@@ -107,6 +107,7 @@ tr:nth-child(odd) {
 	width: 300px;
 	background-color: #dddddd;
 	text-align:left;
+	overflow: scroll;
 }
 
 .element {
