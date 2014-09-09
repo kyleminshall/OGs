@@ -46,6 +46,7 @@ membership::confirm(); //When you get to this site, confirm that the user is in 
 			<div id="activity">
 				<p><b>Kilenaitor</b> posted on the Main board!</p>
 			</div>
+			<hr style="color:black" noshade>
 			<div id="activity">
 				<p><b>parablooper</b> replied to a post by <b>Divine</b>!</p>
 			</div>
