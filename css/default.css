@@ -121,3 +121,24 @@ tr:nth-child(odd) {
 	width: 100%;
 	text-align:center;
 }
+
+.mark-button {
+	position: relative;
+  	vertical-align: top;
+  	height: 40px;
+	width:100%;
+	padding: 0;
+	margin-top: 10px;
+	font-size: 22px;
+	color: white;
+	text-align: center;
+	background:#4598EB;
+	border: 0;
+}
+
+.mark-button:hover {
+	background:#3e88d3;
+	outline: none;
+	-webkit-box-shadow: none;
+	box-shadow: none;
+}
