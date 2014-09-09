@@ -50,6 +50,7 @@ membership::confirm(); //When you get to this site, confirm that the user is in 
 			<div id="activity">
 				<p class="element"><b>parablooper</b> replied to a post by <b>Divine</b>!</p>
 			</div>
+			<hr style="color:black" noshade>
 		</div>
 	</body>
 </html>
