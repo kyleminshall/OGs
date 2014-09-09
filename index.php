@@ -52,9 +52,9 @@ membership::confirm(); //When you get to this site, confirm that the user is in 
 			</div>
 			<hr style="color:black" noshade>
 			<div id="sidebar-footer">
-				<p style="font-size:22px; text-decoration:none">
+				<p style="font-size:22px;text-decoration:none;margin:0;">
 					<a style="text-decoration:none" href="#">
-						<button class="turquoise-flat-button" style="background:#FC4144">Mark As Read</button>
+						<button class="turquoise-flat-button" style="background:#FC4144;width:100%">Mark As Read</button>
 					</a>
 				</p>
 			</div>
