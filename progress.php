@@ -32,7 +32,6 @@ membership::confirm(); //Make sure they're successfully authenticated in the sit
 				<br>
 				- History ticker for activity since last sign on<br>
 				<br>
-				<br>
 			</p>
 			<p>
 				<b>Features to be worked on:</b> <!-- Features to be worked on at a later time -->
@@ -41,6 +40,8 @@ membership::confirm(); //Make sure they're successfully authenticated in the sit
 				- Notifications for replies in a post you have commented on <br>
 				- @mentions (this will take a while) <br>
 				- Image posts (this will also take a while) <br>
+				<br>
+				<br>
 			</p>
 			<p style="font-size:22px; text-decoration:none">
 				<a style="text-decoration:none" href="index.php"><button class="turquoise-flat-button" style="background:#FC4144">Go Home</button></a> <!-- Button to send the user back to the main page -->
