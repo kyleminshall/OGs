@@ -73,7 +73,7 @@ membership::confirm(); //When you get to this site, confirm that the user is in 
 		<div id="sidebar-footer">
 			<p style="font-size:22px;text-decoration:none;margin:0;">
 				<a style="text-decoration:none" href="#" onclick="remove_activity();return false;">
-					<button class="mark-button">Mark As Read</button>
+					<button class="mark-button">Mark All As Read</button>
 				</a>
 			</p>
 		</div>
