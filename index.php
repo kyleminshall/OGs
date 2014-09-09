@@ -16,6 +16,7 @@ membership::confirm(); //When you get to this site, confirm that the user is in 
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> <!-- Compatibility junk -->
 		<title>Success</title> <!-- Page title -->
 		<link rel="stylesheet" type="text/css" href="css/default.css"> <!-- Link the CSS stylesheet for elements-->
+		<script src="js/jquery-2.1.1.js" type="text/javascript" charset="utf-8"></script> <!-- Gotta import that jquery -->
 	</head>
 	<body style="background-image: none;">
 		<div id="main">
