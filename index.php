@@ -41,17 +41,29 @@ membership::confirm(); //When you get to this site, confirm that the user is in 
 				<a style="text-decoration:none" href="logout.php"><button class="turquoise-flat-button" style="background:#FC4144">Log Out</button></a> <!-- Opens the logout.php to sign the user out of the site -->
 			</p>
 		</div><!-- end main --> 
+		
 		<div id="sidebar">
 			<h1 style="text-align:center">Activity</h1>
 			<hr style="color:black" noshade>
-			<div class="activity">
-				<p class="element"><b>Kilenaitor</b> posted on the Main board!</p>
-			</div>
-			<hr class="activity" style="color:black" noshade>
-			<div class="activity">
-				<p class="element"><b>parablooper</b> replied to a post by <b>Divine</b>!</p>
-			</div>
-			<hr class="activity" style="color:black" noshade>
+			
+			<?php
+			
+				$query = "SELECT CONCAT(posts.username, ' posted on Main Board.') as msg, date 
+						  FROM posts WHERE date > '2014-09-06' AND deleted=0 
+						  UNION SELECT CONCAT(replies.username, ' commented on a post by ', (SELECT username FROM posts WHERE id=replies.post), '.') as msg, date 
+						  FROM replies WHERE date > '2014-09-06' AND deleted=0 
+						  ORDER BY date DESC";
+					  
+					  
+				$results = mysql_query($query) or trigger_error(mysql_error()." ".$inf); // Do the query		 
+				
+				while($results2 = mysql_fetch_object($results)) //Cycle through all posts and print the HTML for each of them
+				{        
+					echo '<div class="activity">';
+					echo '<p class="element">'.($results2->msg).'<br><span style="font-size:12px;color:#494949">'.($results2->date).'</span></p>';
+					echo '</div>';
+			?>
+			
 			<div id="sidebar-footer">
 				<p style="font-size:22px;text-decoration:none;margin:0;">
 					<a style="text-decoration:none" href="#" onclick="remove_activity();return false;">
