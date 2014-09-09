@@ -69,14 +69,13 @@ membership::confirm(); //When you get to this site, confirm that the user is in 
 					echo '<hr class="activity" style="color:black" noshade>';
 				}
 			?>
-			
-			<div id="sidebar-footer">
-				<p style="font-size:22px;text-decoration:none;margin:0;">
-					<a style="text-decoration:none" href="#" onclick="remove_activity();return false;">
-						<button class="mark-button">Mark As Read</button>
-					</a>
-				</p>
-			</div>
+		</div>
+		<div id="sidebar-footer">
+			<p style="font-size:22px;text-decoration:none;margin:0;">
+				<a style="text-decoration:none" href="#" onclick="remove_activity();return false;">
+					<button class="mark-button">Mark As Read</button>
+				</a>
+			</p>
 		</div>
 	</body>
 	<script src="js/main.js" type="text/javascript" charset="utf-8"></script>
