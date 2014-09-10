@@ -42,6 +42,12 @@ membership::confirm(); //Make sure they're successfully authenticated in the sit
 				<br>
 				<br>
 			</p>
+			<p>
+				<b>If you guys want to start developing:</b>
+				<br>
+				<a href="https://docs.google.com/document/d/1A2_5uLfmEyhjBgcmf-18gLY7lN3o17iSmO3ci6hDMRQ/edit?usp=sharing">Engineering Intro!</a>
+				<br>
+			</p>
 			<p style="font-size:22px; text-decoration:none">
 				<a style="text-decoration:none" href="index.php"><button class="turquoise-flat-button" style="background:#FC4144">Go Home</button></a> <!-- Button to send the user back to the main page -->
 			</p>
