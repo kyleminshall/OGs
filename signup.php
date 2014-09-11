@@ -4,9 +4,9 @@
 	
 	include('classes/membership.php');
 
-	if($_POST && !empty($_POST['key']) && !empty($_POST['firstName']) && !empty($_POST['lastName']) && !empty($_POST['username']) && !empty($_POST['password']) && !empty($_POST['cpassword']))
+	if($_POST && !empty($_POST['firstName']) && !empty($_POST['lastName']) && !empty($_POST['username']) && !empty($_POST['password']) && !empty($_POST['cpassword']))
 	{
-		$response = membership::signup($_POST['key'], $_POST['firstName'], $_POST['lastName'], $_POST['username'], $_POST['password'], $_POST['cpassword']);
+		$response = membership::signup($_POST['firstName'], $_POST['lastName'], $_POST['username'], $_POST['password'], $_POST['cpassword']);
 		$error = false;	
 	}
 	else
@@ -32,7 +32,6 @@
 				</p>
 				<form method="post" action="">
 					<p>
-						<input class="form" id="number" name="key" type="text" placeholder="Permission Key" ><br> <!-- Box to type in the permission key -->
 						<input class="form" id="Password" name="firstName" type="text" placeholder="First Name" ><br> <!-- Box to type in first name -->
 						<input class="form" id="Password" name="lastName" type="text" placeholder="Last Name" ><br> <!-- Box to type in last name -->
 						<input class="form" id="Password" name="username" type="text" placeholder="Username" ><br> <!-- Box to type in desired username -->
