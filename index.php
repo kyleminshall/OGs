@@ -52,9 +52,11 @@ membership::confirm(); //When you get to this site, confirm that the user is in 
 
 				$last_login = mysql_result(mysql_query("SELECT last_login FROM OGs WHERE username='$username'"),0);
 
-				$query = "SELECT CONCAT('<b>', posts.username, '</b> posted on Main Board.') as msg, date
+				$query =
+						 "SELECT CONCAT('<b>', posts.username, '</b> posted on Main Board.') as msg, date
 						  FROM posts WHERE date > '$last_login' AND deleted=0
-						  UNION SELECT CONCAT('<b>', replies.username, '</b> commented on a post by <b>', (SELECT username FROM posts WHERE id=replies.post), '</b>.') as msg, date
+						  UNION
+							SELECT CONCAT('<b>', replies.username, '</b> commented on a post by <b>', (SELECT username FROM posts WHERE id=replies.post), '</b>.') as msg, date
 						  FROM replies WHERE date > '$last_login' AND deleted=0
 						  ORDER BY date DESC";
 
@@ -79,15 +81,19 @@ membership::confirm(); //When you get to this site, confirm that the user is in 
 					echo '</div>';
 				}
 			?>
+			<?php if($num_results > 0)
+			{
+				echo '<div class="replacement">';
+				echo '<p class="element" id="replace" style="text-align:center"></p>';
+				echo '</div>';
+				echo '<div id="sidebar-footer">';
+				echo '<p style="font-size:22px;text-decoration:none;margin:0;">';
+				echo '<a style="text-decoration:none" href="#" onclick="remove_activity(); return false;">';
+				echo '<button class="mark-button activity">Mark All As Read</button>';
+				echo '</a>';
+				echo '</p></div>';
+			}?>
 		</div>
-		<?php if($num_results > 0)
-		{
-			echo '<div id="sidebar-footer">';
-			echo '<p style="font-size:22px;text-decoration:none;margin:0;">';
-			echo '<a style="text-decoration:none" href="#" onclick="remove_activity();return false;">';
-			echo '<button class="mark-button">Mark All As Read</button>';
-			echo '</a></p></div>';
-		}?>
 	</body>
 	<script src="js/main.js" type="text/javascript" charset="utf-8"></script>
 </html>

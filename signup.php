@@ -31,7 +31,7 @@
 					<h1 style="color:#494949">Register</h1> <!-- Register header text -->
 				</p>
 				<form method="post" action="">
-					<p>
+					<p style="margin-bottom:0">
 						<input class="form" id="Password" name="firstName" type="text" placeholder="First Name" ><br> <!-- Box to type in first name -->
 						<input class="form" id="Password" name="lastName" type="text" placeholder="Last Name" ><br> <!-- Box to type in last name -->
 						<input class="form" id="Password" name="username" type="text" placeholder="Username" ><br> <!-- Box to type in desired username -->
@@ -40,9 +40,9 @@
 						<button type="submit" name="submit" class="btn btn-4 btn-4a icon-arrow-right" style="padding:10px 62px !important;">Sign Up!</button> <!-- Signup/Submission button -->
 					</p>
 				</form>
-				<p>
+				<p style="margin-top:0">
 					<a style="text-decoration:none" href="index.php">
-						<button class="turquoise-flat-button">Go Home</button>  <!-- Button to send the user back to the main page -->
+						<button class="btn btn-4 btn-4a" style="padding:10px 62px !important; background:#FC4144;">Go Home</button>  <!-- Button to send the user back to the main page -->
 					</a>
 				</p>
 				<?php if(isset($response)) echo "<h4 class='alert'>" . $response . "</h4>";?>
