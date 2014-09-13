@@ -8,5 +8,5 @@ function remove_activity() {
 }
 
 function add_text() {
-	document.getElementById('replace').innerHTML = ' No recent activity. Feel free to post! ';
+	document.getElementById('replace').innerHTML = ' You read them all. Feel free to post! ';
 }
