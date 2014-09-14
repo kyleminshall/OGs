@@ -5,7 +5,7 @@ require_once 'classes/membership.php'; //File that handles a lot of membership f
 $con=mysql_connect("localhost","KyleM","Minshall1!"); //Start a connection to the database. :)
 $db_selected = mysql_select_db('Site', $con); //Select the "Site" database
 
-membership::confirm(); //When you get to this site, confirm that the user is in fact logged in. 
+membership::confirm(); //When you get to this site, confirm that the user is in fact logged in.
 
 ?>
 
@@ -21,10 +21,10 @@ membership::confirm(); //When you get to this site, confirm that the user is in 
 	<body style="background-image: none;">
 		<div id="main">
 			<p>
-				THIS IS A STAGING BRANCH
+				THIS IS THE LOCAL BRANCH FOR JOHN
 			</p>
 			<p>
-				<?php 
+				<?php
 					$username = $_SESSION['username']; //Set the username equal to the session username (Set after authenticating)
 					$name_row = mysql_fetch_assoc(mysql_query("SELECT name FROM OGs WHERE username='$username'")); //Get the users real name
 					$name = $name_row['name']; //Set the name variable equal to their name returned from the database
@@ -43,30 +43,32 @@ membership::confirm(); //When you get to this site, confirm that the user is in 
 			<p style="font-size:22px; text-decoration:none">
 				<a style="text-decoration:none" href="logout.php"><button class="turquoise-flat-button" style="background:#FC4144">Log Out</button></a> <!-- Opens the logout.php to sign the user out of the site -->
 			</p>
-		</div><!-- end main --> 
-		
+		</div><!-- end main -->
+
 		<div id="sidebar">
 			<h1 style="text-align:center">Activity</h1>
 			<hr style="color:black" noshade>
 			<?php
-			
+
 				$last_login = mysql_result(mysql_query("SELECT last_login FROM OGs WHERE username='$username'"),0);
-			
-				$query = "SELECT CONCAT('<b>', posts.username, '</b> posted on Main Board.') as msg, date 
-						  FROM posts WHERE date > '$last_login' AND deleted=0 
-						  UNION SELECT CONCAT('<b>', replies.username, '</b> commented on a post by <b>', (SELECT username FROM posts WHERE id=replies.post), '</b>.') as msg, date 
-						  FROM replies WHERE date > '$last_login' AND deleted=0 
+
+				$query =
+						 "SELECT CONCAT('<b>', posts.username, '<b> posted on the Main Board.</b>', '</b>') as msg, date
+						  FROM posts WHERE date > '$last_login' AND deleted=0
+						  UNION
+							SELECT CONCAT('<b>', replies.username, '<b> commented on a post by </b>', (SELECT username FROM posts WHERE id=replies.post), '</b>.') as msg, date
+						  FROM replies WHERE date > '$last_login' AND deleted=0
 						  ORDER BY date DESC";
-					  
-					  
-				$results = mysql_query($query) or trigger_error(mysql_error()." ".$query); // Do the query	
-				$num_results = mysql_num_rows($results);	 
-				
+
+
+				$results = mysql_query($query) or trigger_error(mysql_error()." ".$query); // Do the query
+				$num_results = mysql_num_rows($results);
+
 				while($results2 = mysql_fetch_object($results)) //Cycle through all posts and print the HTML for each of them
-				{        
+				{
 					$time = strtotime($results2->date); //Date the post was submitted
 					$activity = date("m/d/y \a\\t g:i A", $time);
-					
+
 					echo '<div class="activity">';
 					echo '<p class="element">'.($results2->msg).'<br><span style="font-size:12px;color:#494949">'.($activity).'</span></p>';
 					echo '</div>';
@@ -79,15 +81,19 @@ membership::confirm(); //When you get to this site, confirm that the user is in 
 					echo '</div>';
 				}
 			?>
+			<?php if($num_results > 0)
+			{
+				echo '<div class="replacement">';
+				echo '<p class="element" id="replace" style="text-align:center"></p>';
+				echo '</div>';
+				echo '<div id="sidebar-footer">';
+				echo '<p style="font-size:22px;text-decoration:none;margin:0;">';
+				echo '<a style="text-decoration:none" href="#" onclick="remove_activity(); return false;">';
+				echo '<button class="mark-button activity">Mark All As Read</button>';
+				echo '</a>';
+				echo '</p></div>';
+			}?>
 		</div>
-		<?php if($num_results > 0)
-		{
-			echo '<div id="sidebar-footer">';
-			echo '<p style="font-size:22px;text-decoration:none;margin:0;">';
-			echo '<a style="text-decoration:none" href="#" onclick="remove_activity();return false;">';
-			echo '<button class="mark-button">Mark All As Read</button>';
-			echo '</a></p></div>';
-		}?>
 	</body>
 	<script src="js/main.js" type="text/javascript" charset="utf-8"></script>
 </html>
