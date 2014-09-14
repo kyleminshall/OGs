@@ -21,7 +21,7 @@ membership::confirm(); //When you get to this site, confirm that the user is in 
 	<body style="background-image: none;">
 		<div id="main">
 			<p>
-				THIS IS THE LOCAL BRANCH FOR JOHN
+				<b>STAGING</b>
 			</p>
 			<p>
 				<?php
