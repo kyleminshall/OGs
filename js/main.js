@@ -5,5 +5,5 @@ function remove_activity() {
 			$(".activity").remove();
 			document.getElementById('replace').innerHTML = ' You read them all! Feel free to post! ';
 		}
-	)};
+	);
 }
