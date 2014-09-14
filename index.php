@@ -21,9 +21,6 @@ membership::confirm(); //When you get to this site, confirm that the user is in 
 	<body style="background-image: none;">
 		<div id="main">
 			<p>
-				<b>STAGING</b>
-			</p>
-			<p>
 				<?php
 					$username = $_SESSION['username']; //Set the username equal to the session username (Set after authenticating)
 					$name_row = mysql_fetch_assoc(mysql_query("SELECT name FROM OGs WHERE username='$username'")); //Get the users real name

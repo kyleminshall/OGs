@@ -22,9 +22,7 @@
 		<div id="login">
 			<div id="box">
 				<form method="post" action="">
-					<a href="signup.php">
-						<img class="profile-img" src="css/avatar_2x.png" alt=""><!-- Green man profile picture -->
-					</a>
+					<img class="profile-img" src="css/avatar_2x.png" alt=""><!-- Green man profile picture -->
 					<p>
 						<input class="form" id="Username" name="username" type="text" placeholder="Username" ><br> <!-- Username input box -->
 						<input class="form" id="Password" name="password" type="password" placeholder="Password"><br> <!-- Password input box -->
