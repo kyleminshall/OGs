@@ -4,6 +4,6 @@ function remove_activity() {
 	$(".activity").fadeOut(800, function() {
 			$(".activity").remove();
 			document.getElementById('replace').innerHTML = ' You read them all! Feel free to post! ';
-		})
-	});
+		}
+	)};
 }
