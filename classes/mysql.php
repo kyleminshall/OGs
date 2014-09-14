@@ -25,7 +25,7 @@ class Mysql {
 	
 	*/
 	
-	static function signup($fname, $lname, $username, $password, $cpassword)
+	static function signup($key, $fname, $lname, $username, $password, $cpassword)
 	{
 		if($password !== $cpassword)
 		{
@@ -42,6 +42,23 @@ class Mysql {
 		  echo "Failed to connect to MySQL: " . mysqli_connect_error(); //If that fails, display an error (obviously)
 		}
 		
+		$valid = "SELECT * FROM pem WHERE `key`='$key'"; //Check if their permission key is contained in the database
+		$result = mysql_query($valid, $con) or trigger_error(mysql_error()." ".$valid); //If the query is invalid (for whatever reason) output an error.
+		$row = mysql_fetch_assoc($result); //Grab the row as an associative array
+		
+		if($row['key'] != $key) //Make sure the key is correct
+		{
+			mysql_close($con); //Close the SQL connection
+			return "Please enter a valid permission key."; //Display error
+		}	
+			
+		if($row['used']==1) //Check if the key is used
+		{
+			mysql_close($con); //Close the connection
+			return "This permission key has already been used."; //Display error
+		}
+				
+		
 		$user = "SELECT * FROM OGs WHERE username='$username'"; //Lookup username in table
 		$check = mysql_query($user, $con);
 		$row = mysql_fetch_assoc($check); //Return result as associative array
@@ -54,6 +71,9 @@ class Mysql {
 		//If all of those checks pass, insert their info into the database.
 		$insert = "INSERT INTO OGs (name, username, password) VALUES ('".$fname." ".$lname."', '$username', '$password')";
 		$return = mysql_query($insert, $con) or trigger_error(mysql_error()." ".$insert);
+		
+		$sql = "UPDATE pem SET used = 1 WHERE `key` = '$key'"; //Set the key as used
+		$finish = mysql_query($sql, $con) or trigger_error(mysql_error()." ".$sql);
 		
 		return;
 	}
