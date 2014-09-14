@@ -6,7 +6,6 @@ class Membership
 {
 	/*
 	
-	$key = permission key user enters
 	$fname = first name
 	$lname = last name
 	$username = desired username
@@ -21,9 +20,9 @@ class Membership
 	If it's not successful, they're shown the error on the page and asked to re-enter their information.
 	
 	*/
-	static function signup($key, $fname, $lname, $username, $password, $cpassword)
+	static function signup($fname, $lname, $username, $password, $cpassword)
 	{
-		$ensure_credentials = mysql::signup($key, $fname, $lname, $username, $password, $cpassword); //Calls the signup method in the database class
+		$ensure_credentials = mysql::signup($fname, $lname, $username, $password, $cpassword); //Calls the signup method in the database class
 		
 		if(is_null($ensure_credentials)) //ensure_credentials stores the error returned by signup. If it's null, there's no error aka successful registration
 		{

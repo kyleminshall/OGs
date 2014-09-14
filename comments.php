@@ -49,7 +49,8 @@
 
 	$info_rows = mysql_num_rows($info);  //Get the number of posts 
 	
-	$username = $_SESSION['username']; //Set the $username = to the username of the current logged in user
+	$temp_user = $_SESSION['username'];
+	$username = mysql_result(mysql_query("SELECT username FROM OGs WHERE username='$temp_user'"), 0); //Set the $username = to the username of the current logged in user
 	echo '<head>'; //Echo means print. So start showing this HTML. 
 	echo '<title>Main Board</title>'; //Title of the page is Main Board
 	echo '<link rel="stylesheet" type="text/css" href="css/default.css">'; //Import the stylesheet

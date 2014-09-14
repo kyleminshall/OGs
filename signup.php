@@ -1,13 +1,13 @@
 <?php
 	session_start();
 	$error = false;
-	
+
 	include('classes/membership.php');
 
-	if($_POST && !empty($_POST['key']) && !empty($_POST['firstName']) && !empty($_POST['lastName']) && !empty($_POST['username']) && !empty($_POST['password']) && !empty($_POST['cpassword']))
+	if($_POST && !empty($_POST['firstName']) && !empty($_POST['lastName']) && !empty($_POST['username']) && !empty($_POST['password']) && !empty($_POST['cpassword']))
 	{
-		$response = membership::signup($_POST['key'], $_POST['firstName'], $_POST['lastName'], $_POST['username'], $_POST['password'], $_POST['cpassword']);
-		$error = false;	
+		$response = membership::signup($_POST['firstName'], $_POST['lastName'], $_POST['username'], $_POST['password'], $_POST['cpassword']);
+		$error = false;
 	}
 	else
 	{
@@ -19,7 +19,7 @@
 <html lang="en" class="no-js">
 	<head>
 		<meta charset="UTF-8" />
-		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 		<title>Welcome to the Site</title> <!-- Site title -->
 		<link rel="stylesheet" type="text/css" href="css/default.css"> <!-- CSS Stylesheet link -->
 		<link rel="stylesheet" type="text/css" href="css/component.css" /> <!-- CSS Stylesheet link -->
@@ -31,8 +31,7 @@
 					<h1 style="color:#494949">Register</h1> <!-- Register header text -->
 				</p>
 				<form method="post" action="">
-					<p>
-						<input class="form" id="number" name="key" type="text" placeholder="Permission Key" ><br> <!-- Box to type in the permission key -->
+					<p style="margin-bottom:0">
 						<input class="form" id="Password" name="firstName" type="text" placeholder="First Name" ><br> <!-- Box to type in first name -->
 						<input class="form" id="Password" name="lastName" type="text" placeholder="Last Name" ><br> <!-- Box to type in last name -->
 						<input class="form" id="Password" name="username" type="text" placeholder="Username" ><br> <!-- Box to type in desired username -->
@@ -41,9 +40,14 @@
 						<button type="submit" name="submit" class="btn btn-4 btn-4a icon-arrow-right" style="padding:10px 62px !important;">Sign Up!</button> <!-- Signup/Submission button -->
 					</p>
 				</form>
+				<p style="margin-top:0">
+					<a style="text-decoration:none" href="index.php">
+						<button class="btn btn-4 btn-4a" style="padding:10px 62px !important; background:#FC4144;">Go Home</button>  <!-- Button to send the user back to the main page -->
+					</a>
+				</p>
 				<?php if(isset($response)) echo "<h4 class='alert'>" . $response . "</h4>";?>
 			</div>
-		</div><!-- end signup --> 
+		</div><!-- end signup -->
 	</body>
 	<script src="js/modernizr.custom.js"></script> <!-- Javascript -->
 </html>
