@@ -48,6 +48,7 @@
 	}
 
 	$info_rows = mysql_num_rows($info);  //Get the number of posts 
+	
 	$temp_user = $_SESSION['username'];
 	$username = mysql_result(mysql_query("SELECT username FROM OGs WHERE username='$temp_user'"), 0); //Set the $username = to the username of the current logged in user
 	echo '<head>'; //Echo means print. So start showing this HTML. 
