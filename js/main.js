@@ -7,3 +7,13 @@ function remove_activity() {
 		}
 	);
 }
+
+function remove_notifs() {
+	$.post('classes/remove_notifs.php');
+
+	$(".notif").fadeOut(800, function() {
+			$(".notif").remove();
+			document.getElementById('replace_notif').innerHTML = ' You read them all! ';
+		}
+	);
+}

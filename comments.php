@@ -92,7 +92,7 @@
 		?>
 		<div align="center">
 			<p style="font-size:22px; text-decoration:none">
-				<a style="text-decoration:none" href="comments.php"><button class="turquoise-flat-button" style="background:#FC4144">Go Back</button></a> <!-- Button for returning to the home page -->
+				<a style="text-decoration:none" href="index.php"><button class="turquoise-flat-button" style="background:#FC4144">Go Home</button></a> <!-- Button for returning to the home page -->
 			</p>
 		</div>
 		<?php

@@ -17,7 +17,7 @@ class Notify {
 		
 		$server = $_SERVER['REQUEST_URI']."?post=$id";
 		$color = "#1F80C9";
-		$message = "<b>$sender</b> commented on your <a style=\"text-decoration:none;color:$color\" href=\"$server\">post</a>!";
+		$message = "<b>$sender</b> commented on <a style=\"text-decoration:none;color:$color\" href=\"$server\">your post</a>!";
 		
 		mysql_query("INSERT INTO notifications (user, message) VALUES ('$target', '$message')");
 	}

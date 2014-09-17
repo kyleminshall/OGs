@@ -49,11 +49,10 @@ membership::confirm(); //When you get to this site, confirm that the user is in 
 
 				$last_login = mysql_result(mysql_query("SELECT last_login FROM OGs WHERE username='$username'"),0);
 
-				$query =
-						 "SELECT CONCAT('<b>', posts.username, '<b> posted on the Main Board.</b>', '</b>') as msg, date
+				$query = "SELECT CONCAT('<b>', posts.username, '</b> posted on the Main Board.<b>') as msg, date, id, username
 						  FROM posts WHERE date > '$last_login' AND deleted=0
 						  UNION
-							SELECT CONCAT('<b>', replies.username, '<b> commented on a post by </b>', (SELECT username FROM posts WHERE id=replies.post), '</b>.') as msg, date
+						  SELECT CONCAT('<b>', replies.username, '</b> commented on a post by <b>', (SELECT username FROM posts WHERE id=replies.post), '</b>.') as msg, date, replies.post as id, username
 						  FROM replies WHERE date > '$last_login' AND deleted=0
 						  ORDER BY date DESC";
 
@@ -65,11 +64,18 @@ membership::confirm(); //When you get to this site, confirm that the user is in 
 				{
 					$time = strtotime($results2->date); //Date the post was submitted
 					$activity = date("m/d/y \a\\t g:i A", $time);
-
-					echo '<div class="activity">';
-					echo '<p class="element">'.($results2->msg).'<br><span style="font-size:12px;color:#494949">'.($activity).'</span></p>';
-					echo '</div>';
-					echo '<hr class="activity" style="color:black" noshade>';
+					
+					if($results2->username !== $username)
+					{
+						echo '<div class="activity">';
+						$server = "/comments.php?post=$results2->id";
+						echo '<p class="element"><a class="elem" style="text-decoration:none;color:#000" href="'.$server.'">'.($results2->msg).'</a><br><span style="font-size:12px;color:#494949">'.($activity).'</span></p>';
+						echo '</div>';
+						echo '<hr class="activity" style="color:black" noshade>';
+					}
+					else {
+						$num_results--;
+					}
 				}
 				if($num_results < 1)
 				{
@@ -105,14 +111,34 @@ membership::confirm(); //When you get to this site, confirm that the user is in 
 				
 				while($results2 = mysql_fetch_object($results)) //Cycle through all posts and print the HTML for each of them
 				{
-					echo '<div class="activity">';
-					echo '<p class="element">'.($results2->message).'<br></p>';
+					echo '<div class="notif">';
+					echo '<p class="notif">'.($results2->message).'<br></p>';
 					echo '</div>';
-					echo '<hr class="activity" style="color:black" noshade>';
+					echo '<hr class="notif" style="color:black;padding:0" noshade>';
 				}
-				
+				if($num_results < 1)
+				{
+					echo '<div class="notif">';
+					echo '<p class="notif" style="text-align:center;margin:0"> Nothing here! </p>';
+					echo '</div>';
+				}
+				echo '<div class="notif">';
+				echo '<p class="notif"></p>';
+				echo '</div>';
+				echo '<div class="replacement">';
+				echo '<p class="element" id="replace_notif" style="text-align:center"></p>';
+				echo '</div>';
 			?>
 		</div>
+		<?php if($num_results > 0)
+		{
+			echo '<div id="notbar-footer">';
+			echo '<p style="font-size:22px;text-decoration:none;margin:0;">';
+			echo '<a style="text-decoration:none" href="#" onclick="remove_notifs(); return false;">';
+			echo '<button class="mark-button notif">Mark All As Read</button>';
+			echo '</a>';
+			echo '</p></div>';
+		}?>
 	</body>
 	<script src="js/main.js" type="text/javascript" charset="utf-8"></script>
 </html>

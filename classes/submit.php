@@ -63,7 +63,7 @@
 			
 			$target = mysql_result(mysql_query("SELECT username FROM posts WHERE id='$post'"),0);
 			
-			notify::notify_reply($target, $username, $post);
+			if($target !== $username) notify::notify_reply($target, $username, $post);
 			
 			if(!$q2) 
 			{
