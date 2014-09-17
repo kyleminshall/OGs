@@ -68,8 +68,9 @@ class Mysql {
 			return "This username has already been taken."; //Let them know that username is taken
 		}
 			
+		$date = date("Y-m-d H:i:s");	
 		//If all of those checks pass, insert their info into the database.
-		$insert = "INSERT INTO OGs (name, username, password) VALUES ('".$fname." ".$lname."', '$username', '$password')";
+		$insert = "INSERT INTO OGs (name, username, password, last_login) VALUES ('".$fname." ".$lname."', '$username', '$password', '$date')";
 		$return = mysql_query($insert, $con) or trigger_error(mysql_error()." ".$insert);
 		
 		$sql = "UPDATE pem SET used = 1 WHERE `key` = '$key'"; //Set the key as used
