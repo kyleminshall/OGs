@@ -49,7 +49,7 @@ membership::confirm(); //When you get to this site, confirm that the user is in 
 
 				$last_login = mysql_result(mysql_query("SELECT last_login FROM OGs WHERE username='$username'"),0);
 
-				$query = "SELECT CONCAT('<b>', posts.username, '</b> posted on the Main Board.<b>') as msg, date, id, username
+				$query = "SELECT CONCAT('<b>', posts.username, '</b> posted on the Main Board.') as msg, date, id, username
 						  FROM posts WHERE date > '$last_login' AND deleted=0
 						  UNION
 						  SELECT CONCAT('<b>', replies.username, '</b> commented on a post by <b>', (SELECT username FROM posts WHERE id=replies.post), '</b>.') as msg, date, replies.post as id, username
