@@ -108,6 +108,12 @@ tr:nth-child(odd) {
 	background-color: #dddddd;
 	text-align:left;
 	overflow: scroll;
+	-webkit-scrollbar: width 0 !important;
+}
+
+#sidebar::-webkit-scrollbar
+{
+	 width: 0 !important;
 }
 
 .element {
@@ -142,4 +148,19 @@ tr:nth-child(odd) {
 	outline: none;
 	-webkit-box-shadow: none;
 	box-shadow: none;
+}
+
+#notifications {
+	position: absolute;
+	top: 0; left: 0; bottom: 0;
+	height: 100%;
+	width: 300px;
+	background-color: #dddddd;
+	text-align:left;
+	overflow: auto;
+}
+
+#notifications::-webkit-scrollbar
+{
+	 width: 0 !important;
 }

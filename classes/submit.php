@@ -1,5 +1,7 @@
 <?php
 	
+	include 'notify.php';
+	
 	class Submit{
 	
 		/*
@@ -58,6 +60,10 @@
 				VALUES ('$post', '$username', '$reply','$date')"; //Insert the reply into the replies table
 			
 			$q2 = mysql_query($q) or trigger_error(mysql_error()." ".$q); //Execute the query
+			
+			$target = mysql_result(mysql_query("SELECT username FROM posts WHERE id='$post'"),0);
+			
+			notify::notify_reply($target, $username, $post);
 			
 			if(!$q2) 
 			{

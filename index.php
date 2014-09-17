@@ -77,19 +77,41 @@ membership::confirm(); //When you get to this site, confirm that the user is in 
 					echo '<p class="element" style="text-align:center"> No recent activity. Feel free to post! </p>';
 					echo '</div>';
 				}
-			?>
-			<?php if($num_results > 0)
-			{
+				echo '<div class="activity">';
+				echo '<p class="element"></p>';
+				echo '</div>';
 				echo '<div class="replacement">';
 				echo '<p class="element" id="replace" style="text-align:center"></p>';
 				echo '</div>';
-				echo '<div id="sidebar-footer">';
-				echo '<p style="font-size:22px;text-decoration:none;margin:0;">';
-				echo '<a style="text-decoration:none" href="#" onclick="remove_activity(); return false;">';
-				echo '<button class="mark-button activity">Mark All As Read</button>';
-				echo '</a>';
-				echo '</p></div>';
-			}?>
+			?>
+		</div>
+		<?php if($num_results > 0)
+		{
+			echo '<div id="sidebar-footer">';
+			echo '<p style="font-size:22px;text-decoration:none;margin:0;">';
+			echo '<a style="text-decoration:none" href="#" onclick="remove_activity(); return false;">';
+			echo '<button class="mark-button activity">Mark All As Read</button>';
+			echo '</a>';
+			echo '</p></div>';
+		}?>
+		<div id="notifications">
+			<h1 style="text-align:center">Notifications</h1>
+			<hr style="color:black" noshade>
+			<?php
+				
+				$query = "SELECT message FROM notifications WHERE user='$username'";
+				$results = mysql_query($query) or trigger_error(mysql_error()." ".$query);
+				$num_results = mysql_num_rows($results);
+				
+				while($results2 = mysql_fetch_object($results)) //Cycle through all posts and print the HTML for each of them
+				{
+					echo '<div class="activity">';
+					echo '<p class="element">'.($results2->message).'<br></p>';
+					echo '</div>';
+					echo '<hr class="activity" style="color:black" noshade>';
+				}
+				
+			?>
 		</div>
 	</body>
 	<script src="js/main.js" type="text/javascript" charset="utf-8"></script>
