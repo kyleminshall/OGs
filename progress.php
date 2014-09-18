@@ -30,7 +30,6 @@ membership::confirm(); //Make sure they're successfully authenticated in the sit
 			<p>
 				<b>Work in Progress:</b> <!-- Feature that is currently being worked on -->
 				<br>
-				- Notifications for replies to a post <br>
 				<br>
 			</p>
 			<p>
@@ -39,7 +38,6 @@ membership::confirm(); //Make sure they're successfully authenticated in the sit
 				- Notifications for replies in a post you have commented on <br>
 				- @mentions (this will take a while) <br>
 				- Image posts (this will also take a while) <br>
-				- Chat system for messaging users <br>
 				<br>
 				<br>
 			</p>
