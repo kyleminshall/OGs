@@ -96,3 +96,33 @@
 .btn-4a:hover:before {
 	left: 80%;
 }
+
+/* Back Button */
+.back {
+	border: 3px solid #fff;
+	color: #fff;
+	overflow: hidden;
+	background: #FC4144;
+}
+
+.back:active {
+	border-color: #951717;
+	color: #951717 !important;
+}
+
+.back:hover {
+	background: #CC3033 !important;
+}
+
+.back:before {
+	position: absolute;
+	height: 100%;
+	color: #fff;
+	-webkit-transition: all 0.3s;
+	-moz-transition: all 0.3s;
+	transition: all 0.3s;
+}
+
+.back:active:before {
+	color: #ED3434;
+}

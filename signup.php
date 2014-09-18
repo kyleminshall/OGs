@@ -43,7 +43,7 @@
 				</form>
 				<p style="margin-top:0">
 					<a style="text-decoration:none" href="index.php">
-						<button class="btn btn-4 btn-4a" style="padding:10px 62px !important; background:#FC4144;">Go Home</button>  <!-- Button to send the user back to the main page -->
+						<button class="btn back btn-4 btn-4a" style="padding:10px 59px !important; background:#FC4144;color: #fff;">Go Home</button>  <!-- Button to send the user back to the main page -->
 					</a>
 				</p>
 				<?php if(isset($response)) echo "<h4 class='alert'>" . $response . "</h4>";?>
