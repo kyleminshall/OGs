@@ -13,7 +13,7 @@ membership::confirm(); //Make sure they're successfully authenticated in the sit
 <html lang="en" class="no-js">
 	<head>
 		<meta charset="UTF-8" />
-		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 		<title>Current Work in Progress</title> <!-- Page title -->
 		<link rel="stylesheet" type="text/css" href="css/default.css">
 	</head>
@@ -21,7 +21,7 @@ membership::confirm(); //Make sure they're successfully authenticated in the sit
 		<div id="top">
 			<center>
 				<p>
-					Website Version : 0.7.0<br> <!-- Current version of the site -->
+					Website Version : 1.0.0<br> <!-- Current version of the site -->
 					The OG Social Network <!-- Working title -->
 				</p>
 			</center>
@@ -52,6 +52,6 @@ membership::confirm(); //Make sure they're successfully authenticated in the sit
 			<p style="font-size:22px; text-decoration:none">
 				<a style="text-decoration:none" href="index.php"><button class="turquoise-flat-button" style="background:#FC4144">Go Home</button></a> <!-- Button to send the user back to the main page -->
 			</p>
-		</div><!-- end main --> 
+		</div><!-- end main -->
 	</body>
 </html>
