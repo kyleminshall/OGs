@@ -78,16 +78,16 @@ p {
 	margin-top: -215px;
 }
 
-tr:hover { 
-	background-color: yellow; 
+tr:hover {
+	background-color: yellow;
 }
 
 tr:nth-child(even) {
-	 background-color: #f6f6f6; 
+	 background-color: #f6f6f6;
  }
- 
-tr:nth-child(odd) { 
-	background: #dddddd; 
+
+tr:nth-child(odd) {
+	background: #dddddd;
 }
 
 .autoExpand{
@@ -98,7 +98,7 @@ tr:nth-child(odd) {
 
 .reply_delete:hover{
 	color:#FD0D1B !important;
-} 
+}
 
 #sidebar {
 	position: absolute;
@@ -184,4 +184,10 @@ tr:nth-child(odd) {
 #notifications::-webkit-scrollbar
 {
 	 width: 0 !important;
+}
+
+#signup
+{
+	position: absolute;
+	top: 0; right: 0;
 }

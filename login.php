@@ -1,6 +1,6 @@
 <?php
 	session_start(); //Always start the session. Just always.
-	
+
 	include('classes/membership.php'); //Include the membership file for verifying the user
 
 	if($_POST && !empty($_POST['username']) && !empty($_POST['password']))
@@ -13,12 +13,17 @@
 <html lang="en" class="no-js">
 	<head>
 		<meta charset="UTF-8" />
-		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 		<title>We're the OGs</title> <!-- Website title -->
 		<link rel="stylesheet" type="text/css" href="css/default.css"> <!-- CSS stylesheet -->
 		<link rel="stylesheet" type="text/css" href="css/component.css" /> <!-- CSS Stylesheet -->
 	</head>
 	<body>
+		<div id="signup">
+			<a style="text-decoration:none" href="signup.php">
+				<button style="margin-top: 0; width: 100px; background-color:#56d8f8" class="turquoise-flat-button">Register</button>
+			</a> <!-- Button to go to the profile page (profile.php) -->
+		</div>
 		<div id="login">
 			<div id="box">
 				<form method="post" action="">
@@ -31,7 +36,7 @@
 				</form>
 				<?php if(isset($response)) echo "<h4 class='alert'>" . $response . "</h4>";?> <!-- Show an error if one is returned -->
 			</div>
-		</div><!-- end login --> 
+		</div><!-- end login -->
 	</body>
 	<script src="js/modernizr.custom.js"></script> <!-- Javascript -->
 </html>
