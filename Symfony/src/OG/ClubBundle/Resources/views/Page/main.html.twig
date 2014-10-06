@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+    <head>
+        <title>{% block title %}Main{% endblock %}</title>
+        {% block stylesheets %}
+        <link href="{{ asset ('css/default.css') }}" type="text/css" rel="stylesheet" />
+        {% endblock %}
+    </head>
+    <body style="font-family:helvetica;background-image:none;">
+        <div align="center">
+            <p style="font-size:22px; text-decoration:none; margin: 0">
+                <a href="{{ path('index') }}"><button class="turquoise-flat-button" style="background:#FC4144">Go Home</button></a> <!-- Button for returning to the home page -->
+            </p>
+        </div>
+        <br>
+        <br>
+        <br>
+        {% include 'OGClubBundle:Page:submit.html.twig' %}
+        <br>
+        <br>
+        <hr width="50%" noshade>
+        <div align="center" display="inline-block;">
+            {% for post in posts %}
+                {% embed 'OGClubBundle:Page:post.html.twig' %}
+                    {% block id %}{{ post.post_number }}{% endblock %}
+                    {% block submitted %}{{ post.submitted }}{% endblock %}
+                    {% block count %}{{ post.count }}{% endblock %}
+                    {% block likes%}{{ post.likes }}{% endblock %}
+                    {% block people%}{{ post.people }}{% endblock %}
+                    {% block picture %}{{ post.profile }}{% endblock %}
+                    {% block replies%}{{ post.replies }}{% endblock %}                
+                {% endembed %}
+            {% else %}
+                <br>
+                <br>
+                 <p style="font-size:22px; text-decoration:none">
+                     There doesn't seem to be anything here! Feel free to post!
+                 </p>
+                 <br>
+                 <br>
+            {% endfor %}
+            {% if total > 10 %}
+                <span>
+                    <a style="text-decoration:none;color:#1F80C9;" href="'.$server.'?page='.($current_page-1).'">Previous</a>&nbsp;
+                    <a style="text-decoration:none;color:#1F80C9;" href="'.$server.'?page='.($current_page+1).'">&nbsp;Next</a>
+                </span>
+            {% endif %}
+        </div>
+    </body>
+    {% block javascripts %}
+        <link href="{{ asset ('js/expand.js') }}" type="text/javascript"/>
+        <link href="{{ asset ('js/like.js') }}" type="text/javascript"/>
+    {% endblock %}
+</html>

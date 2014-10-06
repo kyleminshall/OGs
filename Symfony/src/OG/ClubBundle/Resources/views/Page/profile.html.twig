@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+	<head>
+        <title>{% block title %}Profile{% endblock %}</title>
+        {% block stylesheets %}
+            <link href="{{ asset ('css/default.css') }}" type="text/css" rel="stylesheet" />
+        {% endblock %}
+	</head>
+	<body style="background-image: none;">
+		<div align="center">
+
+			<p>
+				Current profile picture:<br><br>
+				<img src="{{ asset ('images/') }}{{ picture }}" 
+					alt="Profile" 
+					height="200px" 
+					width="200px"
+				/> <!-- Show the profile picture the user currently has set -->
+			</p>
+			<p>
+				<form name="Image" enctype="multipart/form-data" action="" method="POST"> <!-- Form to upload a new picture -->
+					<input type="file" name="Photo" size="2000000" accept="image/jpg, image/jpeg, image/png, image/x-png" size="26"></input> <!-- File upload submission button -->
+					<input type="submit" class="button" name="Submit" value="Submit"></input> <!-- Submit button -->
+					<input type="reset" class="button" value="Cancel"></input> <!-- Cancel/Clear button -->
+				</form>
+			</p>
+			<p style="font-size:22px; text-decoration:none">
+				<a href="{{ path('index') }}"><button class="turquoise-flat-button" style="background:#FC4144">Go Home</button></a> <!-- Button to return back to the home direcotry -->
+			</p>
+		</div><!-- end main --> 
+	</body>
+</html>

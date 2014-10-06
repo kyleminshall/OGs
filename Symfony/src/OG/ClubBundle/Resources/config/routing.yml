@@ -1,0 +1,27 @@
+index:
+    pattern:  /
+    defaults: { _controller: OGClubBundle:Page:index }
+        
+progress:
+    pattern:  /progress
+    defaults: { _controller: OGClubBundle:Page:progress }
+        
+profile:
+    pattern:  /profile
+    defaults: { _controller: OGClubBundle:Page:profile }
+        
+main:
+    pattern:  /main
+    defaults: { _controller: OGClubBundle:Page:main }
+        
+login:
+    pattern:  /login
+    defaults: { _controller: OGClubBundle:Page:login }
+
+logout:
+    pattern:  /logout
+    defaults: { _controller: OGClubBundle:Page:logout }
+
+signup:
+    pattern:  /signup
+    defaults: { _controller: OGClubBundle:Page:signup }

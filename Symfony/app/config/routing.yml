@@ -1,0 +1,4 @@
+og_club:
+    resource: "@OGClubBundle/Resources/config/routing.yml"
+    prefix:   /
+
