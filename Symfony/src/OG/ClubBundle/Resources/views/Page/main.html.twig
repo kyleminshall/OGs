@@ -27,6 +27,7 @@
                     {% block count %}{{ post.count }}{% endblock %}
                     {% block likes%}{{ post.likes }}{% endblock %}
                     {% block people%}{{ post.people }}{% endblock %}
+                    {% block like %}{{ post.like }}{% endblock %}
                     {% block picture %}{{ post.profile }}{% endblock %}
                     {% block replies%}{{ post.replies }}{% endblock %}                
                 {% endembed %}
@@ -48,7 +49,11 @@
         </div>
     </body>
     {% block javascripts %}
-        <link href="{{ asset ('js/expand.js') }}" type="text/javascript"/>
-        <link href="{{ asset ('js/like.js') }}" type="text/javascript"/>
+        {% javascripts '@OGClubBundle/Resources/public/js/jquery-2.1.1.js' %}
+            <script type="text/javascript" src="{{ asset_url }}"></script>
+        {% endjavascripts %}
+        {% javascripts '@OGClubBundle/Resources/public/js/*' %}
+            <script type="text/javascript" src="{{ asset_url }}"></script>
+        {% endjavascripts %}
     {% endblock %}
 </html>

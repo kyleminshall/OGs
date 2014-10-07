@@ -86,14 +86,13 @@ class PageController extends Controller
         $max = 'LIMIT '.($current_page - 1 ) * $num_results.','.$num_results; 
         $inf = "SELECT * FROM posts WHERE deleted=0 ORDER BY date DESC $max";
         
-        $info = mysql_query($inf) or trigger_error(mysql_error()." ".$inf); 
-        
-        $perma = false;
         if(isset($_GET["post"]))
     	{
-    		$perma = true;
+            $id = $_GET["post"];
+            $inf = "SELECT * FROM posts WHERE id=$id AND deleted=0 ORDER BY date DESC $max";
     	}
         
+        $info = mysql_query($inf) or trigger_error(mysql_error()." ".$inf); 
         $info_rows = mysql_num_rows($info);
         
         $temp_user = $session->get('username');
@@ -124,35 +123,70 @@ class PageController extends Controller
         
         $posts = array();
         
-        if(!$perma)
+        while($info2 = mysql_fetch_object($info))
         {
-            while($info2 = mysql_fetch_object($info))
+            $post_number = ($info2->id);
+            $time = strtotime($info2->date);
+            $submitted = date("m/d/y \a\\t g:i A", $time);
+            $rep = "SELECT * FROM replies WHERE post='$info2->id' AND deleted=0";
+            $results = mysql_query($rep);
+            $count = mysql_num_rows($results);
+            $likes = mysql_result(mysql_query("SELECT likes FROM posts WHERE id='$post_number'"), 0);
+            $unlike = (mysql_result(mysql_query("SELECT COUNT(id) FROM likes WHERE username='$username' AND post='$post_number'") , 0) == 0) ? false : true;
+            $button = $unlike == true ?'Unlike':'Like';
+            $people = mysql_query("SELECT username FROM likes WHERE post='$post_number'");
+            $user_liked = mysql_num_rows(mysql_query("SELECT username FROM likes WHERE username='$username' AND post='$post_number'")) > 0;
+            $profile = mysql_result(mysql_query("SELECT profile FROM OGs WHERE username='$info2->username'"),0);
+            $poster = stripslashes($info2->username);
+            $message = stripslashes(Submit::auto_link_text($info2->comment));
+            $deletable = $info2->username === $username;
+            $like = "";
+            $only = false;
+            $like_num = mysql_num_rows($people);
+            
+            if($like_num > 0)
             {
-                $post_number = ($info2->id);
-                $time = strtotime($info2->date);
-                $submitted = date("m/d/y \a\\t g:i A", $time);
-                $rep = "SELECT * FROM replies WHERE post='$info2->id' AND deleted=0";
-                $results = mysql_query($rep);
-                $count = mysql_num_rows($results);
-                $likes = mysql_result(mysql_query("SELECT likes FROM posts WHERE id='$post_number'"),0);
-                $unlike = (mysql_result(mysql_query("SELECT COUNT(id) FROM likes WHERE username='$username' AND post='$post_number'") , 0) == 0) ? false : true;
-                $people = mysql_query("SELECT username FROM likes WHERE post='$post_number'");
-                $user_liked = mysql_num_rows(mysql_query("SELECT username FROM likes WHERE username='$username' AND post='$post_number'")) > 0;
-                $profile = mysql_result(mysql_query("SELECT profile FROM OGs WHERE username='$info2->username'"),0);
-                $poster = stripslashes($info2->username);
-                $message = stripslashes(Submit::auto_link_text($info2->comment));
-                
-                $replies = self::getReplies($results);
-                
-                $posts[] = array('post_number' => $post_number, 'submitted' => $submitted, 
-                                 'count' => $count, 'likes' => $likes, 'unlike' => $unlike, 
-                                 'people' => $people, 'user_liked' => $user_liked, 
-                                 'profile' => $profile, 'replies' => $replies, 'poster' => $poster,
-                                 'message' => $message);
+                if($user_liked) //If that person that liked it is the current user viewing the page, always show them first!
+				{
+					$like .= "You";
+					$like_num--;
+					if($like_num > 0)  //If there are other people besides the current user, 
+						$like .= ", "; //add a comma and a space
+					else //otherwise
+					{
+						$like .= " like this."; //finish it up
+						$only = true; //and set the $only value to true
+					}
+                }
+                while($people2 = mysql_fetch_object($people)) //Cycle through all the people that liked the post
+				{
+					if($people2->username === $username){}
+					else 
+						$like .= $people2->username; //Otherwise, print the username of the person who liked it
+					if($like_num > 1) 
+                        $like .= ", "; //And add a comma and a space
+					$like_num--; //And subtract one from the count
+				}
+                if(!$only) //If other people besides the current user liked the post
+				{
+					$num = mysql_num_rows($people) > 1 ? " like this." : " likes this."; //s for plurality
+					$like .= $num;
+				}
             }
+            else //If nobody has liked the post
+				$like = "No one likes this."; //Say so
+            
+            $replies = self::getReplies($results);
+            
+            $posts[] = array('post_number' => $post_number, 'submitted' => $submitted, 
+                             'count' => $count, 'likes' => $likes, 'unlike' => $unlike, 
+                             'people' => $people, 'user_liked' => $user_liked, 
+                             'profile' => $profile, 'replies' => $replies, 'poster' => $poster,
+                             'message' => $message, 'like' => $like, 'deletable' => $deletable,
+                             'button' => $button);
         }
         
-        return $this->render('OGClubBundle:Page:main.html.twig', array('posts' => $posts, 'perma' => $perma, 'total' => $total));
+        return $this->render('OGClubBundle:Page:main.html.twig', array('posts' => $posts, 'total' => $total));
     }
     
     public function loginAction()
@@ -208,10 +242,10 @@ class PageController extends Controller
 
         $result = array();
 
-		$query = "SELECT CONCAT('<b>', posts.username, '</b> posted on the Main Board.') as msg, date, id, username
+		$query = "SELECT CONCAT(posts.username, ' posted on the Main Board.') as msg, date, id, username
 				  FROM posts WHERE date > '$last_login' AND deleted=0
 				  UNION
-				  SELECT CONCAT('<b>', replies.username, '</b> commented on a post by <b>', (SELECT username FROM posts WHERE id=replies.post), '</b>.') as msg, date, replies.post as id, username
+				  SELECT CONCAT(replies.username, ' commented on a post by ', (SELECT username FROM posts WHERE id=replies.post), '.') as msg, date, replies.post as id, username
 				  FROM replies WHERE date > '$last_login' AND deleted=0
 				  ORDER BY date DESC";
                   
@@ -227,10 +261,10 @@ class PageController extends Controller
             
                 $currentUrl = $this->getRequest()->getUri();
                 
-                $server = $currentUrl."?post=$results2->id";
+                $server = $currentUrl."main?post=$results2->id";
                 $message = ($results2->msg);
                 
-                 $result[] = array($time, $message, $server);
+                $result[] = array('time' => $time, 'message' => $message, 'server' => $server);
             }
             else
                 $num_results--;
@@ -247,7 +281,7 @@ class PageController extends Controller
         $username = $session->get('username');
         
         $query = "SELECT message FROM notifications WHERE user='$username'";
-		$results = mysql_query($query) or trigger_error(mysql_error()." ".$query);
+		$results = mysql_query($query);
 		$num_results = mysql_num_rows($results);
         
         $result = array();
@@ -255,27 +289,32 @@ class PageController extends Controller
         while($results2 = mysql_fetch_object($results)) //Cycle through all posts and print the HTML for each of them
 		{
 			$message = ($results2->message);
-            $result[] = $message;
+            $result[] = array('message' => $message);
 		}
         return $result;
     }
     
     public function getReplies($results)
     {
+        $con=mysql_connect("localhost","KyleM","Minshall1!"); //Start a connection to the database. :)
+        $db_selected = mysql_select_db('Site', $con); //Select the "Site" database
+        
+        $session = $this->getRequest()->getSession();
+        $username = $session->get('username');
+        
+        $total = array();
+        
         while($replies2 = mysql_fetch_object($results))
         {
-            $profile = mysql_result(mysql_query("SELECT profile FROM OGs WHERE username='$replies2->username'"),0);
+            $profile = mysql_result(mysql_query("SELECT profile FROM OGs WHERE username='$replies2->username'"), 0);
             $time = strtotime($replies2->date);
             $replied = date("m/d/y \a\\t g:i A", $time);
             $reply_id = $replies2->id;
-            $reply = stripslashes(submit::auto_link_text($replies2->reply));
-            $deletable = false;
-            
-            if($replies2->username === $username)
-			{
-                $deletable = true;		
-            }
+            $text = stripslashes(submit::auto_link_text($replies2->reply));
+            $deletable = $replies2->username === $username;
+            $commenter = stripslashes($replies2->username);
+            $total[] = array('profile' => $profile, 'replied' => $replied, 'reply_id' => $reply_id, 'text' => $text, 'deletable' => $deletable, 'commenter' => $commenter);
         }
-        return 0;
+        return $total;
     }
 }
