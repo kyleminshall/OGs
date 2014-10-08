@@ -4,6 +4,8 @@ namespace OG\ClubBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Session\Session;
+use Symfony\Component\HttpFoundation\File;
+use Symfony\Component\HttpFoundation\Request;
 
 class PageController extends Controller
 {
@@ -45,9 +47,39 @@ class PageController extends Controller
         $session = $this->getRequest()->getSession();
         $username = $session->get('username');
         
+        $request = Request::createFromGlobals();
+        $directory = $this->container->get('kernel')->locateResource('@OGClubBundle/Resources/public/images');
+        $error = "";
+        $color = "#89DC90";
+        if($request->getMethod() == "POST")
+        {
+            foreach($request->files as $uploadedFile) {
+                if(!isset($uploadedFile))
+                {
+                    $error = "You forgot to select a photo!";
+                    $color = "#F9434A";
+                }
+                else if($uploadedFile->isValid())
+                {
+                    $date = date("Ymd");
+                    $ext = $uploadedFile->guessExtension();
+                    $name = $username.$date.'.'.$ext;
+                    $file = $uploadedFile->move($directory, $name);
+                    $query = "UPDATE OGs SET profile='$name' WHERE username='$username'"; //Set the profile picture in the user table to be the path of the newly uploaded photo
+                    mysql_query($query);
+                    $error = "Successfully updated!";
+                }
+                else
+                {
+                    $error = "Error uploading file!";
+                    $color = "#F9434A";
+                }
+            }
+        }
+        
 		$picture = mysql_result(mysql_query("SELECT profile FROM OGs WHERE username='$username'"), 0);
         
-        return $this->render('OGClubBundle:Page:profile.html.twig', array('picture' => $picture));
+        return $this->render('OGClubBundle:Page:profile.html.twig', array('picture' => $picture, 'error' => $error, 'color' => $color));
     }
     
     public function mainAction()
@@ -216,7 +248,7 @@ class PageController extends Controller
         if($_POST && !empty($_POST['key']) && !empty($_POST['firstName']) && !empty($_POST['lastName']) && !empty($_POST['username']) && !empty($_POST['password']) && !empty($_POST['cpassword']))
         	$response = Membership::signup($_POST['key'], $_POST['firstName'], $_POST['lastName'], $_POST['username'], $_POST['password'], $_POST['cpassword']);
         
-        if(is_null($response))
+        if(isset($response) && $response)
             return $this->redirect($this->generateUrl('index'));
         else if(isset($response))
             return $this->render('OGClubBundle:Page:signup.html.twig', array('error' => $response));

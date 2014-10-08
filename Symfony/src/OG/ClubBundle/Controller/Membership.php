@@ -29,7 +29,7 @@ class Membership
 		
 		if(is_null($ensure_credentials)) //ensure_credentials stores the error returned by signup. If it's null, there's no error aka successful registration
 		{
-			 return; //Re-direct the user to the login page so they can log in 
+			 return true; //Re-direct the user to the login page so they can log in 
 		} 
 		else 
 		{
