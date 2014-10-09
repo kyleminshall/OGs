@@ -227,7 +227,7 @@ class PageController extends Controller
 		$response = Membership::confirm($session);
 		
     	if($_POST && !empty($_POST['username']) && !empty($_POST['password']))
-    		$response = Membership::validateUser($_POST['username'], $_POST['password']);	//Validate the user when they click submit on the login
+    		$response = Membership::validateUser($_POST['username'], $_POST['password'], $session);	//Validate the user when they click submit on the login
 		
         if($response)
             return $this->redirect($this->generateUrl('index'));

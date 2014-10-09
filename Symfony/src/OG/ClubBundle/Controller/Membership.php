@@ -73,7 +73,7 @@ class Membership
 	If the info matches, they're logged into the site. Otherwise they're kept out.
 	
 	*/
-	static function validateUser($username, $password)
+	static function validateUser($username, $password, $session = null)
 	{
 		if(is_null($username))
 		{
@@ -89,7 +89,6 @@ class Membership
 		
 		if(!is_null($ensure_credentials)) //No errors means successful authentication
 		{
-			$session = $this->getRequest()->getSession();
 			$session->set('status', 'authorized'); //Set their session status to authorized
 			$session->set('username', $username); //Set their session username to their username for global access throughout the site
             
