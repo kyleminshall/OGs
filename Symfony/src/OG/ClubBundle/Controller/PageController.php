@@ -233,12 +233,8 @@ class PageController extends Controller
         if($response)
             return $this->redirect($this->generateUrl('index'));
 		else if(!$_POST && isset($session))
-		{
 			if(Membership::confirm($session))
 				return $this->redirect($this->generateUrl('index'));
-			else
-				continue;
-		}
         else if(isset($response))
             return $this->render('OGClubBundle:Page:login.html.twig', array('error' => $response));
         else
