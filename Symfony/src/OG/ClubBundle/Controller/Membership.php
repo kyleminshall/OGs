@@ -75,8 +75,6 @@ class Membership
 	*/
 	static function validateUser($username, $password)
 	{
-		$session = new Session(); //Starts a PHP session (cookie)
-        
 		if(is_null($username))
 		{
 			return "Please enter your username"; //Let them know they forgot to enter a username
