@@ -56,7 +56,7 @@ class Membership
         {
             return false;
         }
-		else if(!$session->get('status')) //If they are not authorized in the session
+		else if($session->get('status') != 'authorized') //If they are not authorized in the session
 		{
             return false;
 		}
