@@ -2,7 +2,7 @@
 namespace OG\ClubBundle\Controller;
 use Symfony\Component\HttpFoundation\Session\Session;
 
-include 'notify.php';
+include 'Notify.php';
 
 class Submit{
 
