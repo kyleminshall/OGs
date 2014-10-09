@@ -223,12 +223,11 @@ class PageController extends Controller
     
     public function loginAction()
     {
+		$session = $this->getRequest()->getSession();
 		$response = Membership::confirm($session);
 		
     	if($_POST && !empty($_POST['username']) && !empty($_POST['password']))
     		$response = Membership::validateUser($_POST['username'], $_POST['password']);	//Validate the user when they click submit on the login
-       
-	   	$session = $this->getRequest()->getSession();
 		
         if($response)
             return $this->redirect($this->generateUrl('index'));
