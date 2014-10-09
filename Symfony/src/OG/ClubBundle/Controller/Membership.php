@@ -44,7 +44,7 @@ class Membership
 	If the session isn't authorized, they're redirected to the login page to sign in.
 	
 	*/
-	static function confirm($session = null)
+	static function confirm($session)
 	{
 		$maintenance = false; //SET TRUE IF ON MAINTENANCE
         
