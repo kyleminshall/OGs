@@ -223,7 +223,7 @@ class PageController extends Controller
     
     public function loginAction()
     {
-		$response = false;
+		$response = Membership::confirm($session);
 		
     	if($_POST && !empty($_POST['username']) && !empty($_POST['password']))
     		$response = Membership::validateUser($_POST['username'], $_POST['password']);	//Validate the user when they click submit on the login
@@ -232,9 +232,6 @@ class PageController extends Controller
 		
         if($response)
             return $this->redirect($this->generateUrl('index'));
-		else if(!$_POST && isset($session))
-			if(Membership::confirm($session))
-				return $this->redirect($this->generateUrl('index'));
         else if(isset($response))
             return $this->render('OGClubBundle:Page:login.html.twig', array('error' => $response));
         else
