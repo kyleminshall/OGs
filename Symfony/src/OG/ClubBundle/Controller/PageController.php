@@ -228,7 +228,7 @@ class PageController extends Controller
     	if($_POST && !empty($_POST['username']) && !empty($_POST['password']))
     		$response = Membership::validateUser($_POST['username'], $_POST['password'], $session);	//Validate the user when they click submit on the login
 		
-        if(isset($response) && $response)
+        if(isset($response) && $response && session)
             return $this->redirect($this->generateUrl('index'));
         else if(isset($response))
             return $this->render('OGClubBundle:Page:login.html.twig', array('error' => $response));
