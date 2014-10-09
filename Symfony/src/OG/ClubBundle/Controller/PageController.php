@@ -223,6 +223,8 @@ class PageController extends Controller
     
     public function loginAction()
     {
+		$response = false;
+		
     	if($_POST && !empty($_POST['username']) && !empty($_POST['password']))
     		$response = Membership::validateUser($_POST['username'], $_POST['password']);	//Validate the user when they click submit on the login
        
