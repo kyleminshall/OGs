@@ -228,7 +228,9 @@ class PageController extends Controller
         
         $session = $this->getRequest()->getSession();
         
-        if(isset($response))
+        if(isset($response) && is_null($response) || Membership::confirm($session))
+            return $this->redirect($this->generateUrl('index'));
+        else if(isset($response))
             return $this->render('OGClubBundle:Page:login.html.twig', array('error' => $response));
         else
             return $this->render('OGClubBundle:Page:login.html.twig');
@@ -238,7 +240,7 @@ class PageController extends Controller
     {
         $session = $this->getRequest()->getSession();
         $session->clear();
-        return $this->redirect($this->generateUrl('login'));
+        return $this->redirect($this->generateUrl('index'));
     }
     
     public function signupAction()
