@@ -102,8 +102,7 @@ class PageController extends Controller
     		if($_GET["page"]-1 > $total/$num_results) //Makes sure you can't enter a page that doesn't exist
     		{
     				$current_page = ceil($total/$num_results); //If you do, it does a ceiling function to calculate the last page
-    				$currentUrl = $this->getRequest()->getUri();
-                    return $this->redirect($currentUrl.'?page='.$current_page);//Redirect them to the last page if they enter a page that doesn't exist
+                    return $this->redirect('main?page='.$current_page);//Redirect them to the last page if they enter a page that doesn't exist
     		}
     		else
     		{
