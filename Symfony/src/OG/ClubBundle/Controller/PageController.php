@@ -109,6 +109,7 @@ class PageController extends Controller
 	    	else if($_GET["page"] < 1) //If they enter something like ?page=0
 	    	{
 	    		$current_page = 1; //Set the default to page 1
+				return $this->redirect('main?page='.$current_page);//Redirect them to the last page if they enter a page that doesn't exist
 	    	}
     		else
     		{
