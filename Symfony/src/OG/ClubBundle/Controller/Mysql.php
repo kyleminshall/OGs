@@ -119,6 +119,14 @@ class Mysql
 			return; //Otherwise, kick them out
 		}
 	}
+	
+	static function getUsername($username)
+	{
+		$con=mysql_connect("localhost","KyleM","Minshall1!"); //Connect to the database
+		$db_selected = mysql_select_db('Site', $con); //Select the site database
+		
+		return mysql_result(mysql_query("SELECT username FROM OGs WHERE username='$username'"), 0);
+	}
 }
 
 ?>

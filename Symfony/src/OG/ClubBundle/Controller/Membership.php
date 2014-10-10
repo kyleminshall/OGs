@@ -89,6 +89,7 @@ class Membership
 		
 		if(!is_null($ensure_credentials)) //No errors means successful authentication
 		{
+			$username = Mysql::getUsername($username);
 			$session->set('status', 'authorized'); //Set their session status to authorized
 			$session->set('username', $username); //Set their session username to their username for global access throughout the site
             
