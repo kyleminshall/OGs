@@ -96,7 +96,7 @@ class PageController extends Controller
         $current_page = 1;
         $total = mysql_result(mysql_query("SELECT COUNT(id) FROM posts WHERE deleted=0"),0);
         $num_results = 10;
-		$last_page = $_GET["page"] == ceil($total/$num_results)-1;
+		$last_page = $_GET["page"] >= ceil($total/$num_results)-1;
         
         if(isset($_GET["page"])) //Checks if there is a ?page= in the url
     	{
