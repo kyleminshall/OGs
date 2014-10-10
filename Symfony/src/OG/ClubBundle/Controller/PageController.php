@@ -106,7 +106,7 @@ class PageController extends Controller
     				$current_page = ceil($total/$num_results); //If you do, it does a ceiling function to calculate the last page
                     return $this->redirect('main?page='.$current_page);//Redirect them to the last page if they enter a page that doesn't exist
     		}
-	    	else if($current_page < 1) //If they enter something like ?page=0
+	    	else if($_GET["page"] < 1) //If they enter something like ?page=0
 	    	{
 	    		$current_page = 1; //Set the default to page 1
 	    	}
