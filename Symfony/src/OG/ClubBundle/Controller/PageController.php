@@ -215,10 +215,10 @@ class PageController extends Controller
                              'people' => $people, 'user_liked' => $user_liked, 
                              'profile' => $profile, 'replies' => $replies, 'poster' => $poster,
                              'message' => $message, 'like' => $like, 'deletable' => $deletable,
-                             'button' => $button, 'current_page' => $current_page);
+                             'button' => $button);
         }
         
-        return $this->render('OGClubBundle:Page:main.html.twig', array('posts' => $posts, 'total' => $total));
+        return $this->render('OGClubBundle:Page:main.html.twig', array('posts' => $posts, 'total' => $total,'current_page' => $current_page));
     }
     
     public function loginAction()
