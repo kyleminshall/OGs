@@ -45,7 +45,9 @@
 					{% if current_page > 1 %}
                     <a style="text-decoration:none;color:#1F80C9;" href="main?page={{ current_page - 1}}">Previous</a>&nbsp;
 					{% endif %}
+					{% if not last_page %}
                     <a style="text-decoration:none;color:#1F80C9;" href="main?page={{ current_page + 1}}">&nbsp;Next</a>
+					{% endif %}
                 </span>
             {% endif %}
         </div>
