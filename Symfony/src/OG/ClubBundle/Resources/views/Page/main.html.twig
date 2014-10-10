@@ -42,8 +42,8 @@
             {% endfor %}
             {% if total > 10 %}
                 <span>
-                    <a style="text-decoration:none;color:#1F80C9;" href="main?page={{ post.current_page - 1}}">Previous</a>&nbsp;
-                    <a style="text-decoration:none;color:#1F80C9;" href="main?page={{ post.current_page + 1}}">&nbsp;Next</a>
+                    <a style="text-decoration:none;color:#1F80C9;" href="main?page={{ posts.current_page - 1}}">Previous</a>&nbsp;
+                    <a style="text-decoration:none;color:#1F80C9;" href="main?page={{ posts.current_page + 1}}">&nbsp;Next</a>
                 </span>
             {% endif %}
         </div>
