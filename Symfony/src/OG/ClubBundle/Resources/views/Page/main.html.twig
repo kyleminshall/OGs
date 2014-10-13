@@ -40,7 +40,7 @@
                  <br>
                  <br>
             {% endfor %}
-            {% if total > 10 %}
+            {% if posts|length > 0 %}
                 <span>
 					{% if current_page > 1 %}
                     <a style="text-decoration:none;color:#1F80C9;" href="main?page={{ current_page - 1}}">Previous</a>&nbsp;

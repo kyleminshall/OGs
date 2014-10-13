@@ -255,7 +255,7 @@ class PageController extends Controller
         
         if(isset($response) && $response)
             return $this->redirect($this->generateUrl('index'));
-        else if(isset($response))
+        else if(isset($response) && $response!=true)
             return $this->render('OGClubBundle:Page:signup.html.twig', array('error' => $response));
         else
             return $this->render('OGClubBundle:Page:signup.html.twig');
