@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+	<head>
+        <title>{% block title %}Current Work In Progress{% endblock %}</title>
+        {% block stylesheets %}
+            <link href="{{ asset ('css/default.css') }}" type="text/css" rel="stylesheet" />
+        {% endblock %}
+	</head>
+	<body style="background-image: none;">
+		<div id="top">
+			<center>
+				<p>
+					Website Version : 1.0.0<br> <!-- Current version of the site -->
+					The OG Social Network <!-- Working title -->
+				</p>
+			</center>
+		</div>
+		<div id="main" style="width:100%;margin-left:-50%;line-height:28px;">
+			<p>
+				<b>Work in Progress:</b> <!-- Feature that is currently being worked on -->
+				<br>
+                - Convert everything to Symfony 2 <br>
+				<br>
+			</p>
+			<p>
+				<b>Features to be worked on:</b> <!-- Features to be worked on at a later time -->
+				<br>
+				- @mentions (this will take a while) <br>
+				- Image posts (this will also take a while) <br>
+				<br>
+				<br>
+			</p>
+			<p>
+				<b>If you guys want to start developing:</b>
+				<br>
+				<a href="https://docs.google.com/document/d/1A2_5uLfmEyhjBgcmf-18gLY7lN3o17iSmO3ci6hDMRQ/edit?usp=sharing">Engineering Intro!</a>
+				<br>
+			</p>
+			<p style="font-size:22px; text-decoration:none">
+				<a href="{{ path('index') }}"><button class="turquoise-flat-button" style="background:#FC4144">Go Home</button></a> <!-- Button to send the user back to the main page -->
+			</p>
+		</div><!-- end main --> 
+	</body>
+</html>
