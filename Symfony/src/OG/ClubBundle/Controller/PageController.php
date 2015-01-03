@@ -80,7 +80,7 @@ class PageController extends Controller
         if($request->getMethod() == "POST" && isset($_POST['yo']) && $_POST['yo'])
         {
             $name = $_POST['yoname'];
-            $query = "UPDATE OGs SET yo='$name' WHERE username='$username'";
+            $query = "UPDATE OGs SET Yo='$name' WHERE username='$username'";
         }
         
 		$picture = mysql_result(mysql_query("SELECT profile FROM OGs WHERE username='$username'"), 0);
