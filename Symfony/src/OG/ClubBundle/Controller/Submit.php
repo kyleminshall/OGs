@@ -38,7 +38,7 @@ class Submit{
         
         //Sending a Yo Message on posts :)
         
-        $q3 = "SELECT * FROM OGs WHERE yo != NULL";
+        $q3 = "SELECT * FROM OGs WHERE Yo != NULL";
         $info = mysql_query($q3) or trigger_error(mysql_error()." ".$q3);
         
         while($info2 = mysql_fetch_object($info))
