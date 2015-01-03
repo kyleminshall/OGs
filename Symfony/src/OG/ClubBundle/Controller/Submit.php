@@ -38,13 +38,11 @@ class Submit{
         
         //Sending a Yo Message on posts :)
         
-        $q3 = "SELECT * FROM OGs WHERE Yo != NULL";
+        $q3 = "SELECT * FROM OGs WHERE Yo IS NOT NULL";
         $info = mysql_query($q3) or trigger_error(mysql_error()." ".$q3);
         
         while($info2 = mysql_fetch_object($info))
         {
-            echo($info2->Yo);
-            die;
             $url = 'http://api.justyo.co/yo/';
             $data = array('api_token' => '24bab569-ffb8-4faf-b287-ff81559c9e4e', 'username' => $info2->Yo);
 
