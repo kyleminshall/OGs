@@ -84,9 +84,11 @@ class PageController extends Controller
             mysql_query($query);
         }
         
+        $yoname = mysql_query("SELECT Yo FROM OGs WHERE username='$username'");
+        
 		$picture = mysql_result(mysql_query("SELECT profile FROM OGs WHERE username='$username'"), 0);
         
-        return $this->render('OGClubBundle:Page:profile.html.twig', array('picture' => $picture, 'error' => $error, 'color' => $color));
+        return $this->render('OGClubBundle:Page:profile.html.twig', array('picture' => $picture, 'error' => $error, 'color' => $color, 'yo' => $yoname));
     }
     
     public function mainAction()
