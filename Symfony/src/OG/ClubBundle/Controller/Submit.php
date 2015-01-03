@@ -43,6 +43,8 @@ class Submit{
         
         while($info2 = mysql_fetch_object($info))
         {
+            echo($info2->Yo);
+            die;
             $url = 'http://api.justyo.co/yo/';
             $data = array('api_token' => '24bab569-ffb8-4faf-b287-ff81559c9e4e', 'username' => $info2->Yo);
 
