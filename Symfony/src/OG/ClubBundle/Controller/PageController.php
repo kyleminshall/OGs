@@ -84,7 +84,7 @@ class PageController extends Controller
             mysql_query($query);
         }
         
-        $yoname = mysql_query("SELECT Yo FROM OGs WHERE username='$username'");
+        $yoname = mysql_result(mysql_query("SELECT Yo FROM OGs WHERE username='$username'"));
         
 		$picture = mysql_result(mysql_query("SELECT profile FROM OGs WHERE username='$username'"), 0);
         
