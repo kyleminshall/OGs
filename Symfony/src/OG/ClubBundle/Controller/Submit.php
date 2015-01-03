@@ -35,6 +35,23 @@ class Submit{
 		{
 			die(mysql_error()); //Close if there's an error
 		}
+        
+        //Sending a Yo Message on posts :)
+        
+        $url = 'http://api.justyo.co/yo/';
+        $data = array('api_token' => '24bab569-ffb8-4faf-b287-ff81559c9e4e', 'username' => 'KILENAITOR');
+
+        $options = array(
+            'http' => array(
+                'header'  => "Content-type: application/x-www-form-urlencoded\r\n",
+                'method'  => 'POST',
+                'content' => http_build_query($data),
+            ),
+        );
+        $context  = stream_context_create($options);
+        $result = file_get_contents($url, false, $context);
+
+        var_dump($result);
 	}
 	
 	/*
