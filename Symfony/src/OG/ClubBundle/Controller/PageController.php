@@ -51,7 +51,7 @@ class PageController extends Controller
         $directory = $this->container->get('kernel')->locateResource('@OGClubBundle/Resources/public/images');
         $error = "";
         $color = "#89DC90";
-        if($request->getMethod() == "POST")
+        if($request->getMethod() == "POST" && isset($_POST['image']) && $_POST['image'])
         {
             foreach($request->files as $uploadedFile) {
                 if(!isset($uploadedFile))
@@ -75,6 +75,12 @@ class PageController extends Controller
                     $color = "#F9434A";
                 }
             }
+        }
+        
+        if($request->getMethod() == "POST" && isset($_POST['yo']) && $_POST['yo'])
+        {
+            $name = $_POST['yoname'];
+            $query = "UPDATE OGs SET yo='$name' WHERE username='$username'";
         }
         
 		$picture = mysql_result(mysql_query("SELECT profile FROM OGs WHERE username='$username'"), 0);

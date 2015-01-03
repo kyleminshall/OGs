@@ -38,20 +38,26 @@ class Submit{
         
         //Sending a Yo Message on posts :)
         
-        $url = 'http://api.justyo.co/yo/';
-        $data = array('api_token' => '24bab569-ffb8-4faf-b287-ff81559c9e4e', 'username' => 'KILENAITOR');
+        $q3 = "SELECT * FROM OGs WHERE yo != NULL";
+        $info = mysql_query($q3) or trigger_error(mysql_error()." ".$q3);
+        
+        while($info2 = mysql_fetch_object($info))
+        {
+            $url = 'http://api.justyo.co/yo/';
+            $data = array('api_token' => '24bab569-ffb8-4faf-b287-ff81559c9e4e', 'username' => $info2->Yo);
 
-        $options = array(
-            'http' => array(
-                'header'  => "Content-type: application/x-www-form-urlencoded\r\n",
-                'method'  => 'POST',
-                'content' => http_build_query($data),
-            ),
-        );
-        $context  = stream_context_create($options);
-        $result = file_get_contents($url, false, $context);
+            $options = array(
+                'http' => array(
+                    'header'  => "Content-type: application/x-www-form-urlencoded\r\n",
+                    'method'  => 'POST',
+                    'content' => http_build_query($data),
+                ),
+            );
+            $context  = stream_context_create($options);
+            $result = file_get_contents($url, false, $context);
 
-        var_dump($result);
+            var_dump($result);
+        }
 	}
 	
 	/*

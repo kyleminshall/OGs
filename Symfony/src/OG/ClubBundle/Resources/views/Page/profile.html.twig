@@ -20,7 +20,7 @@
 			<p>
 				<form name="Image" enctype="multipart/form-data" action="" method="POST"> <!-- Form to upload a new picture -->
 					<input type="file" name="Photo" size="2000000" accept="image/jpg, image/jpeg, image/png, image/x-png" size="26"></input> <!-- File upload submission button -->
-					<input type="submit" class="button" name="submit" value="Submit"></input> <!-- Submit button -->
+					<input type="submit" class="button" name="image" value="Submit"></input> <!-- Submit button -->
 					<input type="reset" class="button" value="Cancel"></input> <!-- Cancel/Clear button -->
 				</form>
 			</p>
@@ -29,6 +29,13 @@
                 {{ error }}
             </p>
             {% endblock %}
+            <p>
+                I want to receive a Yo every time someone posts to the page. My username is:
+                <form name="Yo" action="" method="POST">
+                    <input name="yoname" type="text" placeholder="Yo Username"></input>
+                    <input type="submit" class="button" name="yo" value="Submit"></input> <!-- Submit button -->
+                </form>
+            </p>
 			<p style="font-size:22px; text-decoration:none">
 				<a href="{{ path('index') }}"><button class="turquoise-flat-button" style="background:#FC4144">Go Home</button></a> <!-- Button to return back to the home direcotry -->
 			</p>
