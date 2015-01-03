@@ -79,9 +79,9 @@ class PageController extends Controller
         
         if($request->getMethod() == "POST" && $request->get('yo', false))
         {
-            echo("Here");
-            die;
             $name = $_POST['yoname'];
+            echo($name);
+            die;
             $query = "UPDATE OGs SET Yo='$name' WHERE username='$username'";
         }
         
