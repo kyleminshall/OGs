@@ -161,7 +161,8 @@ class Submit{
     static function mentions($text, $username) {
         $pattern = '/(^|\s)@(\w+)/';
         preg_match($pattern, $text, $matches);
-        foreach (array_unique(array_values($matches)) as $match)
+        $matches = array_diff_key($matches[0], range(0, count($matches[0])));
+        foreach ($matches as $match)
         {
     		$con=mysql_connect("localhost","KyleM","Minshall1!"); //Connects to the database
     		$db_selected = mysql_select_db("Site", $con);
