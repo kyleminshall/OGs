@@ -160,7 +160,7 @@ class Submit{
     
     static function mentions($text, $username) {
         $pattern = '/(^|\s)@(\w+)/';
-        preg_match($pattern, $text, $matches);
+        preg_match_all($pattern, $text, $matches);
         $matches = array_diff_key($matches[0], range(0, count($matches[0])));
         foreach ($matches as $match)
         {
