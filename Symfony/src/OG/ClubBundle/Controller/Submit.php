@@ -36,8 +36,6 @@ class Submit{
 			die(mysql_error()); //Close if there's an error
 		}
         
-        $parse = self::mentions($comment, $username);
-        
         //Sending a Yo Message on posts :)
         
         $q3 = "SELECT * FROM OGs WHERE Yo IS NOT NULL";
@@ -60,6 +58,8 @@ class Submit{
 
             var_dump($result);
         }
+        
+        $parse = self::mentions($comment, $username);
 	}
 	
 	/*
