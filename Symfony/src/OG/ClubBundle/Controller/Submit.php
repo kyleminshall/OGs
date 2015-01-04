@@ -182,9 +182,9 @@ class Submit{
 		$con=mysql_connect("localhost","KyleM","Minshall1!"); //Connects to the database
 		$db_selected = mysql_select_db("Site", $con);
 
-		$post = mysql_query("SELECT * FROM OGs WHERE username='$matches[0]'");  
+		$post = mysql_num_rows(mysql_query("SELECT * FROM OGs WHERE username='$matches[0]'"));  
     
-        if($post) {
+        if($post > 0) {
             $result = preg_replace('/(^|\s)@(\w+)/', "<span style=\"color:#1F80C9\">".$matches[0]."</span>", $matches[0]);
             return $result;
         }
