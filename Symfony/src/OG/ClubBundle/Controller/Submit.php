@@ -165,7 +165,7 @@ class Submit{
     
     static function mentions_callback($matches)
     {
-        $result = preg_replace('/(^|\s)@(\w+)/', "<span style=\"color:#1F80C9\">".$matches[1]."</span>", $matches[0]);
+        $result = preg_replace('/(^|\s)@(\w+)/', "<span style=\"color:#1F80C9\">".$matches[0]."</span>", $matches[0]);
         
 		$con=mysql_connect("localhost","KyleM","Minshall1!"); //Connects to the database
 		$db_selected = mysql_select_db("Site", $con);
@@ -174,7 +174,9 @@ class Submit{
         
 		$post = mysql_result(mysql_query("SELECT id FROM posts WHERE username=$username ORDER BY id DESC LIMIT 1"), 0);  
         
-        Notify::notify_mention(preg_replace("/[^A-Za-z0-9 ]/", '', $matches[1]), $username, $post);
+        Notify::notify_mention(preg_replace("/[^A-Za-z0-9 ]/", '', $matches[0]), $username, $post);
+        
+        error_log(preg_replace("/[^A-Za-z0-9 ]/", '', $matches[0]));
         
         return $result;
     }
