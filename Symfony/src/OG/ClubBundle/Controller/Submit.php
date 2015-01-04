@@ -170,6 +170,7 @@ class Submit{
 		$con=mysql_connect("localhost","KyleM","Minshall1!"); //Connects to the database
 		$db_selected = mysql_select_db("Site", $con);
         
+        $session = $this->getRequest()->getSession();
         $username = $session->get('username');
         
 		$post = mysql_result(mysql_query("SELECT id FROM posts WHERE username=$username ORDER BY id DESC"), 0);  
