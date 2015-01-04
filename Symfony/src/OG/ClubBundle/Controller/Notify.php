@@ -45,6 +45,21 @@ class Notify {
             var_dump($result);
         }
 	}
+    
+    static function notify_mention($target, $sender, $id)
+    {
+        if(!isset($_SESSION))
+            session_start();
+        
+        $con=mysql_connect("localhost", "KyleM", "Minshall1!");
+        $db_selected = mysql_select_db("Site", $con);
+        
+        $server = $_SERVER['REQUEST_URI']."?post=$id";
+        $color = "#1F80C9";
+        $message = "<b>$sender</b> mentioned you in a <a style=\"text-decoration:none;color:$color\" href=\"$server\"> post</a>!";
+
+        mysql_query("INSERT INTO notifications (user, message) VALUES ('$target', '$message')");
+    }
 }
 
 ?>
