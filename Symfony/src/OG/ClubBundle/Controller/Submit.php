@@ -166,7 +166,7 @@ class Submit{
     		$con=mysql_connect("localhost","KyleM","Minshall1!"); //Connects to the database
     		$db_selected = mysql_select_db("Site", $con);
 
-            mysql_query("SELECT id FROM posts WHERE username=$username ORDER BY id DESC") or trigger_error(mysql_error());
+            mysql_query("SELECT id FROM posts WHERE username='$username' ORDER BY id DESC") or trigger_error(mysql_error());
     		$post = mysql_result(mysql_query("SELECT id FROM posts WHERE username=$username ORDER BY id DESC"), 0);  
         
             Notify::notify_mention(preg_replace("/[^A-Za-z0-9 ]/", '', $match), $username, $post);
