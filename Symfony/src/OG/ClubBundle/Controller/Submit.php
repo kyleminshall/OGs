@@ -159,7 +159,7 @@ class Submit{
 	}
     
     static function mentions($text, $username) {
-        $pattern = '/(^|\s)@(\w+)/';
+        $pattern = '/@(\w+)/';
         preg_match_all($pattern, $text, $matches);
         foreach (array_unique($matches[0]) as $match)
         {
@@ -173,7 +173,7 @@ class Submit{
     }
     
     static function mention($text) {
-        $pattern = '/(^|\s)@(\w+)/';
+        $pattern = '/@(\w+)/';
         return preg_replace_callback($pattern, array(get_class(), 'mentions_callback'), $text);
     }
     
