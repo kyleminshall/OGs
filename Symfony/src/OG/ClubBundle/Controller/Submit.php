@@ -36,7 +36,7 @@ class Submit{
 			die(mysql_error()); //Close if there's an error
 		}
         
-        $parse = self::mentions($comment);
+        $parse = self::mentions($comment, $username);
         
         //Sending a Yo Message on posts :)
         
@@ -158,20 +158,29 @@ class Submit{
 	    return "<a style=\"text-decoration:none;color:#1F80C9;\" target=\"_blank\" rel=\"nofollow\" href=\"$url_full\">$url_short</a>";
 	}
     
-    static function mentions($text) {
+    static function mentions($text, $username) {
         $pattern = '/(^|\s)@(\w+)/';
-        return preg_replace_callback($pattern, array(get_class(), 'mentions_callback'), $text);
+        preg_match($pattern, $text, $matches);
+        foreach ($matches as $match)
+        {
+    		$con=mysql_connect("localhost","KyleM","Minshall1!"); //Connects to the database
+    		$db_selected = mysql_select_db("Site", $con);
+
+    		$post = mysql_result(mysql_query("SELECT id FROM posts WHERE username=$username ORDER BY id DESC"), 0);  
+        
+            Notify::notify_mention(preg_replace("/[^A-Za-z0-9 ]/", '', $match), $username, $post);
+        }
+        //return preg_replace_callback($pattern, array(get_class(), 'mentions_callback'), $text);
     }
     
-    static function mentions_callback($matches)
+    /*static function mentions_callback($matches)
     {
         $result = preg_replace('/(^|\s)@(\w+)/', "<span style=\"color:#1F80C9\">".$matches[0]."</span>", $matches[0]);
         
 		$con=mysql_connect("localhost","KyleM","Minshall1!"); //Connects to the database
 		$db_selected = mysql_select_db("Site", $con);
         
-        $session = $this->getRequest()->getSession();
-        $username = $session->get('username');
+        $username = $_SESSION['username'];
         
 		$post = mysql_result(mysql_query("SELECT id FROM posts WHERE username=$username ORDER BY id DESC"), 0);  
         
@@ -180,5 +189,5 @@ class Submit{
         error_log(preg_replace("/[^A-Za-z0-9 ]/", '', $matches[0]));
         
         return $result;
-    }
+    }*/
 }
