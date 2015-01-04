@@ -172,7 +172,7 @@ class Submit{
         
         $username = $_SESSION['username'];
         
-		$post = mysql_result(mysql_query("SELECT id FROM posts WHERE username=$username ORDER BY id DESC LIMIT 1"), 0);  
+		$post = mysql_result(mysql_query("SELECT id FROM posts WHERE username=$username ORDER BY id DESC"), 0);  
         
         Notify::notify_mention(preg_replace("/[^A-Za-z0-9 ]/", '', $matches[0]), $username, $post);
         
