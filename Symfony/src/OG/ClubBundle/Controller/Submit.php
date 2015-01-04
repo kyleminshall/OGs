@@ -179,7 +179,14 @@ class Submit{
     
     static function mentions_callback($matches)
     {
-        $result = preg_replace('/(^|\s)@(\w+)/', "<span style=\"color:#1F80C9\">".$matches[0]."</span>", $matches[0]);
-        return $result;
+		$con=mysql_connect("localhost","KyleM","Minshall1!"); //Connects to the database
+		$db_selected = mysql_select_db("Site", $con);
+
+		$post = mysql_query("SELECT * FROM OGs WHERE username='$matches[0]'");  
+    
+        if($post) {
+            $result = preg_replace('/(^|\s)@(\w+)/', "<span style=\"color:#1F80C9\">".$matches[0]."</span>", $matches[0]);
+            return $result;
+        }
     }
 }
