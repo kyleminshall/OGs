@@ -182,11 +182,15 @@ class Submit{
 		$con=mysql_connect("localhost","KyleM","Minshall1!"); //Connects to the database
 		$db_selected = mysql_select_db("Site", $con);
 
-		$post = mysql_query("SELECT * FROM OGs WHERE username='$matches[0]'");  
+        $name = preg_replace("/[^A-Za-z0-9 ]/", '', $matches[0]);
+		$user_num = mysql_num_rows(mysql_query("SELECT * FROM OGs WHERE username='$name'"));  
     
-        if($post) {
+        if($user_num > 0) {
             $result = preg_replace('/(^|\s)@(\w+)/', "<span style=\"color:#1F80C9\">".$matches[0]."</span>", $matches[0]);
             return $result;
+        }
+        else {
+            return $matches[0];
         }
     }
 }
