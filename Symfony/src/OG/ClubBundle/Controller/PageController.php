@@ -182,6 +182,7 @@ class PageController extends Controller
             $profile = mysql_result(mysql_query("SELECT profile FROM OGs WHERE username='$info2->username'"),0);
             $poster = stripslashes($info2->username);
             $message = stripslashes(Submit::auto_link_text($info2->comment));
+            $message = stripslashes(Submit::mention($info2->comment));
             $deletable = $info2->username === $username;
             $like = "";
             $only = false;
