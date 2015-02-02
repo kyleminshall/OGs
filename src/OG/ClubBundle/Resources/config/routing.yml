@@ -1,0 +1,47 @@
+main:
+    pattern:  /
+    defaults: { _controller: OGClubBundle:Page:main }
+        
+progress:
+    pattern:  /progress
+    defaults: { _controller: OGClubBundle:Page:progress }
+        
+profile:
+    pattern:  /profile
+    defaults: { _controller: OGClubBundle:Page:profile }
+        
+login:
+    pattern:  /login
+    defaults: { _controller: OGClubBundle:Page:login }
+
+logout:
+    pattern:  /logout
+    defaults: { _controller: OGClubBundle:Page:logout }
+
+signup:
+    pattern:  /signup
+    defaults: { _controller: OGClubBundle:Page:signup }
+
+ajax_remove_activity:
+    pattern: /ajax/removeActivity
+    defaults: { _controller: OGClubBundle:Ajax:removeActivity }
+    
+ajax_remove_notifs:
+    pattern: /ajax/removeNotifs
+    defaults: { _controller: OGClubBundle:Ajax:removeNotifs }
+
+ajax_like_add:
+    pattern: /ajax/likeAdd
+    defaults: { _controller: OGClubBundle:Ajax:likeAdd }
+
+ajax_like_get:
+    pattern: /ajax/likeGet
+    defaults: { _controller: OGClubBundle:Ajax:likeGet }
+
+ajax_delete_post:
+    pattern: /ajax/deletePost
+    defaults: { _controller: OGClubBundle:Ajax:deletePost }
+    
+ajax_delete_reply:
+    pattern: /ajax/deleteReply
+    defaults: { _controller: OGClubBundle:Ajax:deleteReply }

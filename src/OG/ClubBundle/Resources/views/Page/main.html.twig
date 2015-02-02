@@ -1,0 +1,54 @@
+
+<head>
+    <title>{% block title %}Main{% endblock %}</title>
+    {% block stylesheets %}
+        {% stylesheets 'bundles/ogclub/css/default.css' filter='cssrewrite' %}
+            <link rel="stylesheet" href="{{ asset_url }}" />
+        {% endstylesheets %}
+    {% endblock %}
+    <script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
+</head>
+{% include 'OGClubBundle:Components:nav.html.twig' %}
+<body style="font-family:helvetica;background-image:none;">
+    <br>
+    <br>
+    <br>
+    {% include 'OGClubBundle:Components:submit.html.twig' %}
+    <div align="center" display="inline-block;">
+        {% for post in posts %}
+            {% embed 'OGClubBundle:Components:post.html.twig' %}
+                {% block id %}{{ post.post_number }}{% endblock %}
+                {% block submitted %}{{ post.submitted }}{% endblock %}
+                {% block count %}{{ post.count }}{% endblock %}
+                {% block likes%}{{ post.likes }}{% endblock %}
+                {% block people%}{{ post.people }}{% endblock %}
+                {% block like %}{{ post.like }}{% endblock %}
+                {% block picture %}{{ post.profile }}{% endblock %}
+                {% block replies%}{{ post.replies }}{% endblock %}                
+            {% endembed %}
+        {% else %}
+            <br>
+            <br>
+             <p style="font-size:22px; text-decoration:none">
+                 There doesn't seem to be anything here! Feel free to post!
+             </p>
+             <br>
+             <br>
+        {% endfor %}
+        {% if posts|length > 1 %}
+            <span>
+				{% if current_page > 1 %}
+                <a style="text-decoration:none;color:#1F80C9;" href="main?page={{ current_page - 1}}">Previous</a>&nbsp;
+				{% endif %}
+				{% if not last_page %}
+                <a style="text-decoration:none;color:#1F80C9;" href="main?page={{ current_page + 1}}">&nbsp;Next</a>
+				{% endif %}
+            </span>
+        {% endif %}
+    </div>
+</body>
+{% block javascripts %}
+    {% javascripts '@OGClubBundle/Resources/public/js/*' %}
+        <script type="text/javascript" src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+{% endblock %}

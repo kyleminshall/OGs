@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+	<head>
+        <title>{% block title %}We're the OGs{% endblock %}</title>
+        {% block stylesheets %}
+            {% stylesheets 'bundles/ogclub/css/default.css'
+                           'bundles/ogclub/css/component.css' filter='cssrewrite' %}
+                <link rel="stylesheet" href="{{ asset_url }}" />
+            {% endstylesheets %}
+        {% endblock %}
+        <script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
+	</head>
+	<body>
+		<div id="signup">
+			<a href="{{ path('signup') }}">
+				<button style="margin-top: 0; width: 100px; background-color:#56d8f8" class="turquoise-flat-button">Register</button>
+			</a> <!-- Button to go to the profile page (profile.php) -->
+		</div>
+		<div id="login">
+			<div id="box">
+				<form method="post" action="">
+                    {% image '@OGClubBundle/Resources/public/css/avatar_2x.png' %}
+                        <img class="profile-img" src="{{ asset_url }}" alt="" />
+                    {% endimage %}
+					<p>
+						<input class="form" id="Username" name="username" type="text" placeholder="Username" ><br> <!-- Username input box -->
+						<input class="form" id="Password" name="password" type="password" placeholder="Password"><br> <!-- Password input box -->
+						<button type="submit" name="submit" class="btn btn-4 btn-4a">Login</button> <!-- Login (submit) button -->
+					</p>
+				</form>
+                {% if error is defined %}<h4 class='alert'>{{ error }}</h4>{% endif %}
+			</div>
+		</div><!-- end login -->
+	</body>
+    {% block javascripts %}
+        {% javascripts '@OGClubBundle/Resources/public/js/*' %}
+            <script type="text/javascript" src="{{ asset_url }}"></script>
+        {% endjavascripts %}
+    {% endblock %}
+</html>

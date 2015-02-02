@@ -1,0 +1,75 @@
+<table id="post_{% block id %}0{% endblock %}" style="border-collapse:collapse;table-layout:fixed;box-shadow: 0px 0px 3px #484848;margin:40px 0 40px 0" width="500px" cellpadding="10px">
+    <tr>
+
+        <td style="width:40px">
+            <img src="{{ asset ('bundles/ogclub/images/') }}{% block picture %}profile.jpg{% endblock %}" alt="Profile" height="50px" width="50px"/>
+        </td>
+
+        <td style="width:65%">
+            <p style="font-size:18px;color:#000;margin:0;">
+                <b>{{ post.poster }}</b><br>
+                <span style="font-size:12px;color:#494949;">{{ post.submitted }}</span>
+            </p>
+        </td>
+
+        <td style="width:30%;padding:0;">
+            <p style="font-size:14px;color:#000;text-align:right">Likes :<br>Comments :
+            </p>
+        </td>
+
+        <td style="width:5%;padding:0;">
+            <p style="font-size:14px;color:#000;text-align:center">
+                <span id="post_{{ block('id') }}_likes">{% block likes %}0{% endblock %}</span><br>{% block comments %}0{% endblock %}
+            </p>
+        </td>
+    </tr>
+
+    <tr>
+        <td colspan="4" style="word-wrap:break-word"> 
+            <p style="font-size:18px;color:#000;margin-top:0">{{ post.message | raw }}</p>
+            <br>
+        </td>
+    </tr>
+
+    <tr style="background-color:#f6f6f6;">
+        <td colspan="4" style="padding-left: 10px;">
+            <p id="likes_{{ block('id') }}" style="font-size:12px;padding:0;text-align:left;margin:0;">{% block like %}No one likes this.{% endblock %}</p>
+        </td>
+    </tr>
+    
+    <tr style="background-color:#dddddd;">
+        <td colspan="4" style="padding-left: 10px;">
+            <span style="font-size:12px;padding:0;display:block;float:left">
+                <a id="like_{{ block('id') }}" style="text-decoration:none;color:#1F80C9;" ajax="{{ path('ajax_like_add') }}" href="#" onclick="like_add({{ block('id') }});return false;">{{ post.button }}</a> 
+            </span>
+            {% if post.deletable %}
+                <span style="font-size:12px;padding:0;display:block;float:right">
+                    <a id="delete_{{ block('id') }}" style="text-decoration:none;color:#FD0D1B;" href="#" onclick="delete_post({{ block('id') }});return false;">Delete</a> 
+                </span>
+            {% endif %}
+        </td>
+    </tr>
+    
+    {% for reply in post.replies %}
+        {% embed 'OGClubBundle:Components:reply.html.twig' %}
+            {% block profile %}{{ reply.profile }}{% endblock %}
+            {% block replied %}{{ reply.replied }}{% endblock %}
+            {% block reply_id %}{{ reply.reply_id }}{% endblock %}
+            {% block text %}{{ reply.text }}{% endblock %}
+            {% block deletable %}{{ reply.deletable }}{% endblock %}
+            {% block commenter %}{{ reply.commenter }}{% endblock %}
+        {% endembed %}
+    {% endfor %}
+    
+    <tr style="background-color:#f6f6f6;border-top:1px solid black;">
+        <td colspan="4" style="padding:5px">
+            <form style="margin:0;" name="like" action="" method="post">
+                <textarea name="reply" class="autoExpand" placeholder="Reply..." style="width:100%;resize:none;border:none;background:transparent;font-size:12px;outline:none;" rows="1" wrap="physical"></textarea>
+                <input type="hidden" name="post" value="{{ post.post_number }}">
+                <div align="right">
+                    <input style="vertical-align:top;align:right" type="submit" name="comment" value="Post">
+                </div>
+            </form>
+        </td>
+    </tr>
+</table>

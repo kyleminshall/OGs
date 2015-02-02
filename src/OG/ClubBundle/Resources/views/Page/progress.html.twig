@@ -1,0 +1,49 @@
+<head>
+    <title>{% block title %}Current Work In Progress{% endblock %}</title>
+    {% block stylesheets %}
+        {% stylesheets 'bundles/ogclub/css/default.css' filter='cssrewrite' %}
+            <link rel="stylesheet" href="{{ asset_url }}" />
+        {% endstylesheets %}
+    {% endblock %}
+    <script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
+</head>
+{% include 'OGClubBundle:Components:nav.html.twig' %}
+<body style="background-image: none;">
+    <div class="wrapper">
+		<div>
+			<center>
+				<p>
+					Website Version : 1.0.0<br> <!-- Current version of the site -->
+					The OG Social Network <!-- Working title -->
+				</p>
+			</center>
+		</div>
+		<div class="content">
+            <center>
+    			<p>
+    				<b>Work in Progress:</b> <!-- Feature that is currently being worked on -->
+    				<br>
+                    - Site Redesign
+    			</p>
+    			<p>
+    				<b>Features to be worked on:</b> <!-- Features to be worked on at a later time -->
+    				<br>
+    				- Image posts<br>
+    				<br>
+    				<br>
+    			</p>
+    			<p>
+    				<b>If you guys want to start developing:</b>
+    				<br>
+    				<a href="https://docs.google.com/document/d/1A2_5uLfmEyhjBgcmf-18gLY7lN3o17iSmO3ci6hDMRQ/edit?usp=sharing">Engineering Intro!</a>
+    				<br>
+    			</p>
+            </center>
+		</div><!-- end main --> 
+    </div>
+    {% block javascripts %}
+        {% javascripts '@OGClubBundle/Resources/public/js/*' %}
+            <script type="text/javascript" src="{{ asset_url }}"></script>
+        {% endjavascripts %}
+    {% endblock %}
+</body>

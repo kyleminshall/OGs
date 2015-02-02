@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+	<head>
+        <title>{% block title %}Welcome to the Site{% endblock %}</title>
+        {% block stylesheets %}
+            {% stylesheets 'bundles/ogclub/css/default.css'
+                           'bundles/ogclub/css/component.css' filter='cssrewrite' %}
+                <link rel="stylesheet" href="{{ asset_url }}" />
+            {% endstylesheets %}
+        {% endblock %}
+        <script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
+	</head>
+	<body>
+		<div id="login">
+			<div id="box">
+				<p>
+					<h1 style="color:#494949">Register</h1> <!-- Register header text -->
+				</p>
+				<form method="post" action="">
+					<p style="margin-bottom:0">
+						<input class="form" id="number" name="key" type="text" placeholder="Permission Key" ><br> <!-- Box to type in the permission key -->
+						<input class="form" id="Password" name="firstName" type="text" placeholder="First Name" ><br> <!-- Box to type in first name -->
+						<input class="form" id="Password" name="lastName" type="text" placeholder="Last Name" ><br> <!-- Box to type in last name -->
+						<input class="form" id="Password" name="username" type="text" placeholder="Username" ><br> <!-- Box to type in desired username -->
+						<input class="form" id="Password" name="password" type="password" placeholder="Password"><br> <!-- Box to type in password -->
+						<input class="form" id="Password" name="cpassword" type="password" placeholder="Confirm Password"><br> <!-- Box to confirm password -->
+						<button type="submit" name="submit" class="btn btn-4 btn-4a" style="padding:10px 62px !important;">Sign Up!</button> <!-- Signup/Submission button -->
+					</p>
+				</form>
+				<p style="margin-top:0">
+					<a href="{{ path('index') }}">
+						<button class="btn back btn-4 btn-4a" style="padding:10px 59px !important; background:#FC4144;color: #fff;">Go Home</button>  <!-- Button to send the user back to the main page -->
+					</a>
+				</p>
+				{% if error is defined %}<h4 class='alert'>{{ error }}</h4>{% endif %}
+			</div>
+		</div><!-- end signup -->
+	</body>
+    {% block javascripts %}
+        {% javascripts '@OGClubBundle/Resources/public/js/*' %}
+            <script type="text/javascript" src="{{ asset_url }}"></script>
+        {% endjavascripts %}
+    {% endblock %}
+</html>

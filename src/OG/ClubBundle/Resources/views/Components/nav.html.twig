@@ -1,0 +1,15 @@
+<nav id="fixedbar">
+    <ul id="fixednav">
+        <li><div id="nava"><a href="{{ path('main') }}">Main</a></div></li>
+        <li><div id="nava"><a href="{{ path('profile') }}">Profile</a></div></li>
+        <li class="navbar-right">
+            <div id="nava">
+                <a href="#" onclick="dropdown()">More</a>
+            </div>
+            <ul id="dropdown">
+                <li class="drop"><div id="navb"><a href="{{ path('progress') }}">Progress</a></div></li>
+                <li class="drop"><div id="navb"><a id="logout" href="{{ path('logout') }}">Logout</a></div></li>
+            </ul>
+        </li>
+    </ul>
+</nav>
