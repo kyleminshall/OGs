@@ -1,6 +1,14 @@
 main:
     pattern:  /
     defaults: { _controller: OGClubBundle:Page:main }
+    
+login:
+    pattern:  /login
+    defaults: { _controller: OGClubBundle:Page:login }
+
+users:
+    pattern: /u/{username}
+    defaults: { _controller: OGClubBundle:Page:user }
         
 progress:
     pattern:  /progress
@@ -9,10 +17,6 @@ progress:
 profile:
     pattern:  /profile
     defaults: { _controller: OGClubBundle:Page:profile }
-        
-login:
-    pattern:  /login
-    defaults: { _controller: OGClubBundle:Page:login }
 
 logout:
     pattern:  /logout

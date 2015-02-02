@@ -28,6 +28,23 @@ class PageController extends Controller
         return $this->render('OGClubBundle:Page:home.html.twig', array('name' => $name, 'activity' => $activity, 'notifications' => $notifications));
     }
     
+    public function userAction($username) 
+    {
+        if(!self::confirm($this->getRequest()->getSession()))
+            return $this->redirect($this->generateUrl('login'));
+        
+        $con=mysql_connect("localhost","KyleM","Minshall1!"); //Start a connection to the database. :)
+        $db_selected = mysql_select_db('Site', $con); //Select the "Site" database
+        
+        $session = $this->getRequest()->getSession();
+        $username2 = $session->get('username');
+        
+        $picture = mysql_result(mysql_query("SELECT profile FROM OGs WHERE username='$username'"), 0);
+        $name = mysql_result(mysql_query("SELECT name FROM OGs WHERE username='$username'"), 0);
+        
+        return $this->render('OGClubBundle:Page:users.html.twig', array('picture' => $picture, 'username' => $username, 'name' => $name));
+    }
+    
     public function progressAction()
     {
         if(!self::confirm($this->getRequest()->getSession()))

@@ -1,0 +1,29 @@
+<head>
+    <title>{% block title %}{{ username }}'s Profile{% endblock %}</title>
+    {% block stylesheets %}
+        {% stylesheets 'bundles/ogclub/css/default.css' filter='cssrewrite' %}
+            <link rel="stylesheet" href="{{ asset_url }}" />
+        {% endstylesheets %}
+    {% endblock %}
+    <script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
+</head>
+{% include 'OGClubBundle:Components:nav.html.twig' %}
+<body style="background-image: none;">
+	<div class="wrapper" align="center">
+		<p>
+			<img src="{{ asset ('bundles/ogclub/images/'~picture~'') }}" 
+				alt="Profile" 
+				height="100px" 
+				width="100px"
+			/> <!-- Show the profile picture the user currently has set -->
+		</p>
+        <p>
+            {{ name }}
+        </p>
+	</div><!-- end main --> 
+    {% block javascripts %}
+        {% javascripts '@OGClubBundle/Resources/public/js/*' %}
+            <script type="text/javascript" src="{{ asset_url }}"></script>
+        {% endjavascripts %}
+    {% endblock %}
+</body>
