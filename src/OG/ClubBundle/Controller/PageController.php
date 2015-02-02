@@ -255,7 +255,7 @@ class PageController extends Controller
     {
         $session = $this->getRequest()->getSession();
         $session->clear();
-        return $this->redirect($this->generateUrl('index'));
+        return $this->redirect($this->generateUrl('main'));
     }
     
     public function signupAction()
