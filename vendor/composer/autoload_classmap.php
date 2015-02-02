@@ -6,15 +6,6 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
-    'Acme\\DemoBundle\\AcmeDemoBundle' => $baseDir . '/src/Acme/DemoBundle/AcmeDemoBundle.php',
-    'Acme\\DemoBundle\\Command\\HelloWorldCommand' => $baseDir . '/src/Acme/DemoBundle/Command/HelloWorldCommand.php',
-    'Acme\\DemoBundle\\Controller\\DemoController' => $baseDir . '/src/Acme/DemoBundle/Controller/DemoController.php',
-    'Acme\\DemoBundle\\Controller\\SecuredController' => $baseDir . '/src/Acme/DemoBundle/Controller/SecuredController.php',
-    'Acme\\DemoBundle\\Controller\\WelcomeController' => $baseDir . '/src/Acme/DemoBundle/Controller/WelcomeController.php',
-    'Acme\\DemoBundle\\DependencyInjection\\AcmeDemoExtension' => $baseDir . '/src/Acme/DemoBundle/DependencyInjection/AcmeDemoExtension.php',
-    'Acme\\DemoBundle\\EventListener\\ControllerListener' => $baseDir . '/src/Acme/DemoBundle/EventListener/ControllerListener.php',
-    'Acme\\DemoBundle\\Form\\ContactType' => $baseDir . '/src/Acme/DemoBundle/Form/ContactType.php',
-    'Acme\\DemoBundle\\Twig\\Extension\\DemoExtension' => $baseDir . '/src/Acme/DemoBundle/Twig/Extension/DemoExtension.php',
     'Assetic\\AssetManager' => $vendorDir . '/kriswallsmith/assetic/src/Assetic/AssetManager.php',
     'Assetic\\AssetWriter' => $vendorDir . '/kriswallsmith/assetic/src/Assetic/AssetWriter.php',
     'Assetic\\Asset\\AssetCache' => $vendorDir . '/kriswallsmith/assetic/src/Assetic/Asset/AssetCache.php',
@@ -819,9 +810,7 @@ return array(
     'Psr\\Log\\InvalidArgumentException' => $vendorDir . '/psr/log/Psr/Log/InvalidArgumentException.php',
     'Psr\\Log\\LogLevel' => $vendorDir . '/psr/log/Psr/Log/LogLevel.php',
     'Psr\\Log\\LoggerAwareInterface' => $vendorDir . '/psr/log/Psr/Log/LoggerAwareInterface.php',
-    'Psr\\Log\\LoggerAwareTrait' => $vendorDir . '/psr/log/Psr/Log/LoggerAwareTrait.php',
     'Psr\\Log\\LoggerInterface' => $vendorDir . '/psr/log/Psr/Log/LoggerInterface.php',
-    'Psr\\Log\\LoggerTrait' => $vendorDir . '/psr/log/Psr/Log/LoggerTrait.php',
     'Psr\\Log\\NullLogger' => $vendorDir . '/psr/log/Psr/Log/NullLogger.php',
     'SensioLabs\\Security\\Command\\SecurityCheckerCommand' => $vendorDir . '/sensiolabs/security-checker/SensioLabs/Security/Command/SecurityCheckerCommand.php',
     'SensioLabs\\Security\\Exception\\ExceptionInterface' => $vendorDir . '/sensiolabs/security-checker/SensioLabs/Security/Exception/ExceptionInterface.php',
@@ -1450,7 +1439,6 @@ return array(
     'Symfony\\Component\\DependencyInjection\\Container' => $vendorDir . '/symfony/symfony/src/Symfony/Component/DependencyInjection/Container.php',
     'Symfony\\Component\\DependencyInjection\\ContainerAware' => $vendorDir . '/symfony/symfony/src/Symfony/Component/DependencyInjection/ContainerAware.php',
     'Symfony\\Component\\DependencyInjection\\ContainerAwareInterface' => $vendorDir . '/symfony/symfony/src/Symfony/Component/DependencyInjection/ContainerAwareInterface.php',
-    'Symfony\\Component\\DependencyInjection\\ContainerAwareTrait' => $vendorDir . '/symfony/symfony/src/Symfony/Component/DependencyInjection/ContainerAwareTrait.php',
     'Symfony\\Component\\DependencyInjection\\ContainerBuilder' => $vendorDir . '/symfony/symfony/src/Symfony/Component/DependencyInjection/ContainerBuilder.php',
     'Symfony\\Component\\DependencyInjection\\ContainerInterface' => $vendorDir . '/symfony/symfony/src/Symfony/Component/DependencyInjection/ContainerInterface.php',
     'Symfony\\Component\\DependencyInjection\\Definition' => $vendorDir . '/symfony/symfony/src/Symfony/Component/DependencyInjection/Definition.php',

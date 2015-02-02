@@ -2,11 +2,12 @@
 
 // OGClubBundle:Page:login.html.twig
 return array (
-  '9ec6083' => 
+  '9a59fc4' => 
   array (
     0 => 
     array (
       0 => 'bundles/ogclub/css/default.css',
+      1 => 'bundles/ogclub/css/component.css',
     ),
     1 => 
     array (
@@ -14,8 +15,8 @@ return array (
     ),
     2 => 
     array (
-      'output' => '_controller/css/9ec6083.css',
-      'name' => '9ec6083',
+      'output' => '_controller/css/9a59fc4.css',
+      'name' => '9a59fc4',
       'debug' => NULL,
       'combine' => NULL,
       'vars' => 
@@ -43,6 +44,27 @@ return array (
       ),
     ),
   ),
+  '9ec6083' => 
+  array (
+    0 => 
+    array (
+      0 => 'bundles/ogclub/css/default.css',
+    ),
+    1 => 
+    array (
+      0 => 'cssrewrite',
+    ),
+    2 => 
+    array (
+      'output' => '_controller/css/9ec6083.css',
+      'name' => '9ec6083',
+      'debug' => NULL,
+      'combine' => NULL,
+      'vars' => 
+      array (
+      ),
+    ),
+  ),
   '26aa141' => 
   array (
     0 => 
@@ -56,28 +78,6 @@ return array (
     array (
       'output' => '_controller/images/26aa141.png',
       'name' => '26aa141',
-      'debug' => NULL,
-      'combine' => NULL,
-      'vars' => 
-      array (
-      ),
-    ),
-  ),
-  '9a59fc4' => 
-  array (
-    0 => 
-    array (
-      0 => 'bundles/ogclub/css/default.css',
-      1 => 'bundles/ogclub/css/component.css',
-    ),
-    1 => 
-    array (
-      0 => 'cssrewrite',
-    ),
-    2 => 
-    array (
-      'output' => '_controller/css/9a59fc4.css',
-      'name' => '9a59fc4',
       'debug' => NULL,
       'combine' => NULL,
       'vars' => 
