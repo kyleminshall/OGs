@@ -83,14 +83,6 @@ tr:hover {
 	background-color: yellow;
 }
 
-tr:nth-child(even) {
-	 background-color: #f6f6f6;
- }
-
-tr:nth-child(odd) {
-	background: #dddddd;
-}
-
 .autoExpand{
 	display:block;
 	box-sizing: padding-box;
@@ -135,6 +127,15 @@ tr:nth-child(odd) {
 
 .elem:hover {
 	color:#1F80C9 !important;
+}
+
+.post {
+    background-color: #fff;
+    border-collapse: collapse;
+    border: 1px solid #ddd;
+    table-layout: fixed;
+    margin: 40px 0 40px 0;
+    width: 500px; 
 }
 
 #sidebar-footer {

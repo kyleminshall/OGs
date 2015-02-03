@@ -309,3 +309,13 @@ function dropdown() {
         $("#dropdown").css('visibility', 'visible');
         
 }
+
+function checkSubmit(e, id)
+{
+   if(e && e.keyCode == 13)
+   {
+       if(e.shiftKey){}
+       else
+           document.getElementById(id).submit();
+   }
+}
