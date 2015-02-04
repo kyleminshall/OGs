@@ -193,36 +193,61 @@ JS Function for adding a reply to the
 
 */
 function addReply(id) {
-	var form = ($('#'+id).serializeArray());
+	var form = ($('#reply_'+id).serializeArray());
 	var new_id = 0
 	$.post('ajax/addReply', {form:form}, function(post) {
 		var json = JSON.parse(post);
 		new_id = json["id"];
 	}).done(function() {
-		$('#post_'+id' tr:last').after('
-			<tr id="reply_'+new_id'" style="background-color:#f6f6f6;">
-			    <td colspan="4" style="position:relative; padding: 5px 10px;"> 
-			        <div style="float:left;padding-right:10px"> 
-			            <img src="{{ asset ('bundles/ogclub/images/') }}{% block profile %}profile.jpg{% endblock %}" alt="Profile" height="30px" width="30px"/>
-			        </div>
-			        {% if reply.deletable %}
-			        <div style="float:right;display:block;">
-			            <span style="color:#ddd;font-size:12px">
-			                <a class="reply_delete" style="text-decoration:none;color:#ddd;" href="#" onclick="delete_reply({{ block('reply_id') }});return false;">X</a> 
-			            </span>
-			        </div>
-			        {% endif %}
-			        <p style="font-size:14px;color:#000;margin:0;padding-left:40px;padding-right:20px;">
-			            <b>{{ reply.commenter }}</b> {{ reply.text|raw }}<br>
-			            <span style="font-size:12px;color:#494949;">{{ reply.replied }}</span>
-			        </p>
-			    </td>
-			</tr>
-		');*/
+        var pic = $('#profile_pic').prop('outerHTML');
+		$('#post_'+id+' tr:last').before(
+        '<tr style="background-color:#f6f6f6;"><td colspan="4" style="position:relative; padding: 5px 10px;"><div style="float:left;padding-right:10px">'+pic+'</div><div style="float:right;display:block;"><span style="color:#ddd;font-size:12px"><a class="reply_delete" style="text-decoration:none;color:#ddd;" href="#" onclick="delete_reply('+new_id+');return false;">X</a> </span></div><p style="font-size:14px;color:#000;margin:0;padding-left:40px;padding-right:20px;"><b>'+returnUsername()+'</b> '+form[0].value+'<br><span style="font-size:12px;color:#494949;">'+currentDate()+'</span></p></td></tr>');
+        $('#textbox').val('');
 	});
 }
 
-function showReply() {
-	/* TODO: Add this */
-	console.log('later')
+function currentDate() {
+    var today = new Date();
+    var dd = today.getDate();
+    var mm = today.getMonth()+1; //January is 0!
+    var yy = today.getFullYear().toString().substr(2,2)
+    var hour = today.getHours();
+    var min = today.getMinutes();
+
+    if(dd<10) {
+        dd='0'+dd
+    } 
+
+    if(mm<10) {
+        mm='0'+mm
+    } 
+    
+    if(min<10) 
+        min = '0'+min
+    
+    var time = ''
+    if(hour > 12) {
+        time = hour-12 +':'+min+ ' PM'
+    } else {
+        time = hour +':'+min+ ' AM'
+    }
+
+    today = mm+'/'+dd+'/'+yy+' at '+time;
+    return today
+}
+
+function getUsername() {
+    var ans = ''
+    jQuery.ajaxSetup({async:false});
+    $.get('ajax/username', {}, function(username) {
+        var json = JSON.parse(username);
+        username = json["username"];
+        ans = username
+    })
+    jQuery.ajaxSetup({async:true});
+    return ans
+}
+
+function returnUsername() {
+    return getUsername();
 }

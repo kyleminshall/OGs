@@ -53,3 +53,7 @@ ajax_delete_reply:
 ajax_add_reply:
     pattern: /ajax/addReply
     defaults: { _controller: OGClubBundle:Ajax:addReply }
+    
+ajax_get_username:
+    pattern: /ajax/username
+    defaults: { _controller: OGClubBundle:Ajax:getUsername }

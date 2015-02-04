@@ -191,4 +191,13 @@ class AjaxController extends Controller
 		$reply_id = (int)$reply_id;
 		return (mysql_result(mysql_query("SELECT COUNT(id) FROM replies WHERE id='$reply_id'"), 0) == 0) ? false : true;
 	}
+    
+    function getUsernameAction()
+    {
+        $session = $this->getRequest()->getSession();
+        $username = $session->get('username');
+        
+        $return=array('username' => $username);
+        return new Response(json_encode($return), 200);
+    }
 }
