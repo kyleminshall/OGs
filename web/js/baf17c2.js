@@ -266,20 +266,59 @@ function removeReply(reply_id) {
 	}
 }
 
+
+function checkSubmit(e, id)
+{
+   if(e && e.keyCode == 13)
+   {
+       if(e.shiftKey){}
+       else {
+		   addReply(id);
+	   }
+   }
+}
+
 /*
 
-Function for scrolling to the element with the id in the has in the page
+post_id is the id of the post that is going to receive the reply
 
-ex: comments.php#post_14 will auto scroll down to the post with id 14
+JS Function for adding a reply to the 
 
 */
-$(function(){
-  // get hash value
-  var hash = window.location.hash;
-  // now scroll to element with that id
-  $('html, body').animate({ scrollTop: $(hash).offset().top });
-});
+function addReply(id) {
+	var form = ($('#'+id).serializeArray());
+	var new_id = 0
+	$.post('ajax/addReply', {form:form}, function(post) {
+		var json = JSON.parse(post);
+		new_id = json["id"];
+	}).done(function() {
+		$('#post_'+id' tr:last').after('
+			<tr id="reply_'+new_id'" style="background-color:#f6f6f6;">
+			    <td colspan="4" style="position:relative; padding: 5px 10px;"> 
+			        <div style="float:left;padding-right:10px"> 
+			            <img src="{{ asset ('bundles/ogclub/images/') }}{% block profile %}profile.jpg{% endblock %}" alt="Profile" height="30px" width="30px"/>
+			        </div>
+			        {% if reply.deletable %}
+			        <div style="float:right;display:block;">
+			            <span style="color:#ddd;font-size:12px">
+			                <a class="reply_delete" style="text-decoration:none;color:#ddd;" href="#" onclick="delete_reply({{ block('reply_id') }});return false;">X</a> 
+			            </span>
+			        </div>
+			        {% endif %}
+			        <p style="font-size:14px;color:#000;margin:0;padding-left:40px;padding-right:20px;">
+			            <b>{{ reply.commenter }}</b> {{ reply.text|raw }}<br>
+			            <span style="font-size:12px;color:#494949;">{{ reply.replied }}</span>
+			        </p>
+			    </td>
+			</tr>
+		');*/
+	});
+}
 
+function showReply() {
+	/* TODO: Add this */
+	console.log('later')
+}
 
 function remove_activity() {
 	$.post( $("#actbutton").attr("ajax") );
@@ -308,14 +347,4 @@ function dropdown() {
     else
         $("#dropdown").css('visibility', 'visible');
         
-}
-
-function checkSubmit(e, id)
-{
-   if(e && e.keyCode == 13)
-   {
-       if(e.shiftKey){}
-       else
-           document.getElementById(id).submit();
-   }
 }

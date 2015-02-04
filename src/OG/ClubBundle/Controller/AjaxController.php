@@ -165,6 +165,26 @@ class AjaxController extends Controller
         $return=array('responseCode' => 200,);
         return new Response(json_encode($return), $return['responseCode']);
 	}
+	
+	public function addReplyAction()
+	{
+    	$con=mysql_connect("localhost","KyleM","Minshall1!"); //Connect to the database
+    	$db_selected = mysql_select_db("Site", $con);
+		
+        $session = $this->getRequest()->getSession();
+        $username = $session->get('username');
+		
+		$reply = addslashes($_POST['form'][0]['value']); //Add html slashes to the reply
+
+		//Knowing which post the user replied to
+		$post_num = $_POST['form'][1]['value']; 
+
+		//Add comment 
+		$id = Submit::comment($username, $post_num, $reply);
+        
+        $return=array('id' => $id);
+        return new Response(json_encode($return), 200);
+	}
     
 	function replyExists($reply_id)
 	{

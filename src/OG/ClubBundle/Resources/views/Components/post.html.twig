@@ -69,7 +69,6 @@
                 <form id="reply_{{ post.post_number }}" onKeyPress="return checkSubmit(event, 'reply_{{ post.post_number }}')" style="margin:0;width:435px" name="like" action="" method="post">
                     <textarea name="reply" class="autoExpand" placeholder="Reply..." style="width:100%;resize:none;border:none;background:#fff;font-size:12px;outline:none;height:34px;" rows="1" wrap="physical"></textarea>
                     <input type="hidden" name="post" value="{{ post.post_number }}">
-                    <input type="hidden" name="comment">
                 </form>
             </div>
             <img src="{{ asset ('bundles/ogclub/images/') }}{{ block('picture') }}" alt="Profile" height="34px" width="34px"/>

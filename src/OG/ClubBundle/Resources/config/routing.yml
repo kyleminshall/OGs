@@ -49,3 +49,7 @@ ajax_delete_post:
 ajax_delete_reply:
     pattern: /ajax/deleteReply
     defaults: { _controller: OGClubBundle:Ajax:deleteReply }
+    
+ajax_add_reply:
+    pattern: /ajax/addReply
+    defaults: { _controller: OGClubBundle:Ajax:addReply }

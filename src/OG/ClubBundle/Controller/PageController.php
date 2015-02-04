@@ -167,7 +167,7 @@ class PageController extends Controller
 
     		return $this->redirect($this->generateUrl('main')); //Refresh the page after a submission to show the change
     	} 
-    	else if(isset($_POST['comment'])) //Check if someone replied to a post
+    	/*else if(isset($_POST['comment'])) //Check if someone replied to a post
     	{ 
     		$reply = addslashes($_POST['reply']); //Add html slasehs to the reply
 	
@@ -179,7 +179,7 @@ class PageController extends Controller
 
     		//Refresh page so they can see new comment 
     		return $this->redirect($this->generateUrl('main'));
-    	} 
+    	}*/
         
         $posts = array();
         

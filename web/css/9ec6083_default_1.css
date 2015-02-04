@@ -79,10 +79,6 @@ p {
 	margin-top: -215px;
 }
 
-tr:hover {
-	background-color: yellow;
-}
-
 .autoExpand{
 	display:block;
 	box-sizing: padding-box;

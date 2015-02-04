@@ -88,6 +88,8 @@ class Submit{
 		
 		$q2 = mysql_query($q) or trigger_error(mysql_error()." ".$q); //Execute the query
 		
+		$id = mysql_insert_id($con);
+		
 		$target = mysql_result(mysql_query("SELECT username FROM posts WHERE id='$post'"),0);
 		
 		if($target !== $username) notify::notify_reply($target, $username, $post);
@@ -96,6 +98,8 @@ class Submit{
 		{
 			die(mysql_error()); //Break if there's an error
 		}
+		
+		return $id;
 	}
 	
 	/*
