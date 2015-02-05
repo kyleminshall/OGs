@@ -66,8 +66,8 @@
     <tr style="background-color:#f6f6f6;">
         <td colspan="4" style="padding:10px">
             <div style="float:right">
-                <form id="reply_{{ post.post_number }}" onKeyPress="return checkSubmit(event, '{{ post.post_number }}')" style="margin:0;width:435px" name="like" action="" method="post">
-                    <textarea id="textbox" name="reply" class="autoExpand" placeholder="Reply..." style="width:100%;resize:none;border:none;background:#fff;font-size:12px;outline:none;height:34px;" rows="1" wrap="physical"></textarea>
+                <form id="reply_{{ post.post_number }}" onKeyPress="return checkSubmit(event, '{{ post.post_number }}'); return false;" style="margin:0;width:435px" name="like" action="" method="post">
+                    <input type="text" id="textbox" name="reply" placeholder="Reply..." style="width:100%;resize:none;border:none;background:#fff;font-size:12px;outline:none;height:34px;">
                     <input type="hidden" name="post" value="{{ post.post_number }}">
                 </form>
             </div>

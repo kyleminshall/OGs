@@ -181,6 +181,7 @@ function checkSubmit(e, id)
        if(e.shiftKey){}
        else {
 		   addReply(id);
+           return false;
 	   }
    }
 }
@@ -195,15 +196,18 @@ JS Function for adding a reply to the
 function addReply(id) {
 	var form = ($('#reply_'+id).serializeArray());
 	var new_id = 0
+    var pic = $('#profile_pic').prop('outerHTML');
+	$('#post_'+id+' tr:last').before(
+    '<tr style="background-color:#f6f6f6;"><td colspan="4" style="position:relative; padding: 5px 10px;"><div style="float:left;padding-right:10px">'+pic+'</div><div style="float:right;display:block;"><span style="color:#ddd;font-size:12px"><a class="reply_delete" style="text-decoration:none;color:#ddd;" href="#" onclick="delete_reply('+new_id+');return false;">X</a> </span></div><p style="font-size:14px;color:#000;margin:0;padding-left:40px;padding-right:20px;"><b>'+returnUsername()+'</b> '+form[0].value+'<br><span style="font-size:12px;color:#494949;">'+currentDate()+'</span></p></td></tr>');
 	$.post('ajax/addReply', {form:form}, function(post) {
 		var json = JSON.parse(post);
 		new_id = json["id"];
+        $('#textbox').val('');
 	}).done(function() {
-        var pic = $('#profile_pic').prop('outerHTML');
-		$('#post_'+id+' tr:last').before(
-        '<tr style="background-color:#f6f6f6;"><td colspan="4" style="position:relative; padding: 5px 10px;"><div style="float:left;padding-right:10px">'+pic+'</div><div style="float:right;display:block;"><span style="color:#ddd;font-size:12px"><a class="reply_delete" style="text-decoration:none;color:#ddd;" href="#" onclick="delete_reply('+new_id+');return false;">X</a> </span></div><p style="font-size:14px;color:#000;margin:0;padding-left:40px;padding-right:20px;"><b>'+returnUsername()+'</b> '+form[0].value+'<br><span style="font-size:12px;color:#494949;">'+currentDate()+'</span></p></td></tr>');
         $('#textbox').val('');
 	});
+    $('#textbox').val('');
+    return false;
 }
 
 function currentDate() {
